@@ -1,0 +1,104 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.everyday-cotton-section {
+  padding: $space-4xl 0;
+  background-color: #FFFFFF;
+
+  .cotton-perks-strip {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: $space-md;
+    margin-bottom: $space-2xl;
+
+    .perk-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      background-color: $color-bg-sand;
+      border: 1px solid rgba(42, 26, 20, 0.08);
+      border-radius: $radius-pill;
+      font-size: 0.8rem;
+      font-weight: $fw-medium;
+      color: $color-text-secondary;
+    }
+  }
+
+  .everyday-products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $space-xl;
+    margin-bottom: $space-3xl;
+
+    @include respond-to(laptop) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: $space-lg;
+    }
+
+    @include respond-to(tablet) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: $space-md;
+    }
+
+    @include respond-to(mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .under-thousand-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $space-2xl $space-3xl;
+    background: linear-gradient(135deg, #FAF7F2 0%, #F3EDE2 100%);
+    border: 1px solid rgba(197, 155, 39, 0.25);
+    border-radius: $radius-md;
+    gap: $space-xl;
+
+    @include respond-to(laptop) {
+      flex-direction: column;
+      text-align: center;
+      padding: $space-xl;
+    }
+
+    .banner-text {
+      max-width: 600px;
+
+      .banner-eyebrow {
+        font-family: $font-body;
+        font-size: 0.75rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        font-weight: $fw-semibold;
+        color: $color-primary;
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      h3 {
+        font-family: $font-heading;
+        font-size: 1.8rem;
+        color: $color-text-primary;
+        margin-bottom: 8px;
+      }
+
+      p {
+        font-family: $font-body;
+        font-size: 0.92rem;
+        color: $color-text-secondary;
+        line-height: 1.5;
+        margin: 0;
+      }
+    }
+
+    .banner-btn {
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+}
+

@@ -1,0 +1,341 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.account-page-main {
+  background-color: $color-bg-primary;
+  min-height: 85vh;
+  padding-bottom: $space-4xl;
+
+  .profile-banner-card {
+    background: linear-gradient(135deg, #24140E 0%, #3B1B14 100%);
+    color: #ffffff;
+    border-radius: $radius-sm;
+    padding: $space-2xl;
+    margin: $space-3xl 0 $space-2xl;
+    display: flex;
+    align-items: center;
+    gap: $space-lg;
+    box-shadow: $shadow-md;
+
+    @include respond-to(tablet) {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .profile-avatar-circle {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background-color: rgba(227, 191, 135, 0.15);
+      border: 2px solid $color-gold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .profile-info {
+      flex: 1;
+
+      h1 {
+        color: #ffffff;
+        font-size: 2rem;
+        margin-bottom: 2px;
+      }
+
+      .user-email {
+        font-size: 0.9rem;
+        color: rgba(251, 246, 238, 0.75);
+        margin: 0;
+      }
+    }
+
+    .logout-btn {
+      border-color: rgba(227, 191, 135, 0.5);
+      color: $color-gold-light;
+
+      &:hover {
+        background-color: $color-sale-red;
+        border-color: $color-sale-red;
+        color: #ffffff;
+      }
+    }
+  }
+
+  .account-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: $space-2xl;
+    align-items: flex-start;
+
+    @include respond-to(tablet) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .account-sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background-color: #ffffff;
+    border: 1px solid $color-border;
+    border-radius: $radius-sm;
+    padding: $space-md;
+
+    .nav-tab-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: $radius-sm;
+      font-size: 0.88rem;
+      font-weight: $fw-medium;
+      color: $color-text-secondary;
+      text-align: left;
+      transition: all $transition-fast;
+
+      &:hover {
+        background-color: $color-bg-primary;
+        color: $color-primary;
+      }
+
+      &.active {
+        background-color: $color-primary;
+        color: #ffffff;
+      }
+    }
+  }
+
+  .account-tab-panel {
+    background-color: #ffffff;
+    border: 1px solid $color-border;
+    border-radius: $radius-sm;
+    padding: $space-2xl;
+    box-shadow: $shadow-card;
+
+    @include respond-to(tablet) {
+      padding: $space-lg;
+    }
+
+    .panel-header {
+      margin-bottom: $space-xl;
+      padding-bottom: $space-md;
+      border-bottom: 1px solid $color-border;
+
+      h2 {
+        font-size: 1.65rem;
+        margin-bottom: 4px;
+      }
+
+      p {
+        font-size: 0.88rem;
+        color: $color-text-secondary;
+        margin: 0;
+      }
+    }
+
+    .empty-panel-box {
+      text-align: center;
+      padding: $space-3xl 0;
+
+      h4 {
+        font-size: 1.3rem;
+        margin: $space-md 0 4px;
+      }
+
+      p {
+        font-size: 0.9rem;
+        color: $color-text-secondary;
+        margin-bottom: $space-xl;
+      }
+    }
+
+    // Orders List
+    .orders-list {
+      display: flex;
+      flex-direction: column;
+      gap: $space-lg;
+
+      .order-history-card {
+        border: 1px solid $color-border;
+        border-radius: $radius-sm;
+        padding: $space-lg;
+        background-color: $color-bg-primary;
+
+        .order-card-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: $space-md;
+          padding-bottom: $space-xs;
+          border-bottom: 1px solid $color-border;
+
+          .order-num {
+            font-family: $font-heading;
+            font-size: 1.15rem;
+            font-weight: $fw-bold;
+            color: $color-primary;
+            display: block;
+          }
+
+          .order-date {
+            font-size: 0.78rem;
+            color: $color-text-muted;
+          }
+
+          .order-status-badge {
+            background-color: rgba(46, 125, 50, 0.12);
+            color: $color-success;
+            font-size: 0.75rem;
+            font-weight: $fw-bold;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: $radius-sm;
+          }
+        }
+
+        .order-items-preview {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          margin-bottom: $space-md;
+
+          .order-item-chip {
+            display: flex;
+            align-items: center;
+            gap: $space-sm;
+
+            img {
+              width: 44px;
+              height: 55px;
+              object-fit: cover;
+              border-radius: $radius-sm;
+            }
+
+            strong {
+              font-family: $font-heading;
+              font-size: 0.95rem;
+              display: block;
+            }
+
+            span {
+              font-size: 0.78rem;
+              color: $color-text-muted;
+            }
+          }
+        }
+
+        .order-card-footer {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 0.86rem;
+          color: $color-text-secondary;
+          border-top: 1px dashed $color-border-dark;
+          padding-top: $space-sm;
+
+          strong {
+            color: $color-text-primary;
+          }
+
+          .dispatch-text {
+            font-size: 0.78rem;
+            color: $color-primary;
+          }
+        }
+      }
+    }
+
+    // Measurements Grid
+    .measurements-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: $space-md;
+      margin-bottom: $space-xl;
+
+      @include respond-to(tablet) {
+        grid-template-columns: 1fr;
+      }
+
+      .measure-card {
+        background-color: $color-bg-primary;
+        border: 1px solid $color-border;
+        border-radius: $radius-sm;
+        padding: $space-md;
+
+        .measure-label {
+          font-size: 0.76rem;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          color: $color-text-muted;
+          display: block;
+          margin-bottom: 4px;
+        }
+
+        .measure-val {
+          font-family: $font-heading;
+          font-size: 1.4rem;
+          color: $color-primary;
+        }
+      }
+    }
+
+    .alteration-policy-note {
+      display: flex;
+      align-items: flex-start;
+      gap: $space-sm;
+      background-color: $color-bg-secondary;
+      padding: $space-md;
+      border-radius: $radius-sm;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: $color-text-primary;
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  .account-unauth-page {
+    padding: $space-4xl 0;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+
+    .unauth-card {
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: center;
+      background-color: #ffffff;
+      border: 1px solid $color-border;
+      border-radius: $radius-sm;
+      padding: $space-3xl;
+      box-shadow: $shadow-card;
+
+      .user-icon-ring {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: $color-bg-secondary;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto $space-lg;
+      }
+
+      h1 {
+        font-size: 2rem;
+        margin-bottom: $space-xs;
+      }
+
+      p {
+        font-size: 0.95rem;
+        color: $color-text-secondary;
+        margin-bottom: $space-xl;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,89 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.featured-collection-section {
+  padding: $space-4xl 0;
+  background-color: #ffffff;
+  border-top: 1px solid $color-border;
+  border-bottom: 1px solid $color-border;
+
+  .section-subtitle {
+    font-size: 0.95rem;
+    color: $color-text-secondary;
+    text-align: center;
+    max-width: 520px;
+    margin: $space-xs auto 0;
+  }
+
+  .tabs-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: $space-2xl;
+
+    .tabs-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      padding: 4px;
+      background-color: $color-bg-primary;
+      border: 1px solid $color-border;
+      border-radius: $radius-pill;
+
+      @include respond-to(mobile) {
+        border-radius: $radius-sm;
+      }
+
+      .tab-btn {
+        padding: 8px 18px;
+        font-family: $font-body;
+        font-size: 0.82rem;
+        font-weight: $fw-medium;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: $color-text-secondary;
+        border-radius: $radius-pill;
+        transition: all $transition-fast;
+
+        &:hover {
+          color: $color-primary;
+        }
+
+        &.active {
+          background-color: $color-primary;
+          color: #ffffff;
+          box-shadow: 0 2px 8px rgba(107, 30, 42, 0.25);
+        }
+      }
+    }
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $space-lg;
+
+    @include respond-to(laptop) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include respond-to(tablet) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: $space-md;
+    }
+
+    @include respond-to(mobile-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .collection-bottom-cta {
+    margin-top: $space-3xl;
+    text-align: center;
+
+    .explore-all-btn {
+      min-width: 260px;
+    }
+  }
+}
+

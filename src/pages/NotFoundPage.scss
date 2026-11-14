@@ -1,0 +1,52 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.not-found-page {
+  background-color: $color-bg-primary;
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  padding: $space-4xl 0;
+
+  .not-found-card {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #ffffff;
+    border: 1px solid $color-border;
+    border-radius: $radius-sm;
+    padding: $space-3xl;
+    box-shadow: $shadow-card;
+
+    .compass-ring {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background-color: $color-bg-secondary;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto $space-lg;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: $space-xs;
+    }
+
+    p {
+      font-size: 1rem;
+      color: $color-text-secondary;
+      line-height: 1.6;
+      margin-bottom: $space-2xl;
+    }
+
+    .not-found-actions {
+      display: flex;
+      justify-content: center;
+      gap: $space-md;
+      flex-wrap: wrap;
+    }
+  }
+}
+

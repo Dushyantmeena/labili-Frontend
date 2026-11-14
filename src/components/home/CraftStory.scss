@@ -1,0 +1,189 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.v3-making {
+  background-color: var(--v3-paper);
+  padding-block: clamp(56px, 7vw, 100px);
+  overflow: hidden;
+
+  .v3-wrap {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding-inline: clamp(16px, 4vw, 64px);
+  }
+
+  .v3-making__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 0.9fr);
+    gap: clamp(20px, 3.2vw, 48px);
+    align-items: center;
+
+    @include respond-to(laptop) {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+  }
+
+  // Left Column
+  .v3-making__copy {
+    .v3-chapter-num {
+      display: block;
+      font-family: $font-heading;
+      font-size: 56px;
+      font-style: italic;
+      color: var(--v3-gold);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .v3-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: $font-body;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--v3-gold-ink);
+      margin: 0 0 10px;
+    }
+
+    .v3-h2 {
+      font-family: $font-heading;
+      font-size: clamp(34px, 4.2vw, 52px);
+      font-weight: 500;
+      line-height: 1.05;
+      color: var(--v3-ink);
+      margin: 0 0 16px;
+    }
+
+    .v3-making__lede {
+      font-family: $font-body;
+      font-size: 15.5px;
+      line-height: 1.65;
+      color: var(--v3-muted);
+      margin: 0 0 24px;
+    }
+
+    .v3-making__bullets {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: $font-body;
+        font-size: 14px;
+        color: var(--v3-muted);
+
+        .diamond-bullet {
+          color: var(--v3-gold);
+          font-size: 13px;
+        }
+      }
+    }
+  }
+
+  // Figure Shared Styles
+  .v3-making-figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+
+    .v3-caption-below {
+      padding-top: 10px;
+      font-family: $font-body;
+      font-size: 12px;
+      color: var(--v3-muted);
+      line-height: 1.4;
+    }
+  }
+
+  // Center Arch Media
+  .v3-making__center {
+    position: relative;
+    max-width: 360px;
+    width: 100%;
+    margin: 0 auto;
+
+    .v3-making__arch-media {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 200 / 270;
+
+      .v3-arch--270 {
+        width: 100%;
+        height: 100%;
+        -webkit-mask: var(--v3-arch-270) center / 100% 100% no-repeat;
+        mask: var(--v3-arch-270) center / 100% 100% no-repeat;
+        overflow: hidden;
+        background-color: #EDE4D8;
+        filter: drop-shadow(0 16px 36px rgba(58, 13, 24, 0.18));
+
+        .v3-making__img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+      }
+
+      .v3-play {
+        position: absolute;
+        right: 12%;
+        bottom: 8%;
+        z-index: 5;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: rgba(34, 26, 22, 0.7);
+        backdrop-filter: blur(4px);
+        color: #FFFDF9;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background $transition-fast;
+
+        &:hover {
+          background: var(--v3-maroon);
+        }
+      }
+    }
+  }
+
+  // Right Rectangular Media
+  .v3-making__right {
+    max-width: 340px;
+    width: 100%;
+    margin: 0 auto;
+
+    .v3-making__rect-media {
+      width: 100%;
+      aspect-ratio: 4 / 4.8;
+      border-radius: $radius-sm;
+      overflow: hidden;
+      border: 1px solid var(--v3-line);
+      box-shadow: 0 12px 28px rgba(58, 13, 24, 0.1);
+
+      .v3-making__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.6s var(--v3-ease);
+
+        &:hover {
+          transform: scale(1.03);
+        }
+      }
+    }
+  }
+}

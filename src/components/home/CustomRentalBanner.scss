@@ -1,0 +1,102 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.custom-rental-section {
+  padding: $space-3xl 0;
+  background-color: #ffffff;
+
+  .rental-banner-card {
+    position: relative;
+    background: linear-gradient(135deg, #24140E 0%, #3B1F16 50%, #2A130B 100%);
+    color: #ffffff;
+    border-radius: $radius-sm;
+    padding: $space-3xl $space-2xl;
+    overflow: hidden;
+    box-shadow: $shadow-lg;
+
+    @include respond-to(tablet) {
+      padding: $space-2xl $space-lg;
+    }
+
+    .card-decoration-border {
+      position: absolute;
+      inset: 12px;
+      border: 1px solid rgba(227, 191, 135, 0.25);
+      pointer-events: none;
+      border-radius: 2px;
+    }
+  }
+
+  .rental-content {
+    position: relative;
+    z-index: 2;
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+
+    h2 {
+      font-size: clamp(2rem, 3.8vw, 2.7rem);
+      color: #ffffff;
+      line-height: 1.25;
+      margin-bottom: $space-xs;
+    }
+
+    .rental-desc {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: rgba(251, 246, 238, 0.85);
+      margin: $space-md auto $space-xl;
+    }
+
+    .rental-perks {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: $space-lg;
+      margin-bottom: $space-2xl;
+
+      .perk {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.84rem;
+        color: $color-gold-light;
+
+        .perk-icon {
+          color: $color-gold;
+          flex-shrink: 0;
+        }
+      }
+    }
+
+    .rental-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: $space-md;
+
+      .whatsapp-atelier-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background-color: transparent;
+        color: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        padding: 13px 24px;
+        border-radius: $radius-sm;
+        font-size: 0.82rem;
+        font-weight: $fw-semibold;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        transition: all $transition-fast;
+
+        &:hover {
+          background-color: #25D366;
+          border-color: #25D366;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}
+

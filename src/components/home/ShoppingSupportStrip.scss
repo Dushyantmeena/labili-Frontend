@@ -1,0 +1,74 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.shopping-support-strip-section {
+  padding: $space-3xl 0;
+  background-color: $color-bg-sand;
+  border-top: 1px solid rgba(42, 26, 20, 0.06);
+  border-bottom: 1px solid rgba(42, 26, 20, 0.06);
+
+  .support-strip-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-xl;
+
+    @include respond-to(tablet) {
+      grid-template-columns: 1fr;
+      gap: $space-lg;
+    }
+
+    .support-item-card {
+      background-color: #ffffff;
+      padding: $space-xl;
+      border-radius: $radius-md;
+      box-shadow: 0 4px 16px rgba(42, 26, 20, 0.04);
+      border: 1px solid rgba(42, 26, 20, 0.06);
+      display: flex;
+      flex-direction: column;
+      transition: all $transition-fast;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 28px rgba(42, 26, 20, 0.08);
+        border-color: rgba(138, 21, 40, 0.2);
+      }
+
+      .card-top-icon {
+        margin-bottom: $space-sm;
+      }
+
+      h3 {
+        font-family: $font-heading;
+        font-size: 1.35rem;
+        color: $color-text-primary;
+        margin-bottom: 8px;
+      }
+
+      p {
+        font-family: $font-body;
+        font-size: 0.88rem;
+        color: $color-text-secondary;
+        line-height: 1.6;
+        margin-bottom: $space-md;
+        flex: 1;
+      }
+
+      .support-action-link {
+        font-family: $font-body;
+        font-size: 0.85rem;
+        font-weight: $fw-semibold;
+        color: $color-primary;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        transition: color $transition-fast;
+
+        &:hover {
+          color: $color-primary-dark;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+

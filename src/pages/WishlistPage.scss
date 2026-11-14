@@ -1,0 +1,94 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.wishlist-page-main {
+  background-color: $color-bg-primary;
+  min-height: 85vh;
+  padding-bottom: $space-4xl;
+
+  .wishlist-header {
+    text-align: center;
+    padding: $space-3xl 0 $space-2xl;
+
+    h1 {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      margin-bottom: $space-xs;
+    }
+
+    .wishlist-actions-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: $space-xl;
+      padding-bottom: $space-md;
+      border-bottom: 1px solid $color-border;
+      font-size: 0.92rem;
+      color: $color-text-secondary;
+
+      strong {
+        color: $color-text-primary;
+      }
+    }
+  }
+
+  .wishlist-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $space-lg;
+
+    @include respond-to(laptop) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include respond-to(tablet) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: $space-md;
+    }
+
+    @include respond-to(mobile-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .wishlist-page-empty {
+    padding: $space-4xl 0;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+
+    .empty-wishlist-card {
+      max-width: 540px;
+      margin: 0 auto;
+      text-align: center;
+      background-color: #ffffff;
+      border: 1px solid $color-border;
+      border-radius: $radius-sm;
+      padding: $space-3xl;
+      box-shadow: $shadow-card;
+
+      .empty-heart-ring {
+        width: 84px;
+        height: 84px;
+        border-radius: 50%;
+        background-color: $color-bg-secondary;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto $space-lg;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+        margin-bottom: $space-xs;
+      }
+
+      p {
+        font-size: 0.95rem;
+        color: $color-text-secondary;
+        line-height: 1.6;
+        margin-bottom: $space-2xl;
+      }
+    }
+  }
+}
+

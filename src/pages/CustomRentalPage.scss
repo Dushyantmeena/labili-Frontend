@@ -1,0 +1,275 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.custom-rental-page {
+  background-color: $color-bg-primary;
+  min-height: 85vh;
+  padding-bottom: $space-4xl;
+
+  .page-hero {
+    background-color: $color-bg-secondary;
+    border-bottom: 1px solid $color-border;
+    padding: $space-3xl 0 $space-4xl;
+    text-align: center;
+
+    h1 {
+      font-size: clamp(2.4rem, 4.5vw, 3.4rem);
+      margin-bottom: $space-xs;
+    }
+
+    .hero-description {
+      font-size: 1.05rem;
+      color: $color-text-secondary;
+      max-width: 680px;
+      margin: $space-sm auto 0;
+      line-height: 1.7;
+    }
+  }
+
+  .content-container {
+    padding-top: $space-3xl;
+  }
+
+  // Tabs
+  .service-tabs-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: $space-md;
+    margin-bottom: $space-2xl;
+
+    .service-tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border: 1px solid $color-border;
+      border-radius: $radius-sm;
+      background-color: #ffffff;
+      font-family: $font-body;
+      font-size: 0.88rem;
+      font-weight: $fw-semibold;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: $color-text-secondary;
+      cursor: pointer;
+      transition: all $transition-fast;
+
+      &:hover {
+        border-color: $color-primary;
+        color: $color-primary;
+      }
+
+      &.active {
+        background-color: $color-primary;
+        border-color: $color-primary;
+        color: #ffffff;
+        box-shadow: 0 4px 14px rgba(107, 30, 42, 0.25);
+      }
+    }
+  }
+
+  // Process Grid
+  .service-process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-lg;
+    margin-bottom: $space-3xl;
+
+    @include respond-to(tablet) {
+      grid-template-columns: 1fr;
+    }
+
+    .process-card {
+      background-color: #ffffff;
+      border: 1px solid $color-border;
+      border-radius: $radius-sm;
+      padding: $space-xl;
+      box-shadow: $shadow-card;
+      position: relative;
+
+      .step-num {
+        font-family: $font-heading;
+        font-size: 2rem;
+        font-weight: $fw-bold;
+        color: $color-gold;
+        margin-bottom: $space-xs;
+        line-height: 1;
+      }
+
+      h4 {
+        font-size: 1.25rem;
+        margin-bottom: 6px;
+      }
+
+      p {
+        font-size: 0.88rem;
+        color: $color-text-secondary;
+        line-height: 1.6;
+        margin: 0;
+      }
+    }
+  }
+
+  // Form Card
+  .enquiry-card-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+
+    .enquiry-card {
+      background-color: #ffffff;
+      border: 1px solid $color-border;
+      border-radius: $radius-sm;
+      padding: $space-3xl;
+      box-shadow: $shadow-md;
+
+      @include respond-to(tablet) {
+        padding: $space-lg;
+      }
+    }
+
+    .form-heading {
+      text-align: center;
+      margin-bottom: $space-2xl;
+
+      h3 {
+        font-size: 1.85rem;
+        margin-bottom: 4px;
+      }
+
+      p {
+        font-size: 0.9rem;
+        color: $color-text-secondary;
+        margin: 0;
+      }
+    }
+
+    .rental-custom-form {
+      display: flex;
+      flex-direction: column;
+      gap: $space-lg;
+
+      .form-grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $space-lg;
+
+        @include respond-to(tablet) {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .form-grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: $space-lg;
+
+        @include respond-to(tablet) {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+
+        label {
+          font-size: 0.78rem;
+          font-weight: $fw-semibold;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+          color: $color-text-primary;
+        }
+
+        input, select, textarea {
+          padding: 12px 14px;
+          border: 1px solid $color-border;
+          border-radius: $radius-sm;
+          font-size: 0.9rem;
+          background-color: $color-bg-primary;
+
+          &:focus {
+            outline: none;
+            border-color: $color-primary;
+            background-color: #ffffff;
+          }
+        }
+      }
+
+      .measurements-subform {
+        background-color: $color-bg-secondary;
+        border-radius: $radius-sm;
+        padding: $space-lg;
+        border: 1px dashed $color-border-dark;
+
+        h4 {
+          font-size: 1.05rem;
+          margin-bottom: $space-md;
+        }
+      }
+
+      .form-submit-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: $space-md;
+        margin-top: $space-md;
+
+        .submit-btn {
+          min-width: 240px;
+        }
+
+        .whatsapp-fast-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          color: #25D366;
+          font-size: 0.85rem;
+          font-weight: $fw-semibold;
+          text-decoration: underline;
+
+          &:hover {
+            color: #1EA952;
+          }
+        }
+      }
+    }
+
+    .submission-success-view {
+      text-align: center;
+      padding: $space-2xl 0;
+
+      .success-icon-box {
+        margin-bottom: $space-md;
+      }
+
+      h2 {
+        font-size: 2.2rem;
+        margin-bottom: $space-xs;
+      }
+
+      p {
+        font-size: 1.05rem;
+        color: $color-text-secondary;
+        max-width: 540px;
+        margin: 0 auto $space-lg;
+      }
+
+      .success-meta {
+        background-color: $color-bg-secondary;
+        padding: $space-md;
+        border-radius: $radius-sm;
+        margin-bottom: $space-xl;
+        display: inline-block;
+
+        p {
+          margin: 0;
+          font-size: 0.88rem;
+          color: $color-text-primary;
+        }
+      }
+    }
+  }
+}
+

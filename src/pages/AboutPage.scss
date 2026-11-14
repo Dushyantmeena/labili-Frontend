@@ -1,0 +1,198 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.about-page-main {
+  background-color: $color-bg-primary;
+  min-height: 85vh;
+  padding-bottom: $space-4xl;
+
+  .about-hero {
+    background-color: $color-bg-secondary;
+    border-bottom: 1px solid $color-border;
+    padding: $space-3xl 0 $space-4xl;
+    text-align: center;
+
+    h1 {
+      font-size: clamp(2.4rem, 4.5vw, 3.4rem);
+      margin-bottom: $space-xs;
+    }
+
+    .hero-lead {
+      font-size: 1.1rem;
+      color: $color-text-secondary;
+      max-width: 680px;
+      margin: $space-sm auto 0;
+      line-height: 1.7;
+    }
+  }
+
+  .story-chapter-container {
+    padding-top: $space-4xl;
+    padding-bottom: $space-4xl;
+  }
+
+  .chapter-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $space-3xl;
+    align-items: center;
+
+    @include respond-to(laptop) {
+      grid-template-columns: 1fr;
+      gap: $space-2xl;
+    }
+
+    &.reverse {
+      grid-template-columns: 1fr 1fr;
+
+      @include respond-to(laptop) {
+        display: flex;
+        flex-direction: column-reverse;
+      }
+    }
+
+    .chapter-media {
+      position: relative;
+      border-radius: $radius-sm;
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+      box-shadow: $shadow-lg;
+      border: 6px solid #ffffff;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .media-caption {
+        position: absolute;
+        bottom: 12px;
+        left: 12px;
+        right: 12px;
+        background-color: rgba(30, 18, 13, 0.85);
+        color: $color-gold-light;
+        padding: 8px 14px;
+        font-size: 0.74rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        border-radius: $radius-sm;
+      }
+    }
+
+    .chapter-text {
+      h2 {
+        font-size: clamp(2rem, 3.5vw, 2.7rem);
+        margin-bottom: $space-xs;
+        line-height: 1.25;
+      }
+
+      .accent-bar {
+        width: 44px;
+        height: 2px;
+        background-color: $color-gold;
+        margin-bottom: $space-lg;
+      }
+
+      p {
+        font-size: 1.02rem;
+        line-height: 1.75;
+        color: $color-text-secondary;
+        margin-bottom: $space-md;
+
+        em {
+          color: $color-primary;
+          font-style: italic;
+          font-weight: $fw-semibold;
+        }
+      }
+    }
+  }
+
+  .craft-spotlight-section {
+    background-color: #ffffff;
+    border-top: 1px solid $color-border;
+    border-bottom: 1px solid $color-border;
+    padding: $space-4xl 0;
+  }
+
+  .about-values-section {
+    padding-top: $space-4xl;
+
+    .values-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: $space-lg;
+      margin-bottom: $space-3xl;
+
+      @include respond-to(tablet) {
+        grid-template-columns: 1fr;
+      }
+
+      .value-box {
+        background-color: #ffffff;
+        border: 1px solid $color-border;
+        border-radius: $radius-sm;
+        padding: $space-xl;
+        box-shadow: $shadow-card;
+
+        .box-icon {
+          color: $color-gold;
+          margin-bottom: $space-md;
+        }
+
+        h3 {
+          font-size: 1.35rem;
+          margin-bottom: 8px;
+        }
+
+        p {
+          font-size: 0.9rem;
+          color: $color-text-secondary;
+          line-height: 1.6;
+          margin: 0;
+        }
+      }
+    }
+
+    .about-cta-box {
+      background: linear-gradient(135deg, #2A140E 0%, #3B1B14 100%);
+      color: #ffffff;
+      border-radius: $radius-sm;
+      padding: $space-3xl;
+      text-align: center;
+      box-shadow: $shadow-lg;
+
+      h3 {
+        color: #ffffff;
+        font-size: 2rem;
+        margin-bottom: 6px;
+      }
+
+      p {
+        color: rgba(251, 246, 238, 0.85);
+        font-size: 1rem;
+        margin-bottom: $space-xl;
+      }
+
+      .cta-btns {
+        display: flex;
+        justify-content: center;
+        gap: $space-md;
+        flex-wrap: wrap;
+
+        .btn-secondary {
+          border-color: $color-gold-light;
+          color: $color-gold-light;
+
+          &:hover {
+            background-color: $color-gold;
+            color: $color-bg-dark;
+            border-color: $color-gold;
+          }
+        }
+      }
+    }
+  }
+}
+

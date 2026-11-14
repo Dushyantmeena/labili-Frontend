@@ -1,0 +1,218 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.contact-page-main {
+  background-color: $color-bg-primary;
+  min-height: 85vh;
+  padding-bottom: $space-4xl;
+
+  .contact-hero {
+    background-color: $color-bg-secondary;
+    border-bottom: 1px solid $color-border;
+    padding: $space-3xl 0 $space-4xl;
+    text-align: center;
+
+    h1 {
+      font-size: clamp(2.4rem, 4.5vw, 3.4rem);
+      margin-bottom: $space-xs;
+    }
+
+    .hero-lead {
+      font-size: 1.1rem;
+      color: $color-text-secondary;
+      max-width: 680px;
+      margin: $space-sm auto 0;
+      line-height: 1.7;
+    }
+  }
+
+  .contact-content-container {
+    padding-top: $space-4xl;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: $space-3xl;
+    align-items: flex-start;
+
+    @include respond-to(laptop) {
+      grid-template-columns: 1fr;
+      gap: $space-2xl;
+    }
+  }
+
+  .studio-details-card {
+    background-color: #ffffff;
+    border: 1px solid $color-border;
+    border-radius: $radius-sm;
+    padding: $space-2xl;
+    box-shadow: $shadow-card;
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 4px;
+    }
+
+    .accent-bar {
+      width: 44px;
+      height: 2px;
+      background-color: $color-gold;
+      margin-bottom: $space-xl;
+    }
+
+    .info-items-list {
+      display: flex;
+      flex-direction: column;
+      gap: $space-lg;
+      margin-bottom: $space-2xl;
+
+      .info-item {
+        display: flex;
+        align-items: flex-start;
+        gap: $space-sm;
+
+        .info-icon {
+          color: $color-primary;
+          flex-shrink: 0;
+          margin-top: 3px;
+        }
+
+        h4 {
+          font-size: 1.1rem;
+          margin-bottom: 3px;
+        }
+
+        p {
+          font-size: 0.9rem;
+          color: $color-text-secondary;
+          margin: 0;
+          line-height: 1.5;
+
+          a {
+            color: $color-primary;
+            font-weight: $fw-semibold;
+          }
+        }
+
+        .maps-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 4px;
+          font-size: 0.8rem;
+          color: $color-gold-hover;
+          font-weight: $fw-semibold;
+          margin-top: 4px;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .whatsapp-concierge-card-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background-color: #25D366;
+      color: #ffffff;
+      padding: 14px;
+      border-radius: $radius-sm;
+      font-size: 0.86rem;
+      font-weight: $fw-semibold;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background-color $transition-fast;
+
+      &:hover {
+        background-color: #1EA952;
+      }
+    }
+  }
+
+  .contact-form-card {
+    background-color: #ffffff;
+    border: 1px solid $color-border;
+    border-radius: $radius-sm;
+    padding: $space-2xl;
+    box-shadow: $shadow-card;
+
+    h3 {
+      font-size: 1.85rem;
+      margin-bottom: 4px;
+    }
+
+    .form-sub {
+      font-size: 0.9rem;
+      color: $color-text-secondary;
+      margin-bottom: $space-xl;
+    }
+
+    .direct-contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: $space-lg;
+
+      .form-grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $space-lg;
+
+        @include respond-to(tablet) {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+
+        label {
+          font-size: 0.78rem;
+          font-weight: $fw-semibold;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+          color: $color-text-primary;
+        }
+
+        input, select, textarea {
+          padding: 12px 14px;
+          border: 1px solid $color-border;
+          border-radius: $radius-sm;
+          font-size: 0.9rem;
+          background-color: $color-bg-primary;
+
+          &:focus {
+            outline: none;
+            border-color: $color-primary;
+            background-color: #ffffff;
+          }
+        }
+      }
+
+      .submit-btn {
+        width: 100%;
+        margin-top: $space-xs;
+      }
+    }
+
+    .form-success-box {
+      text-align: center;
+      padding: $space-3xl 0;
+
+      h3 {
+        font-size: 1.9rem;
+        margin: $space-md 0 $space-xs;
+      }
+
+      p {
+        font-size: 1rem;
+        color: $color-text-secondary;
+        max-width: 480px;
+        margin: 0 auto $space-xl;
+      }
+    }
+  }
+}
+

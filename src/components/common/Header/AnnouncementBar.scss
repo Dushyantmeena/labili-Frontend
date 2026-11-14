@@ -1,0 +1,28 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.v3-announcement-bar {
+  background-color: #6E1B2D;
+  color: #FFFDF9;
+  padding: 8px 16px;
+  text-align: center;
+  font-family: $font-body;
+  font-size: 11.5px;
+  font-weight: $fw-medium;
+  letter-spacing: 0.12em;
+  text-transform: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  .v3-announcement-container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .v3-announcement-text {
+    margin: 0;
+    line-height: 1.4;
+  }
+}

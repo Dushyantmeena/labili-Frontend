@@ -1,0 +1,224 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.v3-wardrobe {
+  background-color: var(--v3-paper);
+  padding-block: clamp(56px, 7vw, 100px);
+  overflow: hidden;
+
+  .v3-wrap {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding-inline: clamp(16px, 4vw, 64px);
+  }
+
+  .v3-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: clamp(32px, 4.5vw, 56px);
+
+    @include respond-to(tablet) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .v3-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: $font-body;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--v3-gold-ink);
+      margin: 0 0 10px;
+
+      &:before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        transform: rotate(45deg);
+        border: 1px solid currentColor;
+        flex: none;
+      }
+    }
+
+    .v3-h2 {
+      font-family: $font-heading;
+      font-size: clamp(36px, 4.4vw, 58px);
+      font-weight: 500;
+      line-height: 1.05;
+      color: var(--v3-ink);
+      margin: 0 0 10px;
+
+      em {
+        font-style: italic;
+        color: var(--v3-maroon);
+      }
+    }
+
+    .v3-lede {
+      font-family: $font-body;
+      font-size: 16px;
+      color: var(--v3-muted);
+      margin: 0;
+      max-width: 580px;
+    }
+
+    .v3-link {
+      font-family: $font-body;
+      font-size: 12.5px;
+      font-weight: $fw-semibold;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--v3-maroon);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 3px;
+      transition: color $transition-fast, transform $transition-fast;
+
+      &:hover {
+        color: var(--v3-wine);
+        transform: translateX(3px);
+      }
+    }
+  }
+
+  // 5 Arched Cards Row
+  .v3-wardrobe__row {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: clamp(12px, 1.6vw, 22px);
+    align-items: end;
+
+    @include respond-to(laptop) {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 18px;
+      scrollbar-width: thin;
+
+      & > * {
+        flex: 0 0 clamp(200px, 36vw, 280px);
+        scroll-snap-align: start;
+      }
+    }
+
+    .v3-card {
+      text-decoration: none;
+      display: block;
+      transition: transform $transition-fast;
+
+      &:hover {
+        transform: translateY(-6px);
+
+        .v3-card__img {
+          transform: scale(1.05);
+        }
+      }
+
+      .v3-card__arch {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 200 / 340;
+        -webkit-mask: var(--v3-arch-340) center / 100% 100% no-repeat;
+        mask: var(--v3-arch-340) center / 100% 100% no-repeat;
+        background-color: #EFE4D1;
+        overflow: hidden;
+
+        .v3-card__img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          transition: transform 0.6s var(--v3-ease);
+        }
+
+        .v3-placeholder-arch {
+          width: 100%;
+          height: 100%;
+          background: #F7F0E3;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 24px 16px;
+          text-align: center;
+          position: relative;
+
+          &:before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: var(--v3-jaali) center / 32px 32px;
+            opacity: 0.12;
+          }
+
+          .v3-awaiting-badge {
+            position: relative;
+            z-index: 2;
+            background: rgba(180, 138, 74, 0.15);
+            border: 1px solid var(--v3-gold);
+            color: var(--v3-gold-ink);
+            font-family: $font-body;
+            font-size: 10px;
+            font-weight: $fw-bold;
+            letter-spacing: 0.14em;
+            padding: 4px 10px;
+            border-radius: $radius-sm;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+          }
+
+          .v3-awaiting-text {
+            position: relative;
+            z-index: 2;
+            font-family: $font-heading;
+            font-size: 17px;
+            color: var(--v3-ink);
+            max-width: 150px;
+            line-height: 1.3;
+          }
+        }
+
+        .v3-card__overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(180deg, rgba(34, 26, 22, 0) 55%, rgba(34, 26, 22, 0.85) 100%);
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          padding: 16px 14px;
+          color: #FFFDF9;
+
+          .v3-card__tag {
+            font-family: $font-body;
+            font-size: 10.5px;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            color: var(--v3-gold-soft);
+            text-transform: uppercase;
+            margin-bottom: 2px;
+          }
+
+          .v3-card__title {
+            font-family: $font-heading;
+            font-size: 17px;
+            font-weight: 500;
+            color: #FFFDF9;
+            margin: 0;
+            line-height: 1.2;
+          }
+        }
+      }
+    }
+  }
+}

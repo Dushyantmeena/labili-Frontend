@@ -1,0 +1,190 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.auth-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(30, 18, 13, 0.75);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-md;
+  animation: fadeIn 0.25s ease;
+
+  .auth-modal-container {
+    width: 100%;
+    max-width: 460px;
+    background-color: $color-bg-primary;
+    border-radius: $radius-md;
+    border: 1px solid $color-gold-light;
+    box-shadow: $shadow-lg;
+    padding: $space-2xl;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+
+    @include respond-to(tablet) {
+      padding: $space-lg;
+    }
+  }
+
+  .auth-close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    color: $color-text-primary;
+    padding: 6px;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  .auth-header {
+    text-align: center;
+    margin-bottom: $space-lg;
+
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 4px;
+    }
+
+    p {
+      font-size: 0.84rem;
+      color: $color-text-secondary;
+      margin: 0;
+    }
+  }
+
+  .auth-tabs {
+    display: flex;
+    border-bottom: 1px solid $color-border;
+    margin-bottom: $space-lg;
+
+    .auth-tab {
+      flex: 1;
+      padding: 10px;
+      font-family: $font-body;
+      font-size: 0.85rem;
+      font-weight: $fw-semibold;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: $color-text-secondary;
+      position: relative;
+      transition: all $transition-fast;
+
+      &.active {
+        color: $color-primary;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -1px;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background-color: $color-primary;
+        }
+      }
+    }
+  }
+
+  .auth-error-banner {
+    background-color: rgba(166, 43, 43, 0.1);
+    color: $color-sale-red;
+    font-size: 0.82rem;
+    padding: 10px 14px;
+    border-radius: $radius-sm;
+    margin-bottom: $space-md;
+    border: 1px solid rgba(166, 43, 43, 0.2);
+  }
+
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+
+      label {
+        font-size: 0.76rem;
+        font-weight: $fw-semibold;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: $color-text-primary;
+      }
+
+      .input-with-icon {
+        display: flex;
+        align-items: center;
+        background-color: #ffffff;
+        border: 1px solid $color-border;
+        border-radius: $radius-sm;
+        overflow: hidden;
+        transition: border-color $transition-fast;
+
+        &:focus-within {
+          border-color: $color-primary;
+        }
+
+        .input-icon {
+          color: $color-text-muted;
+          margin-left: 12px;
+        }
+
+        input {
+          flex: 1;
+          border: none;
+          padding: 12px 14px;
+          font-size: 0.9rem;
+          background: transparent;
+
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+
+    .auth-submit-btn {
+      width: 100%;
+      margin-top: $space-xs;
+    }
+
+    .demo-login-divider {
+      text-align: center;
+      position: relative;
+      margin: $space-xs 0;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background-color: $color-border;
+      }
+
+      span {
+        position: relative;
+        background-color: $color-bg-primary;
+        padding: 0 10px;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: $color-text-muted;
+      }
+    }
+
+    .demo-btn {
+      width: 100%;
+    }
+  }
+}
+
