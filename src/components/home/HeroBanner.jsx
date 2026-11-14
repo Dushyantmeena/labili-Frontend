@@ -1,93 +1,119 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Pause, Play } from 'lucide-react';
+import { Pause, Play, Sparkles, ArrowRight, ShieldCheck } from 'lucide-react';
 import './HeroBanner.scss';
 
 const HeroBanner = () => {
   const [isPlaying, setIsPlaying] = useState(true);
 
   return (
-    <section className="v3 v3-hero" aria-label="Royal Roots. Modern Elegance.">
-      <span className="v3-hero__frame" aria-hidden="true" />
+    <section className="labiii-hero-section" aria-label="Royal Roots. Modern Elegance.">
+      <div className="hero-background-ambience" aria-hidden="true" />
 
-      <div className="v3-wrap v3-hero__grid">
-        {/* Left Copy */}
-        <div className="v3-hero__copy">
-          <p className="v3-eyebrow">Jaipur · Rajasthan</p>
-          <h1 className="v3-hero__title">LABIII</h1>
-          <p className="v3-hero__sub">Royal Roots. Modern Elegance.</p>
-          <p className="v3-hero__msg">
-            From the heart of Jaipur, traditional elegance meets the way you dress today.
-          </p>
-
-          <div className="v3-hero__ctas">
-            <Link to="/collections/festive-edit" className="v3-btn v3-btn--solid">
-              EXPLORE THE ROYAL COLLECTION <span aria-hidden="true">&rarr;</span>
-            </Link>
-            <Link to="/collections/cotton-kurtis" className="v3-btn v3-btn--ghost">
-              SHOP EVERYDAY ELEGANCE
-            </Link>
-          </div>
-
-          <ul className="v3-hero__proof">
-            <li>Own studio &amp; stitching unit in Sanganer, Jaipur</li>
-            <li>Rental &amp; custom orders on request</li>
-            <li>Styling help on WhatsApp</li>
-          </ul>
-        </div>
-
-        {/* Right 3D Arch Visual */}
-        <div className="v3-hero__visual">
-          {/* Back Drop Shadow Arch */}
-          <div className="v3-hero__layer v3-hero__back" aria-hidden="true" />
-
-          {/* Gold Outline SVG Arch */}
-          <div className="v3-hero__layer v3-hero__outline" aria-hidden="true">
-            <svg
-              className="v3-hero__o v3-hero__o--tall"
-              viewBox="0 0 200 340"
-              preserveAspectRatio="none"
-              focusable="false"
-            >
-              <path d="M0,340 L0,112 L10,112 C0.90,107.95 5.57,77.92 15.19,78.63 C8.03,71.58 21.61,44.39 30.28,48.42 C25.85,39.35 47.05,17.57 53.83,24.22 C52.48,14.20 79.29,-0.10 83.63,8.33 C85.27,-1.04 114.73,-1.04 116.37,8.33 C120.71,-0.10 147.52,14.20 146.17,24.22 C152.95,17.57 174.15,39.35 169.72,48.42 C178.39,44.39 191.97,71.58 184.81,78.63 C194.43,77.92 199.10,107.95 190,112 L200,112 L200,340 Z" />
-            </svg>
-          </div>
-
-          {/* Main Arched Window with Poshak Model */}
-          <div className="v3-hero__window">
-            <div className="v3-arch v3-arch--tall">
-              <img
-                src="https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-poshak-steps.jpg?v=1793113045&width=1400"
-                alt="A festive Rajasthani poshak by The Baisa, worn at a sandstone temple"
-                className="v3-hero__img"
-              />
+      <div className="container hero-container">
+        <div className="hero-editorial-grid">
+          {/* Left Editorial Copy & Story */}
+          <div className="hero-copy-column">
+            <div className="hero-hallmark-pill">
+              <Sparkles size={12} className="pill-spark" />
+              <span>JAIPUR ATELIER · HEIRLOOM SILHOUETTES</span>
             </div>
-            <button
-              className="v3-play"
-              onClick={() => setIsPlaying(!isPlaying)}
-              aria-label={isPlaying ? 'Pause video' : 'Play video'}
-              type="button"
-            >
-              {isPlaying ? <Pause size={14} /> : <Play size={14} />}
-            </button>
-          </div>
 
-          {/* Overlapping Small Arch Medallion */}
-          <div className="v3-hero__medallion">
-            <div className="v3-arch">
-              <img
-                src="https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-aangi-sun-motif.jpg?v=1793113049&width=1400"
-                alt="Gota-patti sun motif detail"
-                className="v3-medallion__img"
-              />
+            <h1 className="hero-editorial-title">
+              Royal Heritage, <br />
+              <em>Reimagined</em> for Today.
+            </h1>
+
+            <p className="hero-tagline">
+              Labiii — Royal Roots. Modern Elegance.
+            </p>
+
+            <p className="hero-editorial-desc">
+              From the pink corridors of Jaipur to the world. We craft authentic Rajputi Aangi cholis, flowing Gota Patti lehengas, and artisanal handblock cottons — uniting regal grandeur with effortless comfort.
+            </p>
+
+            {/* CTAs */}
+            <div className="hero-cta-group">
+              <Link to="/collections/festive-edit" className="btn-hero-primary">
+                <span>EXPLORE FESTIVE EDIT</span>
+                <ArrowRight size={15} />
+              </Link>
+              <Link to="/collections/aangi-blouses" className="btn-hero-secondary">
+                <span>DISCOVER THE AANGI</span>
+              </Link>
+            </div>
+
+            {/* Value Hallmarks */}
+            <div className="hero-proof-bar">
+              <div className="proof-item">
+                <span className="proof-dot">✦</span>
+                <span className="proof-text">In-House Sanganer Stitching Studio</span>
+              </div>
+              <div className="proof-item">
+                <span className="proof-dot">✦</span>
+                <span className="proof-text">Bespoke Fitting & 2" Alteration Margins</span>
+              </div>
+              <div className="proof-item">
+                <span className="proof-dot">✦</span>
+                <span className="proof-text">Bridal & Festive Poshak Rentals</span>
+              </div>
             </div>
           </div>
 
-          {/* Caption Box */}
-          <div className="v3-hero__caption">
-            <div>
-              <b>Festive poshak by Labiii</b>
-              <span>Real footage from our Instagram</span>
+          {/* Right Haute Couture Editorial Stage */}
+          <div className="hero-visual-column">
+            <div className="hero-stage-wrapper">
+              {/* Decorative Subtle Gold Frame Accent */}
+              <div className="stage-gold-frame" aria-hidden="true" />
+
+              {/* Main Fashion Photograph */}
+              <div className="main-editorial-card">
+                <img
+                  src="https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-poshak-steps.jpg?v=1793113045&width=1400"
+                  alt="A majestic Rajasthani poshak ensemble handcrafted by Labiii, set against sandstone architecture"
+                  className="editorial-main-img"
+                  loading="eager"
+                />
+
+                {/* Subtle Ambient Vignette */}
+                <div className="card-gradient-vignette" />
+
+                {/* Live Reel Pause/Play Toggle */}
+                <button
+                  className="ambient-play-toggle"
+                  onClick={() => setIsPlaying(!isPlaying)}
+                  aria-label={isPlaying ? 'Pause ambient view' : 'Play ambient view'}
+                  type="button"
+                >
+                  {isPlaying ? <Pause size={14} /> : <Play size={14} />}
+                </button>
+
+                {/* Bottom Caption Pill inside Card */}
+                <div className="stage-bottom-pill">
+                  <span className="pill-brand">Labiii Haute Couture</span>
+                  <span className="pill-caption">The Royal Rajputana Poshak Edit</span>
+                </div>
+              </div>
+
+              {/* Floating Craft Swatch Card (Asymmetric Composition) */}
+              <div className="floating-craft-card">
+                <div className="swatch-image-wrap">
+                  <img
+                    src="https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-aangi-sun-motif.jpg?v=1793113049&width=800"
+                    alt="Authentic Gota Patti Sun Medallion Handwork"
+                  />
+                </div>
+                <div className="swatch-info">
+                  <span className="swatch-tag">Artisanal Detail</span>
+                  <span className="swatch-title">Pure Zari Gota Patti</span>
+                  <span className="swatch-artisan">Handcrafted by master karigars</span>
+                </div>
+              </div>
+
+              {/* Coordinates Badge */}
+              <div className="hero-coordinates-tag">
+                <span>26.8504° N, 75.7667° E · JAIPUR</span>
+              </div>
             </div>
           </div>
         </div>

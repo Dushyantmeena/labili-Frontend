@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Heart, Eye, ShoppingBag, Star } from 'lucide-react';
+import { Heart, Eye, ShoppingBag, Star, Sparkles } from 'lucide-react';
 import { useCart } from '../../../context/CartContext';
 import { useWishlist } from '../../../context/WishlistContext';
 import { useCurrency } from '../../../context/CurrencyContext';
@@ -34,97 +34,112 @@ const ProductCard = ({ product, onQuickView }) => {
   };
 
   return (
-    <div
-      className="royal-product-card"
+    <article
+      className="labiii-product-card"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Image Container */}
-      <div className="card-media-wrapper">
-        <Link to={`/products/${product.slug || product.id}`} className="card-image-link">
+      {/* Editorial Image Container (3:4 ratio) */}
+      <div className="card-media-stage">
+        <Link to={`/products/${product.slug || product.id}`} className="card-link-wrapper">
           <img
             src={isHovered && product.secondaryImage ? product.secondaryImage : product.primaryImage}
             alt={product.name}
-            className={`product-img ${isHovered && product.secondaryImage ? 'secondary' : 'primary'}`}
+            className={`card-product-img ${isHovered && product.secondaryImage ? 'is-secondary' : 'is-primary'}`}
             loading="lazy"
           />
         </Link>
 
-        {/* Badges */}
-        <div className="card-badges">
+        {/* Refined Luxury Badges */}
+        <div className="card-badges-stack">
           {product.badge && (
-            <span className={`badge ${product.badge.toLowerCase().includes('best') ? 'badge-bestseller' : 'badge-handcrafted'}`}>
+            <span
+              className={`editorial-badge ${
+                product.badge.toLowerCase().includes('best')
+                  ? 'badge-bestseller'
+                  : 'badge-handcrafted'
+              }`}
+            >
               {product.badge}
             </span>
           )}
           {product.discount && (
-            <span className="badge badge-sale">{product.discount}</span>
+            <span className="editorial-badge badge-discount">{product.discount}</span>
           )}
         </div>
 
-        {/* Wishlist Button */}
+        {/* Floating Wishlist Button */}
         <button
-          className={`wishlist-toggle-btn ${isSaved ? 'active' : ''}`}
+          className={`card-wishlist-btn ${isSaved ? 'is-active' : ''}`}
           onClick={handleWishlistToggle}
           aria-label={isSaved ? 'Remove from wishlist' : 'Save to wishlist'}
-          title={isSaved ? 'In your wishlist' : 'Save to wishlist'}
+          title={isSaved ? 'Saved to wishlist' : 'Save to wishlist'}
+          type="button"
         >
-          <Heart size={18} fill={isSaved ? '#6B1E2A' : 'none'} color={isSaved ? '#6B1E2A' : '#2A1A14'} />
+          <Heart
+            size={16}
+            fill={isSaved ? '#541421' : 'none'}
+            color={isSaved ? '#541421' : '#1C1815'}
+            strokeWidth={1.6}
+          />
         </button>
 
-        {/* Quick View Button */}
-        <button
-          className="quick-view-btn"
-          onClick={handleQuickViewClick}
-          aria-label="Quick View"
-        >
-          <Eye size={15} /> Quick View
-        </button>
+        {/* Slide-Up Hover Quick Action Toolbar */}
+        <div className="card-quick-actions">
+          <button
+            className="quick-view-action"
+            onClick={handleQuickViewClick}
+            type="button"
+          >
+            <Eye size={14} />
+            <span>Quick View</span>
+          </button>
+          <button
+            className="quick-add-action"
+            onClick={handleAddDirect}
+            type="button"
+            title="Add directly to bag"
+          >
+            <ShoppingBag size={14} />
+            <span>Add to Bag</span>
+          </button>
+        </div>
       </div>
 
       {/* Product Content Details */}
-      <div className="card-details">
-        <span className="card-category">{product.categoryName || 'Jaipur Couture'}</span>
+      <div className="card-info-content">
+        <div className="card-category-row">
+          <span className="card-category-name">{product.categoryName || 'Jaipur Couture'}</span>
+          {/* Subtle star score */}
+          <div className="card-mini-rating">
+            <Star size={11} fill="#C29B46" color="#C29B46" />
+            <span className="rating-num">{product.rating || '4.9'}</span>
+          </div>
+        </div>
 
-        <h3 className="card-title">
+        <h3 className="card-product-title">
           <Link to={`/products/${product.slug || product.id}`} title={product.name}>
             {product.name}
           </Link>
         </h3>
 
-        {/* Star Ratings */}
-        <div className="card-rating">
-          <div className="stars">
-            {[...Array(5)].map((_, i) => (
-              <Star
-                key={i}
-                size={12}
-                fill={i < Math.floor(product.rating || 5) ? '#C59B27' : 'none'}
-                color="#C59B27"
-              />
-            ))}
-          </div>
-          <span className="rating-score">{product.rating || '4.9'}</span>
-          <span className="reviews-count">({product.reviewsCount || 24})</span>
-        </div>
-
         {/* Price Row */}
-        <div className="card-pricing">
+        <div className="card-pricing-row">
           <span className="current-price">{formatPrice(product.price)}</span>
           {product.originalPrice && product.originalPrice > product.price && (
             <span className="original-price">{formatPrice(product.originalPrice)}</span>
           )}
         </div>
 
-        {/* Size Selection Pills */}
+        {/* Minimal Size Selector Pills */}
         {product.sizes && product.sizes.length > 0 && (
-          <div className="card-sizes" onClick={(e) => e.stopPropagation()}>
-            <span className="size-label">Size:</span>
-            <div className="size-pills">
-              {product.sizes.slice(0, 5).map((size) => (
+          <div className="card-sizes-row" onClick={(e) => e.stopPropagation()}>
+            <span className="size-label-text">Sizes:</span>
+            <div className="size-pills-list">
+              {product.sizes.slice(0, 4).map((size) => (
                 <button
                   key={size}
-                  className={`size-pill ${selectedSize === size ? 'active' : ''}`}
+                  className={`size-mini-pill ${selectedSize === size ? 'is-selected' : ''}`}
                   onClick={(e) => {
                     e.preventDefault();
                     setSelectedSize(size);
@@ -137,30 +152,9 @@ const ProductCard = ({ product, onQuickView }) => {
             </div>
           </div>
         )}
-
-        {/* Action Button: Choose Options */}
-        <div className="card-actions-row">
-          <button
-            className="choose-options-btn"
-            onClick={handleQuickViewClick}
-            type="button"
-          >
-            Choose Options
-          </button>
-          <button
-            className="quick-add-btn"
-            onClick={handleAddDirect}
-            type="button"
-            title="Quick add to bag"
-            aria-label="Add to bag"
-          >
-            <ShoppingBag size={15} />
-          </button>
-        </div>
       </div>
-    </div>
+    </article>
   );
 };
 
 export default ProductCard;
-

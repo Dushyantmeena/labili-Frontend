@@ -2,57 +2,81 @@
 @use '../../styles/mixins' as *;
 
 .featured-collection-section {
-  padding: $space-4xl 0;
-  background-color: #ffffff;
-  border-top: 1px solid $color-border;
-  border-bottom: 1px solid $color-border;
+  padding: clamp(60px, 8vw, 104px) 0;
+  background-color: #FAF7F2;
+  border-bottom: 1px solid rgba(194, 155, 70, 0.16);
+
+  .section-title {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto clamp(28px, 4vw, 48px);
+
+    h2 {
+      font-family: $font-heading;
+      font-size: clamp(2.2rem, 3.6vw, 3.2rem);
+      color: $color-primary;
+      margin: 0 0 10px;
+    }
+
+    .brand-eyebrow {
+      letter-spacing: 0.2em;
+    }
+  }
 
   .section-subtitle {
-    font-size: 0.95rem;
+    font-family: $font-body;
+    font-size: 15px;
     color: $color-text-secondary;
     text-align: center;
-    max-width: 520px;
-    margin: $space-xs auto 0;
+    max-width: 560px;
+    margin: 12px auto 0;
+    line-height: 1.6;
   }
 
   .tabs-wrapper {
     display: flex;
     justify-content: center;
-    margin-bottom: $space-2xl;
+    margin-bottom: clamp(28px, 4vw, 48px);
 
     .tabs-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 8px;
-      padding: 4px;
-      background-color: $color-bg-primary;
-      border: 1px solid $color-border;
+      gap: 6px;
+      padding: 6px;
+      background-color: #FFFFFF;
+      border: 1px solid rgba(194, 155, 70, 0.25);
       border-radius: $radius-pill;
+      box-shadow: 0 4px 14px rgba(43, 14, 22, 0.05);
 
       @include respond-to(mobile) {
-        border-radius: $radius-sm;
+        border-radius: $radius-md;
       }
 
       .tab-btn {
-        padding: 8px 18px;
+        padding: 9px 20px;
+        background: transparent;
+        border: none;
         font-family: $font-body;
-        font-size: 0.82rem;
+        font-size: 12px;
         font-weight: $fw-medium;
-        letter-spacing: 0.06em;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
         color: $color-text-secondary;
         border-radius: $radius-pill;
+        cursor: pointer;
         transition: all $transition-fast;
 
         &:hover {
           color: $color-primary;
+          background-color: #FAF7F2;
         }
 
         &.active {
           background-color: $color-primary;
-          color: #ffffff;
-          box-shadow: 0 2px 8px rgba(107, 30, 42, 0.25);
+          color: #FCFBF7;
+          font-weight: $fw-semibold;
+          box-shadow: 0 4px 14px rgba(84, 20, 33, 0.25);
         }
       }
     }
@@ -61,7 +85,7 @@
   .products-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: $space-lg;
+    gap: clamp(16px, 2.2vw, 28px);
 
     @include respond-to(laptop) {
       grid-template-columns: repeat(3, 1fr);
@@ -69,7 +93,7 @@
 
     @include respond-to(tablet) {
       grid-template-columns: repeat(2, 1fr);
-      gap: $space-md;
+      gap: 16px;
     }
 
     @include respond-to(mobile-sm) {
@@ -78,12 +102,30 @@
   }
 
   .collection-bottom-cta {
-    margin-top: $space-3xl;
+    margin-top: clamp(36px, 5vw, 64px);
     text-align: center;
 
     .explore-all-btn {
-      min-width: 260px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-width: 280px;
+      padding: 15px 32px;
+      font-size: 12.5px;
+      letter-spacing: 0.14em;
+      border-color: rgba(84, 20, 33, 0.35);
+      color: $color-primary;
+      background-color: #FFFFFF;
+      box-shadow: 0 6px 18px rgba(43, 14, 22, 0.06);
+
+      &:hover {
+        background-color: $color-primary;
+        color: #FCFBF7;
+        border-color: $color-primary;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 24px rgba(84, 20, 33, 0.2);
+      }
     }
   }
 }
-

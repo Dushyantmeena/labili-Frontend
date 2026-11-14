@@ -1,71 +1,113 @@
 // ==========================================================================
-// THE BAISA JAIPUR - AUTHENTIC 1:1 DESIGN SYSTEM VARIABLES
-// Exact tokens from baisajaipur.com
+// LABIII · LUXURY DESIGN SYSTEM VARIABLES
+// Royal Roots. Modern Elegance. — Jaipur Haute Couture
 // ==========================================================================
 
 :root {
-  --v3-ivory: #F7F0E3;
-  --v3-ivory-2: #EFE4D1;
-  --v3-paper: #FBF7F0;
-  --v3-sand: #E5D2B3;
-  --v3-sandstone: #C99D6E;
-  --v3-sandstone-dk: #A57A4F;
-  --v3-gold: #B48A4A;
-  --v3-gold-ink: #7E5C27;
-  --v3-gold-soft: #DCC08A;
-  --v3-maroon: #6E1B2D;
-  --v3-maroon-2: #8A2639;
-  --v3-wine: #3A0D18;
-  --v3-wine-2: #260710;
-  --v3-ink: #221A16;
-  --v3-muted: #5F534A;
-  --v3-line: rgba(126, 92, 39, 0.28);
-  --v3-white: #FFFDF9;
-  --v3-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
-  --v3-sans: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --v3-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
-  --v3-shadow: 0 30px 60px -28px rgba(58, 13, 24, 0.45), 0 10px 22px -12px rgba(58, 13, 24, 0.25);
+  // Brand Canvas & Neutrals
+  --labiii-ivory: #FAF7F2;
+  --labiii-ivory-warm: #F4EFE6;
+  --labiii-paper: #FCFBF7;
+  --labiii-sand: #EFE8DE;
+  --labiii-sand-dark: #D9CDBC;
+  --labiii-white: #FFFFFF;
+
+  // Royal Brand Accents
+  --labiii-wine: #541421;           // Deep Noble Wine / Burgundy
+  --labiii-wine-dark: #3E0E18;      // Velvet Night Wine
+  --labiii-wine-light: #6E1B2D;     // Crimson Maroon
+  --labiii-wine-wash: #F9F1F2;      // Subtle wine tint
+
+  // Jaipur Heritage Earth & Gold
+  --labiii-terracotta: #C06345;     // Muted Jaipur Terracotta
+  --labiii-terracotta-soft: #D97E60;
+  --labiii-gold: #C29B46;           // Soft Champagne Gold
+  --labiii-gold-light: #E8D7B8;     // Shimmer Sand Gold
+  --labiii-gold-ink: #7E5C27;       // Deep Gold Ink
+  --labiii-gold-metallic: #D4AF37;   // Polished Zari Gold
+
+  // Typography Tones
+  --labiii-charcoal: #1C1815;       // Dark Espresso / Charcoal Text
+  --labiii-slate: #3D352F;          // Secondary Body Text
+  --labiii-muted: #6E645C;          // Meta / Subtitle Taupe
+  --labiii-border: rgba(194, 155, 70, 0.22); // Fine Gold Hairline
+  --labiii-border-subtle: rgba(28, 24, 21, 0.08);
+
+  // Fonts
+  --labiii-serif: 'Cormorant Garamond', Garamond, Georgia, 'Times New Roman', serif;
+  --labiii-sans: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --labiii-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --labiii-shadow-card: 0 12px 32px -8px rgba(43, 14, 22, 0.08), 0 4px 12px -4px rgba(28, 24, 21, 0.04);
+  --labiii-shadow-hover: 0 20px 48px -12px rgba(84, 20, 33, 0.16), 0 8px 20px -6px rgba(194, 99, 69, 0.1);
+  --labiii-shadow-royal: 0 32px 64px -20px rgba(62, 14, 24, 0.4);
+
+  // Backwards Compatibility Aliases
+  --v3-ivory: var(--labiii-ivory);
+  --v3-ivory-2: var(--labiii-ivory-warm);
+  --v3-paper: var(--labiii-paper);
+  --v3-sand: var(--labiii-sand);
+  --v3-sandstone: var(--labiii-terracotta);
+  --v3-sandstone-dk: #9C4B30;
+  --v3-gold: var(--labiii-gold);
+  --v3-gold-ink: var(--labiii-gold-ink);
+  --v3-gold-soft: var(--labiii-gold-light);
+  --v3-maroon: var(--labiii-wine);
+  --v3-maroon-2: var(--labiii-wine-light);
+  --v3-wine: var(--labiii-wine-dark);
+  --v3-wine-2: #24080F;
+  --v3-ink: var(--labiii-charcoal);
+  --v3-muted: var(--labiii-muted);
+  --v3-line: var(--labiii-border);
+  --v3-white: var(--labiii-white);
+  --v3-serif: var(--labiii-serif);
+  --v3-sans: var(--labiii-sans);
+  --v3-ease: var(--labiii-ease);
+  --v3-shadow: var(--labiii-shadow-card);
   --v3-gutter: clamp(16px, 4vw, 64px);
   --v3-arch-270: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 270' preserveAspectRatio='none'%3E%3Cpath d='M0,270 L0,112 L10,112 C0.90,107.95 5.57,77.92 15.19,78.63 C8.03,71.58 21.61,44.39 30.28,48.42 C25.85,39.35 47.05,17.57 53.83,24.22 C52.48,14.20 79.29,-0.10 83.63,8.33 C85.27,-1.04 114.73,-1.04 116.37,8.33 C120.71,-0.10 147.52,14.20 146.17,24.22 C152.95,17.57 174.15,39.35 169.72,48.42 C178.39,44.39 191.97,71.58 184.81,78.63 C194.43,77.92 199.10,107.95 190,112 L200,112 L200,270 Z'/%3E%3C/svg%3E");
   --v3-arch-340: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 340' preserveAspectRatio='none'%3E%3Cpath d='M0,340 L0,112 L10,112 C0.90,107.95 5.57,77.92 15.19,78.63 C8.03,71.58 21.61,44.39 30.28,48.42 C25.85,39.35 47.05,17.57 53.83,24.22 C52.48,14.20 79.29,-0.10 83.63,8.33 C85.27,-1.04 114.73,-1.04 116.37,8.33 C120.71,-0.10 147.52,14.20 146.17,24.22 C152.95,17.57 174.15,39.35 169.72,48.42 C178.39,44.39 191.97,71.58 184.81,78.63 C194.43,77.92 199.10,107.95 190,112 L200,112 L200,340 Z'/%3E%3C/svg%3E");
-  --v3-jaali: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Cg fill='none' stroke='%237E5C27' stroke-width='1'%3E%3Cpath d='M22 2 L42 22 L22 42 L2 22 Z'/%3E%3Ccircle cx='22' cy='22' r='6'/%3E%3Cpath d='M22 16 Q26 22 22 28 Q18 22 22 16 Z'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 // SCSS Color Palette
-$color-bg-primary: #FBF7F0;         // v3 paper / warm regal ivory
-$color-bg-secondary: #F7F0E3;       // v3 ivory
-$color-bg-sand: #E5D2B3;            // v3 sand
-$color-bg-surface: #FFFFFF;         // crisp white
-$color-bg-accent-subtle: #F6EFE3;   // subtle highlight cream
-$color-bg-dark: #3A0D18;            // v3 wine / deep burgundy
+$color-bg-primary: #FAF7F2;         // Warm pale ivory canvas
+$color-bg-secondary: #F4EFE6;       // Soft warm beige
+$color-bg-sand: #EFE8DE;            // Sand ecru
+$color-bg-surface: #FFFFFF;         // Pure crisp white
+$color-bg-accent-subtle: #F7F2E9;   // Delicate highlight surface
+$color-bg-dark: #3E0E18;            // Velvet deep wine / burgundy
 
-$color-text-primary: #221A16;       // v3 ink / deep charcoal
-$color-text-secondary: #5F534A;     // v3 muted / earthy taupe
-$color-text-muted: #8E7A70;         // subtle meta labels
-$color-text-light: #FFFDF9;         // v3 white
-$color-text-accent: #6E1B2D;        // v3 maroon
+$color-text-primary: #1C1815;       // Dark espresso slate
+$color-text-secondary: #4A423B;     // Refined body taupe
+$color-text-muted: #7A6F66;         // Micro-caps & labels
+$color-text-light: #FCFBF7;         // Warm off-white
+$color-text-accent: #541421;        // Deep noble wine
 
-$color-primary: #6E1B2D;            // Signature Baisa Maroon
-$color-primary-hover: #541721;      // Deep wine hover
-$color-primary-dark: #3A0D18;       // Deep wine dark
-$color-primary-light: #F7EAEB;      // Burgundy soft wash
+$color-primary: #541421;            // Noble Wine
+$color-primary-hover: #3E0E18;      // Velvet Wine Dark
+$color-primary-dark: #2B0710;       // Midnight Wine
+$color-primary-light: #F9F1F2;      // Wine blossom wash
 
-$color-gold: #B48A4A;               // v3 gold
-$color-gold-ink: #7E5C27;           // v3 gold ink
-$color-gold-soft: #DCC08A;          // v3 gold soft
-$color-gold-light: #E3BF87;         // Warm Sandstone Gold
-$color-gold-hover: #A8831E;         // antique gold
+$color-terracotta: #C06345;         // Jaipur terracotta clay
+$color-terracotta-hover: #A85236;
+$color-terracotta-light: #FAECE7;
 
-$color-rani-pink: #C2185B;          // Rajasthani Festive Rani Pink
-$color-teal: #1A535C;               // Royal Peacock Teal
-$color-sage: #4A5D4E;               // Heritage Olive Sage
-$color-sale-red: #A62B2B;           // Sale & Discount Badge Red
-$color-success: #2E7D32;            // Success green
-$color-border: rgba(126, 92, 39, 0.28); // v3 line
-$color-border-dark: #D3C5B1;
+$color-gold: #C29B46;               // Soft Champagne Gold
+$color-gold-ink: #7E5C27;           // Deep Gold Accent
+$color-gold-soft: #E8D7B8;          // Delicate Gold Wash
+$color-gold-light: #F2E7D3;         // Champagne Mist
+$color-gold-hover: #AD8533;         // Polished Gold
+
+$color-rani-pink: #BA2656;          // Regal Rajputana Rose
+$color-teal: #1C4E4B;               // Emerald Peacock Teal
+$color-sage: #4E5B4B;               // Heritage Olive Sage
+$color-sale-red: #A82E2E;           // Refined Sale Crimson
+$color-success: #276738;            // Forest green
+$color-border: rgba(194, 155, 70, 0.22); // Fine Gold Hairline
+$color-border-dark: #D4C7B5;
+$color-border-subtle: rgba(28, 24, 21, 0.08);
 
 // Typography
-$font-heading: 'Cormorant Garamond', Georgia, serif;
+$font-heading: 'Cormorant Garamond', Garamond, Georgia, serif;
 $font-body: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
 // Font Weights
@@ -86,6 +128,7 @@ $space-xl: 32px;
 $space-2xl: 48px;
 $space-3xl: 64px;
 $space-4xl: 80px;
+$space-5xl: 104px;
 
 // Layout Breakpoints
 $bp-mobile-sm: 360px;
@@ -96,25 +139,25 @@ $bp-desktop: 1280px;
 $bp-wide: 1440px;
 
 // Container
-$container-max-width: 1360px;
-$container-narrow-width: 980px;
-$container-padding: clamp(16px, 4vw, 64px);
+$container-max-width: 1380px;
+$container-narrow-width: 1040px;
+$container-padding: clamp(18px, 4.5vw, 72px);
 
 // Border Radius
 $radius-sm: 4px;
 $radius-md: 8px;
-$radius-lg: 16px;
-$radius-xl: 24px;
+$radius-lg: 14px;
+$radius-xl: 22px;
 $radius-pill: 9999px;
 
 // Transitions
-$transition-fast: 0.2s cubic-bezier(0.2, 0.7, 0.2, 1);
-$transition-normal: 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
-$transition-slow: 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+$transition-fast: 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+$transition-normal: 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+$transition-slow: 0.65s cubic-bezier(0.22, 1, 0.36, 1);
 
 // Shadows
-$shadow-sm: 0 2px 8px rgba(34, 26, 22, 0.06);
-$shadow-card: 0 8px 24px rgba(58, 13, 24, 0.08);
-$shadow-md: 0 8px 24px rgba(58, 13, 24, 0.12);
-$shadow-lg: 0 16px 40px rgba(58, 13, 24, 0.18);
-$shadow-royal: 0 30px 60px -28px rgba(58, 13, 24, 0.45), 0 10px 22px -12px rgba(58, 13, 24, 0.25);
+$shadow-sm: 0 2px 8px rgba(28, 24, 21, 0.04);
+$shadow-card: 0 10px 28px -6px rgba(84, 20, 33, 0.07), 0 3px 10px -2px rgba(28, 24, 21, 0.03);
+$shadow-md: 0 12px 32px -4px rgba(84, 20, 33, 0.12);
+$shadow-lg: 0 20px 48px -8px rgba(84, 20, 33, 0.18);
+$shadow-royal: 0 32px 64px -20px rgba(62, 14, 24, 0.42);

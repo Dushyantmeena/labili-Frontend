@@ -2,21 +2,21 @@
 @use '../../../styles/mixins' as *;
 
 .site-footer {
-  background-color: $color-bg-dark;
-  color: $color-bg-primary;
+  background: linear-gradient(180deg, #3E0E18 0%, #24080F 100%);
+  color: #FCFBF7;
   margin-top: auto;
+  border-top: 1px solid rgba(194, 155, 70, 0.25);
 
   // Guarantees Strip
   .footer-values-strip {
-    background-color: #261611;
-    border-top: 1px solid rgba(227, 191, 135, 0.2);
-    border-bottom: 1px solid rgba(227, 191, 135, 0.12);
-    padding: $space-xl 0;
+    background-color: #2F0A12;
+    border-bottom: 1px solid rgba(194, 155, 70, 0.15);
+    padding: clamp(24px, 3.5vw, 40px) 0;
 
     .values-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: $space-lg;
+      gap: clamp(18px, 2.5vw, 32px);
 
       @include respond-to(laptop) {
         grid-template-columns: repeat(2, 1fr);
@@ -24,14 +24,14 @@
 
       @include respond-to(mobile) {
         grid-template-columns: 1fr;
-        gap: $space-md;
+        gap: 20px;
       }
     }
 
     .value-item {
       display: flex;
       align-items: flex-start;
-      gap: $space-md;
+      gap: 14px;
 
       .value-icon {
         color: $color-gold;
@@ -41,19 +41,19 @@
 
       .value-text {
         h4 {
-          color: $color-bg-primary;
+          color: #FCFBF7;
           font-family: $font-heading;
           font-size: 1.15rem;
-          margin-bottom: 2px;
+          margin-bottom: 3px;
           letter-spacing: 0.02em;
         }
 
         p {
           font-family: $font-body;
-          font-size: 0.8rem;
-          color: rgba(251, 246, 238, 0.7);
+          font-size: 13px;
+          color: rgba(252, 251, 247, 0.72);
           margin: 0;
-          line-height: 1.4;
+          line-height: 1.45;
         }
       }
     }
@@ -61,14 +61,14 @@
 
   // Newsletter Strip
   .footer-newsletter {
-    padding: $space-3xl 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: clamp(40px, 5vw, 64px) 0;
+    border-bottom: 1px solid rgba(194, 155, 70, 0.14);
 
     .newsletter-card {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: $space-2xl;
+      gap: 36px;
 
       @include respond-to(laptop) {
         flex-direction: column;
@@ -79,16 +79,24 @@
     .newsletter-info {
       max-width: 580px;
 
+      .brand-eyebrow {
+        color: $color-gold-light;
+        letter-spacing: 0.2em;
+      }
+
       h3 {
-        color: #ffffff;
-        font-size: 1.9rem;
-        margin-bottom: $space-xs;
+        font-family: $font-heading;
+        color: #FCFBF7;
+        font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+        margin-bottom: 8px;
+        line-height: 1.2;
       }
 
       p {
-        color: rgba(251, 246, 238, 0.75);
-        font-size: 0.92rem;
+        color: rgba(252, 251, 247, 0.78);
+        font-size: 14.5px;
         margin: 0;
+        line-height: 1.6;
       }
     }
 
@@ -99,8 +107,8 @@
       .newsletter-input-group {
         display: flex;
         align-items: center;
-        background-color: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(227, 191, 135, 0.35);
+        background-color: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(194, 155, 70, 0.35);
         border-radius: $radius-sm;
         overflow: hidden;
         transition: border-color $transition-fast;
@@ -114,11 +122,12 @@
           background: transparent;
           border: none;
           padding: 14px 18px;
-          color: #ffffff;
-          font-size: 0.9rem;
+          color: #FCFBF7;
+          font-family: $font-body;
+          font-size: 13.5px;
 
           &::placeholder {
-            color: rgba(251, 246, 238, 0.5);
+            color: rgba(252, 251, 247, 0.5);
           }
 
           &:focus {
@@ -127,22 +136,24 @@
         }
 
         .subscribe-btn {
-          background-color: $color-gold;
-          color: $color-bg-dark;
+          background: linear-gradient(135deg, $color-gold 0%, #AD8533 100%);
+          color: #24080F;
+          border: none;
           font-family: $font-body;
-          font-size: 0.8rem;
+          font-size: 12px;
           font-weight: $fw-semibold;
-          letter-spacing: 0.1em;
+          letter-spacing: 0.12em;
           text-transform: uppercase;
           padding: 14px 22px;
           display: flex;
           align-items: center;
           gap: 6px;
-          transition: background-color $transition-fast;
+          cursor: pointer;
+          transition: all $transition-fast;
 
           &:hover {
-            background-color: $color-gold-hover;
-            color: #ffffff;
+            background: linear-gradient(135deg, #D4AF37 0%, $color-gold 100%);
+            color: #170409;
           }
         }
       }
@@ -150,29 +161,29 @@
       .newsletter-success {
         display: flex;
         align-items: center;
-        gap: $space-sm;
+        gap: 10px;
         padding: 12px 18px;
-        background-color: rgba(46, 125, 50, 0.15);
-        border: 1px solid rgba(46, 125, 50, 0.3);
+        background-color: rgba(39, 103, 56, 0.25);
+        border: 1px solid rgba(39, 103, 56, 0.5);
         border-radius: $radius-sm;
         color: #A5D6A7;
-        font-size: 0.88rem;
+        font-size: 13.5px;
       }
     }
   }
 
   // Main Links Grid
   .footer-main {
-    padding: $space-3xl 0;
+    padding: clamp(48px, 6vw, 80px) 0;
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1.3fr;
-      gap: $space-2xl;
+      grid-template-columns: 1.8fr 1fr 1fr 1.3fr;
+      gap: clamp(24px, 3.5vw, 48px);
 
       @include respond-to(laptop) {
         grid-template-columns: 1fr 1fr;
-        gap: $space-xl;
+        gap: 36px;
       }
 
       @include respond-to(mobile) {
@@ -182,38 +193,37 @@
 
     .brand-col {
       .footer-brand-heading {
-        margin-bottom: $space-md;
+        margin-bottom: 16px;
         display: flex;
         flex-direction: column;
 
         .footer-logo-img {
-          height: 48px;
+          height: 44px;
           width: auto;
-          max-width: 200px;
+          max-width: 190px;
           object-fit: contain;
           display: block;
-          border-radius: $radius-sm;
         }
       }
 
       .brand-desc {
-        color: rgba(251, 246, 238, 0.72);
-        font-size: 0.88rem;
+        color: rgba(252, 251, 247, 0.75);
+        font-size: 14px;
         line-height: 1.7;
-        margin-bottom: $space-lg;
+        margin-bottom: 24px;
       }
 
       .studio-contact-list {
         display: flex;
         flex-direction: column;
-        gap: $space-sm;
+        gap: 12px;
 
         .contact-item {
           display: flex;
           align-items: flex-start;
-          gap: $space-sm;
-          font-size: 0.84rem;
-          color: rgba(251, 246, 238, 0.8);
+          gap: 10px;
+          font-size: 13.5px;
+          color: rgba(252, 251, 247, 0.82);
 
           .contact-icon {
             color: $color-gold;
@@ -223,6 +233,7 @@
 
           a {
             color: inherit;
+            transition: color $transition-fast;
 
             &:hover {
               color: $color-gold-light;
@@ -237,16 +248,16 @@
       font-size: 1.25rem;
       font-family: $font-heading;
       letter-spacing: 0.05em;
-      margin-bottom: $space-lg;
+      margin-bottom: 22px;
       position: relative;
-      padding-bottom: $space-xs;
+      padding-bottom: 8px;
 
       &::after {
         content: '';
         position: absolute;
         bottom: 0;
         left: 0;
-        width: 30px;
+        width: 28px;
         height: 1px;
         background-color: $color-gold;
       }
@@ -255,53 +266,65 @@
     .footer-nav {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 11px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
 
       li a {
-        color: rgba(251, 246, 238, 0.75);
-        font-size: 0.86rem;
+        color: rgba(252, 251, 247, 0.75);
+        font-family: $font-body;
+        font-size: 13.5px;
         transition: all $transition-fast;
 
         &:hover {
-          color: #ffffff;
-          padding-left: 4px;
+          color: #FCFBF7;
+          padding-left: 5px;
         }
       }
     }
 
     .studio-note {
-      color: rgba(251, 246, 238, 0.72);
-      font-size: 0.84rem;
+      color: rgba(252, 251, 247, 0.72);
+      font-size: 13.5px;
       line-height: 1.6;
-      margin-bottom: $space-md;
+      margin-bottom: 16px;
     }
 
     .hours-card {
-      background-color: rgba(255, 255, 255, 0.05);
+      background-color: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(194, 155, 70, 0.18);
       border-radius: $radius-sm;
-      padding: $space-md;
-      margin-bottom: $space-md;
+      padding: 14px;
+      margin-bottom: 18px;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 8px;
 
       .hours-row {
         display: flex;
         justify-content: space-between;
-        font-size: 0.8rem;
-        color: rgba(251, 246, 238, 0.85);
+        font-size: 12.5px;
+        color: rgba(252, 251, 247, 0.85);
       }
     }
 
     .visit-btn {
+      display: inline-block;
       width: 100%;
       text-align: center;
-      border-color: rgba(227, 191, 135, 0.4);
+      border: 1px solid rgba(194, 155, 70, 0.35);
       color: $color-gold-light;
+      padding: 11px 18px;
+      border-radius: $radius-sm;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: all $transition-fast;
 
       &:hover {
         background-color: $color-gold;
-        color: $color-bg-dark;
+        color: #24080F;
         border-color: $color-gold;
       }
     }
@@ -309,15 +332,15 @@
 
   // Footer Bottom
   .footer-bottom {
-    background-color: #150C08;
-    padding: $space-lg 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    background-color: #170409;
+    padding: 22px 0;
+    border-top: 1px solid rgba(194, 155, 70, 0.12);
 
     .footer-bottom-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: $space-md;
+      gap: 16px;
 
       @include respond-to(tablet) {
         flex-direction: column;
@@ -326,8 +349,9 @@
     }
 
     .copyright-text {
-      font-size: 0.8rem;
-      color: rgba(251, 246, 238, 0.55);
+      font-family: $font-body;
+      font-size: 12.5px;
+      color: rgba(252, 251, 247, 0.6);
       margin: 0;
     }
 
@@ -337,16 +361,16 @@
       gap: 6px;
 
       .pay-pill {
-        background-color: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        color: rgba(251, 246, 238, 0.8);
-        font-size: 0.68rem;
+        background-color: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(194, 155, 70, 0.2);
+        color: rgba(252, 251, 247, 0.75);
+        font-family: $font-body;
+        font-size: 11px;
         font-weight: $fw-medium;
         letter-spacing: 0.06em;
-        padding: 3px 8px;
+        padding: 4px 9px;
         border-radius: $radius-sm;
       }
     }
   }
 }
-

@@ -1,43 +1,44 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Sparkles, MessageCircle, ArrowRight, Check } from 'lucide-react';
 import './AangiDetailDeepDive.scss';
 
 const AANGI_VIEWS = [
   {
     id: 'full-piece',
-    label: 'Full piece',
+    label: 'Full Silhouette',
     image: 'https://www.baisajaipur.com/cdn/shop/files/Embroidered_Ivory_and_Red_Choli.png?v=1791808189&width=1400',
-    alt: 'Off-white, red and gold aangi blouse on a hanger'
+    alt: 'Off-white, red and gold Rajputi Aangi blouse silhouette'
   },
   {
     id: 'gota-closeup',
-    label: 'Gota close-up',
+    label: 'Gota Zari Close-up',
     image: 'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-aangi-sun-motif.jpg?v=1793113049&width=1400',
-    alt: 'Gota-patti sun motif on a multicolour aangi'
+    alt: 'Gota-patti sun medallion embroidery detail'
   },
   {
     id: 'patchwork',
-    label: 'Patchwork & texture',
+    label: 'Patchwork & Texture',
     image: 'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-aangi-gota-texture.jpg?v=1793113050&width=1400',
-    alt: 'Patchwork panels with gota diamonds'
+    alt: 'Hand-stitched silk patchwork panels with gold trim'
   },
   {
     id: 'dori',
-    label: 'Dori & tassels',
+    label: 'Dori & Tassels',
     image: 'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-aangi-dori.jpg?v=1793113051&width=1400',
-    alt: 'Hem with dori tie and tassels'
+    alt: 'Hem with braided silk dori and hand-twisted tassels'
   },
   {
     id: 'red-gold',
-    label: 'Red with gold work',
+    label: 'Crimson & Gold',
     image: 'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-aangi-red-flatlay.jpg?v=1793120643&width=1400',
-    alt: 'Red aangi blouse with gold gota-patti sun motifs laid flat'
+    alt: 'Crimson red aangi blouse with gold gota embroidery flatlay'
   },
   {
     id: 'styled-with',
-    label: 'Styled with',
+    label: 'Styled Ensemble',
     image: 'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-teal-set.jpg?v=1793113052&width=1400',
-    alt: 'Pink aangi with the dark teal gota-patti lehenga skirt'
+    alt: 'Aangi paired with flared peacock teal gota lehenga'
   }
 ];
 
@@ -46,70 +47,83 @@ const AangiDetailDeepDive = () => {
   const currentView = AANGI_VIEWS.find((v) => v.id === activeTab) || AANGI_VIEWS[0];
 
   return (
-    <section className="v3 v3-explore" aria-label="The Gota Patti Aangi">
-      <div className="v3-wrap v3-explore__grid">
-        {/* Left Visual: Stacked Cards Effect */}
-        <div className="v3-explore__stack">
-          <div className="v3-stack-card back-card" aria-hidden="true">
-            <img
-              src="https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-aangi-sun-motif.jpg?v=1793113049&width=1400"
-              alt=""
-            />
+    <section className="labiii-aangi-spotlight" aria-label="The Gota Patti Aangi Spotlight">
+      <div className="container">
+        <div className="spotlight-grid">
+          {/* Left Media Stage */}
+          <div className="spotlight-visual-stage">
+            <div className="visual-frame-container">
+              <img
+                src={currentView.image}
+                alt={currentView.alt}
+                className="main-view-image"
+                key={currentView.id}
+              />
+              <div className="visual-detail-badge">
+                <Sparkles size={13} className="badge-spark" />
+                <span>Active View: {currentView.label}</span>
+              </div>
+            </div>
           </div>
-          <div className="v3-stack-card main-card">
-            <img
-              src={currentView.image}
-              alt={currentView.alt}
-              className="v3-explore__img"
-              key={currentView.id}
-            />
-          </div>
-        </div>
 
-        {/* Right Details Info matching Screenshot 7 */}
-        <div className="v3-explore__info">
-          <p className="v3-eyebrow">Look closer</p>
-          <h2 className="v3-h2">The Gota Patti Aangi</h2>
-          <p className="v3-explore__price">
-            From <b>Rs. 2,999.00</b> · price varies by option
-          </p>
+          {/* Right Editorial Info */}
+          <div className="spotlight-content-info">
+            <div className="spotlight-eyebrow-pill">
+              <span>ATELIER MASTERPIECE · GOTA PATTI COUTURE</span>
+            </div>
 
-          <p className="v3-explore__desc">
-            Switch views to see the garment itself: full piece, gota work, patchwork, ties and the red colourway.
-          </p>
+            <h2 className="spotlight-heading">The Heirloom Rajputi Aangi</h2>
 
-          {/* 6 View Buttons */}
-          <div className="v3-view-buttons-grid">
-            {AANGI_VIEWS.map((item) => (
-              <button
-                key={item.id}
-                className={`v3-view-pill ${activeTab === item.id ? 'active' : ''}`}
-                onClick={() => setActiveTab(item.id)}
-                type="button"
+            <div className="spotlight-price-row">
+              <span className="price-tag">From ₹2,999</span>
+              <span className="price-note">· Tailored to measure or ready-to-wear</span>
+            </div>
+
+            <p className="spotlight-description">
+              The soul of royal Rajputana dressing. Featuring a structured sweetheart bodice, hand-appliqued lappe gota flowers, and artisanal silk dori ties. Designed with 2-inch interior margins for effortless alteration.
+            </p>
+
+            {/* View Selector Pills */}
+            <div className="spotlight-tabs-section">
+              <span className="tabs-label">Inspect Garment Angles:</span>
+              <div className="tabs-pills-wrap">
+                {AANGI_VIEWS.map((item) => (
+                  <button
+                    key={item.id}
+                    className={`view-selector-pill ${activeTab === item.id ? 'is-active' : ''}`}
+                    onClick={() => setActiveTab(item.id)}
+                    type="button"
+                  >
+                    {activeTab === item.id && <Check size={12} className="check-icon" />}
+                    <span>{item.label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="spotlight-actions-row">
+              <Link to="/collections/aangi-blouses" className="btn-spotlight-primary">
+                <span>VIEW THIS SILHOUETTE</span>
+                <ArrowRight size={15} />
+              </Link>
+              <a
+                href="https://wa.me/917665022710?text=Hi+Labiii%2C+I+am+interested+in+The+Gota+Patti+Aangi+bespoke+order"
+                target="_blank"
+                rel="noreferrer"
+                className="btn-spotlight-whatsapp"
               >
-                {item.label}
-              </button>
-            ))}
-          </div>
+                <MessageCircle size={15} />
+                <span>BESPOKE STYLING</span>
+              </a>
+            </div>
 
-          {/* Action CTAs */}
-          <div className="v3-explore__actions">
-            <Link to="/collections/aangi-blouses" className="v3-btn v3-btn--solid">
-              VIEW THIS PIECE
-            </Link>
-            <a
-              href="https://wa.me/917665022710?text=Hi+Labiii%2C+I+am+interested+in+The+Gota+Patti+Aangi"
-              target="_blank"
-              rel="noreferrer"
-              className="v3-btn v3-btn--ghost"
-            >
-              ASK ON WHATSAPP
-            </a>
+            <div className="spotlight-guarantee-list">
+              <span>✦ Pure Mulberry Silk &amp; Hand-Loomed Cotton Lining</span>
+              <span>✦ 2-Inch Internal Margins for Custom Alterations</span>
+              <span>✦ Authentic Jaipur Lappe Gota Work</span>
+            </div>
           </div>
-
-          <p className="v3-explore__fine">
-            Blouse only unless your selected option says set. Colour may vary slightly on screen.
-          </p>
         </div>
       </div>
     </section>

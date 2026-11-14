@@ -1,104 +1,110 @@
 import React, { useState } from 'react';
-import { Pause, Play } from 'lucide-react';
+import { Pause, Play, Sparkles } from 'lucide-react';
 import './SpiritOfRajasthan.scss';
 
 const SpiritOfRajasthan = () => {
   const [isPlaying, setIsPlaying] = useState(true);
 
   return (
-    <section className="v3 v3-spirit" aria-label="The Spirit of Rajasthan">
-      <div className="v3-wrap">
-        {/* Top Header matching Screenshot 4 */}
-        <div className="v3-head v3-head--center">
-          <div className="v3-ornament" aria-hidden="true">
-            <span className="v3-line-left" />
-            <span className="v3-star">✦</span>
-            <span className="v3-line-right" />
+    <section className="labiii-spirit-section" aria-label="The Spirit of Rajasthan">
+      <div className="spirit-radial-glow" aria-hidden="true" />
+
+      <div className="container">
+        {/* Section Header */}
+        <div className="spirit-section-header">
+          <div className="header-ornament" aria-hidden="true">
+            <span className="ornament-line" />
+            <span className="ornament-star">✦</span>
+            <span className="ornament-line" />
           </div>
-          <p className="v3-eyebrow">Real Labiii footage</p>
-          <h2 className="v3-h2">The Spirit of Rajasthan</h2>
-          <p className="v3-lede">
-            Tradition in every silhouette. A new story in every style.
+          <span className="spirit-eyebrow">Atelier Archive · Jaipur, Rajasthan</span>
+          <h2 className="spirit-heading">The Spirit of Rajasthan</h2>
+          <p className="spirit-subtext">
+            Centuries of royal heritage, hand-beaten gold wire, and authentic Mewar silhouettes sculpted in our Jaipur studio.
           </p>
         </div>
 
-        {/* 3-Column Stage matching Screenshot 5 */}
-        <div className="v3-spirit__stage">
-          {/* Left Column */}
-          <div className="v3-spirit__col v3-spirit__col--l">
-            <figure className="v3-tile">
-              <div className="v3-media">
+        {/* 3-Column Editorial Stage */}
+        <div className="spirit-editorial-stage">
+          {/* Left Column: Heritage City & Motif */}
+          <div className="spirit-side-col col-left">
+            <figure className="spirit-craft-tile">
+              <div className="tile-image-frame">
                 <img
                   src="https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-pink-city-gate.jpg?v=1793113054&width=1400"
-                  alt="A lit city gate in Jaipur at night"
+                  alt="Jaipur illuminated royal gate at night"
                   loading="lazy"
                 />
               </div>
-              <figcaption>
-                <b>Pink City nights</b>
-                <span>Jaipur's gates and lights, filmed by our team.</span>
+              <figcaption className="tile-caption">
+                <strong className="caption-title">Pink City Nights</strong>
+                <span className="caption-desc">Jaipur's illuminated gates and heritage monuments inspire our festive palette.</span>
               </figcaption>
             </figure>
 
-            <figure className="v3-tile">
-              <div className="v3-media">
+            <figure className="spirit-craft-tile compact-tile">
+              <div className="tile-image-frame">
                 <img
                   src="https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-aangi-sun-motif.jpg?v=1793113049&width=1400"
-                  alt="Gota-patti sun motif on aangi"
+                  alt="Gota patti sun medallion embroidery detail"
                   loading="lazy"
                 />
               </div>
             </figure>
           </div>
 
-          {/* Center Jharokha Arch with Portrait */}
-          <div className="v3-spirit__center">
-            <div className="v3-spirit__arch-wrapper">
-              <div className="v3-arch v3-arch--270">
+          {/* Center Stage: Royal Rajputana Portrait */}
+          <div className="spirit-center-stage">
+            <div className="center-stage-wrapper">
+              <div className="center-photo-frame">
                 <img
                   src="https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-odhni-portrait.jpg?v=1793113048&width=1400"
-                  alt="Portrait in a red odhni with gota border, styled by The Baisa"
-                  className="v3-center-portrait"
+                  alt="Editorial portrait of a Rajasthani bride in red odhni with pure gota borders"
+                  className="center-portrait-img"
+                  loading="lazy"
                 />
+                <div className="center-photo-gradient" />
+
+                {/* Pause/Play Ambient Button */}
+                <button
+                  className="center-play-btn"
+                  onClick={() => setIsPlaying(!isPlaying)}
+                  aria-label={isPlaying ? 'Pause ambient view' : 'Play ambient view'}
+                  type="button"
+                >
+                  {isPlaying ? <Pause size={14} /> : <Play size={14} />}
+                </button>
+
+                {/* Center Badge */}
+                <div className="center-craft-badge">
+                  <span className="badge-hallmark">✦ Labiii Heritage</span>
+                  <span className="badge-title">Pure Silk Odhni & Gota Kinari</span>
+                </div>
               </div>
-              {/* Gold Arch Outline */}
-              <div className="v3-outline" aria-hidden="true">
-                <svg viewBox="0 0 200 270" preserveAspectRatio="none" focusable="false">
-                  <path d="M0,270 L0,112 L10,112 C0.90,107.95 5.57,77.92 15.19,78.63 C8.03,71.58 21.61,44.39 30.28,48.42 C25.85,39.35 47.05,17.57 53.83,24.22 C52.48,14.20 79.29,-0.10 83.63,8.33 C85.27,-1.04 114.73,-1.04 116.37,8.33 C120.71,-0.10 147.52,14.20 146.17,24.22 C152.95,17.57 174.15,39.35 169.72,48.42 C178.39,44.39 191.97,71.58 184.81,78.63 C194.43,77.92 199.10,107.95 190,112 L200,112 L200,270 Z" />
-                </svg>
-              </div>
-              <button
-                className="v3-play"
-                onClick={() => setIsPlaying(!isPlaying)}
-                aria-label={isPlaying ? 'Pause video' : 'Play video'}
-                type="button"
-              >
-                {isPlaying ? <Pause size={14} /> : <Play size={14} />}
-              </button>
             </div>
           </div>
 
-          {/* Right Column */}
-          <div className="v3-spirit__col v3-spirit__col--r">
-            <figure className="v3-tile">
-              <div className="v3-media">
+          {/* Right Column: Hand-Embroidered Zardozi & Studio Silhouette */}
+          <div className="spirit-side-col col-right">
+            <figure className="spirit-craft-tile">
+              <div className="tile-image-frame">
                 <img
                   src="https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-gota-handwork-v2.jpg?v=1793114321&width=1400"
-                  alt="Gota-patti being placed by hand on bandhani fabric"
+                  alt="Artisan applying gota patti ribbons by hand onto bandhani silk"
                   loading="lazy"
                 />
               </div>
-              <figcaption>
-                <b>Gota, by hand</b>
-                <span>Gota-patti placed by hand on bandhani during a Labiii production sprint.</span>
+              <figcaption className="tile-caption">
+                <strong className="caption-title">Hand-Applied Gota Patti</strong>
+                <span className="caption-desc">Each gold leaf and petal is pressed and stitched by hand in our Sanganer atelier.</span>
               </figcaption>
             </figure>
 
-            <figure className="v3-tile">
-              <div className="v3-media">
+            <figure className="spirit-craft-tile compact-tile">
+              <div className="tile-image-frame">
                 <img
                   src="https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-teal-set.jpg?v=1793113052&width=1400"
-                  alt="Teal lehenga with pink aangi in studio"
+                  alt="Handcrafted peacock teal lehenga ensemble"
                   loading="lazy"
                 />
               </div>

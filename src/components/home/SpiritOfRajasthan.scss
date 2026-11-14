@@ -1,229 +1,242 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
-.v3-spirit {
+.labiii-spirit-section {
   position: relative;
-  background: radial-gradient(90% 70% at 50% 40%, #4A1220 0%, #3A0D18 55%, #260710 100%);
-  color: #F6EADA;
-  padding-block: clamp(64px, 8vw, 120px);
+  background: linear-gradient(180deg, #3E0E18 0%, #2B0710 100%);
+  color: #FCFBF7;
+  padding: clamp(60px, 8vw, 110px) 0;
   overflow: hidden;
-  isolation: isolate;
+  border-bottom: 1px solid rgba(194, 155, 70, 0.2);
 
-  &:before {
-    content: "";
+  .spirit-radial-glow {
     position: absolute;
     inset: 0;
-    background: var(--v3-jaali) center / 52px 52px;
-    opacity: 0.06;
-    filter: invert(1);
-    z-index: -1;
+    background: radial-gradient(circle at 50% 40%, rgba(194, 155, 70, 0.12) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 1;
   }
 
-  .v3-wrap {
-    max-width: $container-max-width;
-    margin: 0 auto;
-    padding-inline: clamp(16px, 4vw, 64px);
+  .container {
+    position: relative;
+    z-index: 2;
   }
 
-  // Header Center
-  .v3-head--center {
+  // Header
+  .spirit-section-header {
     text-align: center;
     max-width: 680px;
-    margin: 0 auto clamp(36px, 5vw, 60px);
+    margin: 0 auto clamp(36px, 5vw, 64px);
 
-    .v3-ornament {
-      display: flex;
+    .header-ornament {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
       gap: 12px;
       margin-bottom: 12px;
 
-      .v3-line-left,
-      .v3-line-right {
-        width: 32px;
+      .ornament-line {
+        display: inline-block;
+        width: 36px;
         height: 1px;
-        background-color: var(--v3-gold-soft);
-        opacity: 0.6;
+        background: linear-gradient(90deg, transparent, $color-gold);
       }
 
-      .v3-star {
-        font-size: 14px;
-        color: var(--v3-gold-soft);
-        line-height: 1;
+      .ornament-star {
+        color: $color-gold;
+        font-size: 13px;
       }
     }
 
-    .v3-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
+    .spirit-eyebrow {
+      display: block;
       font-family: $font-body;
       font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.24em;
+      font-weight: $fw-semibold;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--v3-gold-soft);
-      margin: 0 0 10px;
-
-      &:before {
-        content: "";
-        width: 7px;
-        height: 7px;
-        transform: rotate(45deg);
-        border: 1px solid currentColor;
-        flex: none;
-      }
+      color: $color-gold-light;
+      margin-bottom: 8px;
     }
 
-    .v3-h2 {
+    .spirit-heading {
       font-family: $font-heading;
-      font-size: clamp(38px, 4.8vw, 64px);
-      font-weight: 400;
-      line-height: 1.05;
-      color: #FBF1E2;
+      font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+      color: #FCFBF7;
       margin: 0 0 12px;
+      letter-spacing: 0.02em;
     }
 
-    .v3-lede {
+    .spirit-subtext {
       font-family: $font-body;
-      font-size: 16px;
-      color: rgba(246, 234, 218, 0.78);
+      font-size: 15px;
+      line-height: 1.6;
+      color: rgba(252, 251, 247, 0.8);
       margin: 0;
     }
   }
 
   // 3-Column Stage
-  .v3-spirit__stage {
+  .spirit-editorial-stage {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr) minmax(0, 1fr);
-    gap: clamp(16px, 2.2vw, 36px);
+    grid-template-columns: 1fr 1.35fr 1fr;
+    gap: clamp(20px, 2.5vw, 36px);
     align-items: center;
 
     @include respond-to(laptop) {
       grid-template-columns: 1fr;
-      gap: 32px;
+      gap: 36px;
+      max-width: 580px;
+      margin: 0 auto;
     }
   }
 
-  .v3-spirit__col {
+  // Side Columns
+  .spirit-side-col {
     display: flex;
     flex-direction: column;
-    gap: clamp(16px, 2.2vw, 28px);
+    gap: 20px;
 
-    .v3-tile {
+    .spirit-craft-tile {
       margin: 0;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(194, 155, 70, 0.2);
+      border-radius: $radius-md;
+      overflow: hidden;
+      transition: all 0.35s ease;
 
-      .v3-media {
-        border-radius: $radius-sm;
+      &:hover {
+        border-color: $color-gold;
+        transform: translateY(-3px);
+      }
+
+      .tile-image-frame {
+        width: 100%;
+        height: 220px;
         overflow: hidden;
-        aspect-ratio: 4 / 3;
-        background-color: rgba(38, 7, 16, 0.4);
+        background-color: rgba(0, 0, 0, 0.3);
 
         img {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          display: block;
-          transition: transform 0.6s var(--v3-ease);
+          transition: transform 0.5s ease;
+        }
 
-          &:hover {
-            transform: scale(1.03);
-          }
+        &:hover img {
+          transform: scale(1.05);
         }
       }
 
-      figcaption {
-        padding: 10px 4px 0;
+      &.compact-tile .tile-image-frame {
+        height: 160px;
+      }
 
-        b {
-          display: block;
+      .tile-caption {
+        padding: 14px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        .caption-title {
           font-family: $font-heading;
-          font-size: 16px;
+          font-size: 17px;
+          color: $color-gold-light;
           font-weight: 500;
-          color: #FBF1E2;
-          margin-bottom: 2px;
         }
 
-        span {
+        .caption-desc {
           font-family: $font-body;
           font-size: 12.5px;
-          color: rgba(246, 234, 218, 0.7);
-          line-height: 1.4;
-          display: block;
+          line-height: 1.5;
+          color: rgba(252, 251, 247, 0.75);
         }
       }
     }
   }
 
-  // Center Arch Portrait
-  .v3-spirit__center {
-    position: relative;
-    padding: 14px;
-    justify-self: center;
-    width: 100%;
-    max-width: 420px;
+  // Center Stage
+  .spirit-center-stage {
+    .center-stage-wrapper {
+      position: relative;
+    }
 
-    .v3-spirit__arch-wrapper {
+    .center-photo-frame {
       position: relative;
       width: 100%;
-      aspect-ratio: 200 / 270;
+      height: clamp(480px, 58vh, 600px);
+      border-radius: 28px 28px 12px 12px;
+      overflow: hidden;
+      border: 1.5px solid rgba(194, 155, 70, 0.35);
+      box-shadow: 0 24px 64px -16px rgba(0, 0, 0, 0.6);
+      background-color: rgba(0, 0, 0, 0.4);
 
-      .v3-arch--270 {
+      .center-portrait-img {
         width: 100%;
         height: 100%;
-        -webkit-mask: var(--v3-arch-270) center / 100% 100% no-repeat;
-        mask: var(--v3-arch-270) center / 100% 100% no-repeat;
-        overflow: hidden;
-        filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
+        object-fit: cover;
+        object-position: center top;
+        transition: transform 0.65s ease;
 
-        .v3-center-portrait {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: center 30%;
-          display: block;
+        &:hover {
+          transform: scale(1.03);
         }
       }
 
-      .v3-outline {
+      .center-photo-gradient {
         position: absolute;
-        inset: -12px;
+        inset: 0;
+        background: linear-gradient(180deg, transparent 55%, rgba(43, 14, 22, 0.88) 100%);
         pointer-events: none;
-
-        svg {
-          width: 100%;
-          height: 100%;
-          overflow: visible;
-
-          path {
-            fill: none;
-            stroke: var(--v3-gold-soft);
-            stroke-width: 1.2;
-            vector-effect: non-scaling-stroke;
-          }
-        }
       }
 
-      .v3-play {
+      .center-play-btn {
         position: absolute;
-        right: 12%;
-        bottom: 8%;
-        z-index: 5;
-        width: 36px;
-        height: 36px;
+        bottom: 22px;
+        right: 22px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
-        background: rgba(34, 26, 22, 0.7);
-        backdrop-filter: blur(4px);
-        color: #FFFDF9;
-        border: 1px solid rgba(255, 255, 255, 0.3);
+        background-color: rgba(28, 24, 21, 0.65);
+        backdrop-filter: blur(8px);
+        color: #FCFBF7;
+        border: 1px solid rgba(194, 155, 70, 0.35);
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        transition: background $transition-fast;
+        z-index: 4;
+        transition: all $transition-fast;
 
         &:hover {
-          background: var(--v3-maroon);
+          background-color: $color-gold;
+          color: #2B0710;
+          transform: scale(1.08);
+        }
+      }
+
+      .center-craft-badge {
+        position: absolute;
+        bottom: 22px;
+        left: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        z-index: 3;
+
+        .badge-hallmark {
+          font-family: $font-body;
+          font-size: 10.5px;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+          color: $color-gold;
+          font-weight: $fw-semibold;
+        }
+
+        .badge-title {
+          font-family: $font-heading;
+          font-size: 18px;
+          color: #FFFFFF;
+          font-weight: 500;
         }
       }
     }

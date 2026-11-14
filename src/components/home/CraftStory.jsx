@@ -1,75 +1,103 @@
 import React, { useState } from 'react';
-import { Pause, Play } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Pause, Play, Sparkles, ArrowRight } from 'lucide-react';
 import './CraftStory.scss';
 
 const CraftStory = () => {
   const [isPlaying, setIsPlaying] = useState(true);
 
   return (
-    <section className="v3 v3-making" aria-label="Chapter 1 · The Inspiration">
-      <div className="v3-wrap">
-        <div className="v3-making__grid">
-          {/* Left Column: Roman Numeral I & Text matching Screenshot 8 */}
-          <div className="v3-making__copy">
-            <span className="v3-chapter-num">I</span>
-            <p className="v3-eyebrow">Chapter 1 · The Inspiration</p>
-            <h2 className="v3-h2">Ideas start in Jaipur</h2>
-            <p className="v3-making__lede">
-              Our designs start with Jaipur itself: its gates, lights and festive colour. Ideas are sketched in our studio.
+    <section className="labiii-craft-journal" aria-label="The Labiii Craft Journal">
+      <div className="container">
+        <div className="journal-editorial-grid">
+          {/* Left Narrative Column */}
+          <div className="journal-copy-col">
+            <div className="journal-chapter-tag">
+              <Sparkles size={12} className="tag-spark" />
+              <span>THE ATELIER JOURNAL · CHAPTER I</span>
+            </div>
+
+            <h2 className="journal-title">
+              Conceived in the <em>Pink City</em>
+            </h2>
+
+            <p className="journal-lede">
+              Every Labiii silhouette begins as a conversation between Mewar heritage and modern life. Ideas sketched in our Sanganer atelier reflect the architecture, desert light, and celebratory soul of Rajasthan.
             </p>
 
-            <ul className="v3-making__bullets">
-              <li>
-                <span className="diamond-bullet">◇</span>
-                <span>Sketching in our own studio</span>
-              </li>
-              <li>
-                <span className="diamond-bullet">◇</span>
-                <span>Reference boards for silhouette and colour</span>
-              </li>
-            </ul>
+            <div className="journal-craft-pillars">
+              <div className="pillar-row">
+                <span className="pillar-num">01</span>
+                <div>
+                  <strong className="pillar-name">Archival Jaipur Sketching</strong>
+                  <p className="pillar-desc">
+                    Silhouettes drafted on handmade paper, capturing royal court cholis and royal wedding poshak cuts.
+                  </p>
+                </div>
+              </div>
+
+              <div className="pillar-row">
+                <span className="pillar-num">02</span>
+                <div>
+                  <strong className="pillar-name">Heirloom Gota Patti &amp; Zari</strong>
+                  <p className="pillar-desc">
+                    Genuine gold and silver ribbons pressed, folded, and stitched petal by petal by generations of karigars.
+                  </p>
+                </div>
+              </div>
+
+              <div className="pillar-row">
+                <span className="pillar-num">03</span>
+                <div>
+                  <strong className="pillar-name">Tailored for Modern Comfort</strong>
+                  <p className="pillar-desc">
+                    Soft breathable cotton inner linings and generous 2-inch interior margins for a bespoke fit.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <Link to="/about" className="journal-explore-link">
+              <span>READ THE COMPLETE ATELIER STORY</span>
+              <ArrowRight size={14} />
+            </Link>
           </div>
 
-          {/* Center Arch Visual: Pink City Gate */}
-          <div className="v3-making__center">
-            <figure className="v3-making-figure">
-              <div className="v3-making__arch-media">
-                <div className="v3-arch v3-arch--270">
-                  <img
-                    src="https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-pink-city-gate.jpg?v=1793113054&width=1400"
-                    alt="Pink City gates illuminated at night, filmed by The Baisa team in Jaipur"
-                    className="v3-making__img"
-                  />
-                </div>
+          {/* Right Photographic Essay */}
+          <div className="journal-visual-col">
+            <div className="journal-photo-stage">
+              {/* Main Visual: City Gate Illuminated */}
+              <div className="photo-card main-city-card">
+                <img
+                  src="https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-pink-city-gate.jpg?v=1793113054&width=1400"
+                  alt="Jaipur illuminated royal gate at night"
+                  loading="lazy"
+                />
                 <button
-                  className="v3-play"
+                  className="photo-play-toggle"
                   onClick={() => setIsPlaying(!isPlaying)}
-                  aria-label={isPlaying ? 'Pause video' : 'Play video'}
+                  aria-label={isPlaying ? 'Pause ambient clip' : 'Play ambient clip'}
                   type="button"
                 >
-                  {isPlaying ? <Pause size={14} /> : <Play size={14} />}
+                  {isPlaying ? <Pause size={13} /> : <Play size={13} />}
                 </button>
+                <div className="photo-bottom-caption">
+                  <span>Jaipur Royal Gates · Architectural Inspiration</span>
+                </div>
               </div>
-              <figcaption className="v3-caption-below">
-                Filmed by the Labiii team in Jaipur.
-              </figcaption>
-            </figure>
-          </div>
 
-          {/* Right Visual: Designer Studio Sketching */}
-          <div className="v3-making__right">
-            <figure className="v3-making-figure">
-              <div className="v3-making__rect-media">
+              {/* Offset Visual: Designer Sketching at Studio */}
+              <div className="photo-card offset-studio-card">
                 <img
                   src="https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-unit-sketch.jpg?v=1793113055&width=1400"
-                  alt="Design sketching in the studio with moodboard"
-                  className="v3-making__img"
+                  alt="Designer sketching Rajputi silhouettes at Labiii Studio"
+                  loading="lazy"
                 />
+                <div className="photo-studio-tag">
+                  <span>Studio Sketching &amp; Moodboard</span>
+                </div>
               </div>
-              <figcaption className="v3-caption-below">
-                Design sketching in the studio.
-              </figcaption>
-            </figure>
+            </div>
           </div>
         </div>
       </div>

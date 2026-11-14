@@ -9,6 +9,7 @@ import EverydayCottonEdit from '../components/home/EverydayCottonEdit';
 import CraftStory from '../components/home/CraftStory';
 import CustomRentalBanner from '../components/home/CustomRentalBanner';
 import ShoppingSupportStrip from '../components/home/ShoppingSupportStrip';
+import TestimonialsSection from '../components/home/TestimonialsSection';
 import FaqSection from '../components/home/FaqSection';
 import StudioVisit from '../components/home/StudioVisit';
 
@@ -18,25 +19,25 @@ const HomePage = ({ onQuickView }) => {
       {/* 01. Royal Festive Edit Hero Banner */}
       <HeroBanner />
 
-      {/* 02. The Royal Wardrobe — Five Ways to Wear Labiii */}
+      {/* 02. The Royal Wardrobe — Five Signatures of Labiii */}
       <CategoryGrid />
 
-      {/* 03. The Spirit of Rajasthan — Atelier Stills & Heritage Footage */}
+      {/* 03. The Spirit of Rajasthan — Atelier Stills & Heritage Archive */}
       <SpiritOfRajasthan />
 
-      {/* 04. Seen on Labiii — Shoppable Video Reels */}
+      {/* 04. Seen on Labiii — Runway & Shoppable Video Reels */}
       <ReelShowcase />
 
       {/* 05. The Gota Patti Aangi — Interactive Craft Deep Dive */}
       <AangiDetailDeepDive />
 
-      {/* 06. Fresh From The Unit & Royal Bestsellers */}
+      {/* 06. Fresh From The Atelier & Royal Bestsellers */}
       <FeaturedCollection onQuickView={onQuickView} />
 
-      {/* 07. Cotton for Every Day — Handblock Prints & Under ₹1,000 Edit */}
+      {/* 07. Cotton for Every Day — Handblock Prints & Daily Luxe */}
       <EverydayCottonEdit onQuickView={onQuickView} />
 
-      {/* 08. From Jaipur, With Character — Sanganer Craftsmanship Story */}
+      {/* 08. The Atelier Journal — Chapter I: Conceived in the Pink City */}
       <CraftStory />
 
       {/* 09. For Your Occasion — Bespoke Couture & Rajputi Poshak Rentals */}
@@ -45,10 +46,13 @@ const HomePage = ({ onQuickView }) => {
       {/* 10. Shopping Support & Fit Consultation */}
       <ShoppingSupportStrip />
 
-      {/* 11. Questions, Answered — FAQ Accordion */}
+      {/* 11. Voices of Royal Patronage — Client Testimonials */}
+      <TestimonialsSection />
+
+      {/* 12. Questions, Answered — FAQ Accordion */}
       <FaqSection />
 
-      {/* 12. Flagship Studio Visit — 46 Sachivalaya Vihar, Jaipur */}
+      {/* 13. Flagship Atelier Visit — 46 Sachivalaya Vihar, Jaipur */}
       <StudioVisit />
     </main>
   );

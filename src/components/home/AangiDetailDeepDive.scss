@@ -1,224 +1,250 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
-.v3-explore {
-  background-color: var(--v3-paper);
-  padding-block: clamp(56px, 7vw, 100px);
-  overflow: hidden;
+.labiii-aangi-spotlight {
+  padding: clamp(60px, 8vw, 104px) 0;
+  background-color: #FAF7F2;
+  border-bottom: 1px solid rgba(194, 155, 70, 0.16);
 
-  .v3-wrap {
-    max-width: $container-max-width;
-    margin: 0 auto;
-    padding-inline: clamp(16px, 4vw, 64px);
-  }
-
-  .v3-explore__grid {
+  .spotlight-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-    gap: clamp(28px, 5vw, 72px);
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(36px, 5vw, 72px);
     align-items: center;
 
     @include respond-to(laptop) {
-      grid-template-columns: minmax(0, 1fr);
-      gap: 36px;
+      grid-template-columns: 1fr;
+      gap: 40px;
     }
   }
 
-  // Left Stacked Cards
-  .v3-explore__stack {
-    position: relative;
-    max-width: 540px;
-    margin: 0 auto;
-    width: 100%;
-
-    .back-card {
-      position: absolute;
-      top: -12px;
-      right: -12px;
-      bottom: 12px;
-      left: 12px;
-      background-color: #EFE4D1;
-      border: 1px solid var(--v3-line);
-      border-radius: $radius-sm;
-      transform: rotate(2deg);
-      z-index: 1;
-      overflow: hidden;
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0.35;
-        filter: grayscale(0.5);
-      }
-    }
-
-    .main-card {
+  // Left Visual Stage
+  .spotlight-visual-stage {
+    .visual-frame-container {
       position: relative;
-      z-index: 2;
+      width: 100%;
+      height: clamp(440px, 52vw, 580px);
       background-color: #FFFFFF;
-      border: 1px solid var(--v3-line);
-      border-radius: $radius-sm;
-      box-shadow: 0 16px 40px rgba(58, 13, 24, 0.12);
-      aspect-ratio: 1 / 1;
+      border: 1px solid rgba(194, 155, 70, 0.22);
+      border-radius: $radius-lg;
+      box-shadow: 0 16px 40px -8px rgba(43, 14, 22, 0.1);
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: clamp(16px, 3vw, 32px);
+      padding: 24px;
 
-      .v3-explore__img {
-        width: 100%;
-        height: 100%;
+      .main-view-image {
+        max-width: 90%;
+        max-height: 90%;
         object-fit: contain;
-        display: block;
-        transition: transform 0.4s var(--v3-ease);
+        animation: fadeInView 0.35s ease;
+        transition: transform 0.4s ease;
 
         &:hover {
-          transform: scale(1.03);
+          transform: scale(1.04);
+        }
+      }
+
+      .visual-detail-badge {
+        position: absolute;
+        bottom: 16px;
+        left: 16px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 12px;
+        background-color: rgba(250, 247, 242, 0.94);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(194, 155, 70, 0.25);
+        border-radius: $radius-pill;
+        font-family: $font-body;
+        font-size: 11.5px;
+        font-weight: $fw-medium;
+        color: $color-primary;
+
+        .badge-spark {
+          color: $color-gold;
         }
       }
     }
   }
 
-  // Right Info Column
-  .v3-explore__info {
-    .v3-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
+  // Right Content Info
+  .spotlight-content-info {
+    .spotlight-eyebrow-pill {
+      display: inline-block;
       font-family: $font-body;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.24em;
+      font-size: 10.5px;
+      font-weight: $fw-semibold;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--v3-gold-ink);
-      margin: 0 0 10px;
-
-      &:before {
-        content: "";
-        width: 7px;
-        height: 7px;
-        transform: rotate(45deg);
-        border: 1px solid currentColor;
-        flex: none;
-      }
+      color: $color-terracotta;
+      margin-bottom: 14px;
     }
 
-    .v3-h2 {
+    .spotlight-heading {
       font-family: $font-heading;
-      font-size: clamp(34px, 4.2vw, 54px);
-      font-weight: 500;
-      line-height: 1.05;
-      color: var(--v3-ink);
-      margin: 0 0 10px;
+      font-size: clamp(2.2rem, 3.4vw, 3.2rem);
+      color: $color-primary;
+      margin: 0 0 12px;
+      line-height: 1.15;
     }
 
-    .v3-explore__price {
-      font-family: $font-body;
-      font-size: 14.5px;
-      color: var(--v3-muted);
-      margin: 0 0 18px;
+    .spotlight-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 18px;
 
-      b {
+      .price-tag {
         font-family: $font-heading;
-        font-size: 23px;
-        font-weight: 500;
-        color: var(--v3-maroon);
+        font-size: 24px;
+        font-weight: 600;
+        color: $color-primary;
+      }
+
+      .price-note {
+        font-family: $font-body;
+        font-size: 13.5px;
+        color: $color-text-muted;
       }
     }
 
-    .v3-explore__desc {
+    .spotlight-description {
       font-family: $font-body;
       font-size: 15px;
-      line-height: 1.65;
-      color: var(--v3-muted);
-      margin: 0 0 24px;
+      line-height: 1.7;
+      color: $color-text-secondary;
+      margin-bottom: 26px;
     }
 
-    // 6 View Buttons Grid
-    .v3-view-buttons-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 28px;
+    // Tabs
+    .spotlight-tabs-section {
+      margin-bottom: 30px;
 
-      .v3-view-pill {
-        padding: 9px 18px;
-        background-color: #FFFFFF;
-        border: 1px solid var(--v3-line);
-        border-radius: $radius-sm;
+      .tabs-label {
+        display: block;
         font-family: $font-body;
-        font-size: 12.5px;
-        font-weight: $fw-medium;
-        color: var(--v3-ink);
-        cursor: pointer;
-        transition: all $transition-fast;
-
-        &:hover {
-          border-color: var(--v3-maroon);
-          color: var(--v3-maroon);
-        }
-
-        &.active {
-          background-color: var(--v3-maroon);
-          border-color: var(--v3-maroon);
-          color: #FFFDF9;
-        }
-      }
-    }
-
-    // Action CTAs
-    .v3-explore__actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 20px;
-
-      .v3-btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 13px 26px;
-        font-family: $font-body;
-        font-size: 12px;
+        font-size: 11px;
         font-weight: $fw-semibold;
         letter-spacing: 0.14em;
         text-transform: uppercase;
-        text-decoration: none;
-        border-radius: $radius-sm;
-        transition: all $transition-fast;
+        color: $color-gold-ink;
+        margin-bottom: 10px;
+      }
 
-        &--solid {
-          background-color: var(--v3-maroon);
-          color: #FFFDF9;
-          border: 1px solid var(--v3-maroon);
+      .tabs-pills-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+
+        .view-selector-pill {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          background-color: #FFFFFF;
+          border: 1px solid rgba(194, 155, 70, 0.28);
+          border-radius: $radius-pill;
+          padding: 8px 14px;
+          font-family: $font-body;
+          font-size: 12px;
+          font-weight: $fw-medium;
+          color: $color-text-secondary;
+          cursor: pointer;
+          transition: all $transition-fast;
 
           &:hover {
-            background-color: var(--v3-wine);
-            border-color: var(--v3-wine);
+            border-color: $color-primary;
+            color: $color-primary;
+            background-color: #FAF7F2;
           }
-        }
 
-        &--ghost {
-          background-color: transparent;
-          color: var(--v3-maroon);
-          border: 1px solid var(--v3-line);
+          &.is-active {
+            background-color: $color-primary;
+            color: #FFFFFF;
+            border-color: $color-primary;
+            box-shadow: 0 4px 12px rgba(84, 20, 33, 0.25);
 
-          &:hover {
-            background-color: var(--v3-ivory);
-            border-color: var(--v3-maroon);
+            .check-icon {
+              color: $color-gold-light;
+            }
           }
         }
       }
     }
 
-    .v3-explore__fine {
-      font-family: $font-body;
-      font-size: 12px;
-      line-height: 1.5;
-      color: var(--v3-muted);
-      margin: 0;
+    // Actions
+    .spotlight-actions-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 26px;
+
+      .btn-spotlight-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: linear-gradient(135deg, $color-primary 0%, #3E0E18 100%);
+        color: #FCFBF7;
+        font-family: $font-body;
+        font-size: 12px;
+        font-weight: $fw-semibold;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 14px 26px;
+        border-radius: $radius-sm;
+        border: 1px solid rgba(194, 155, 70, 0.3);
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: linear-gradient(135deg, #6B1C2E 0%, $color-primary 100%);
+          transform: translateY(-2px);
+          box-shadow: 0 8px 20px rgba(84, 20, 33, 0.3);
+        }
+      }
+
+      .btn-spotlight-whatsapp {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background-color: transparent;
+        color: #1F6B38;
+        font-family: $font-body;
+        font-size: 12px;
+        font-weight: $fw-semibold;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 13px 22px;
+        border-radius: $radius-sm;
+        border: 1px solid rgba(31, 107, 56, 0.35);
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: rgba(31, 107, 56, 0.08);
+          border-color: #1F6B38;
+        }
+      }
+    }
+
+    .spotlight-guarantee-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(194, 155, 70, 0.16);
+
+      span {
+        font-family: $font-body;
+        font-size: 12px;
+        color: $color-text-muted;
+      }
     }
   }
+}
+
+@keyframes fadeInView {
+  from { opacity: 0.6; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
 }

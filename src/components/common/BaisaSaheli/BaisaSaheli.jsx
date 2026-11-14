@@ -3,9 +3,9 @@ import { X, Send, Sparkles, MessageCircle } from 'lucide-react';
 import './BaisaSaheli.scss';
 
 const QUICK_QUESTIONS = [
-  'Help me find an Aangi blouse size',
-  'Can I rent an outfit for a wedding?',
-  'How do custom alterations work?',
+  'Help me find my Rajputi Aangi blouse size',
+  'Can I rent a bridal poshak for 3–7 days?',
+  'How do the 2-inch custom alteration margins work?',
   'Where is the Jaipur flagship studio located?'
 ];
 
@@ -14,7 +14,7 @@ const BaisaSaheli = () => {
   const [messages, setMessages] = useState([
     {
       sender: 'saheli',
-      text: 'Khamma Ghani! I am Labiii Saheli, your personal Jaipur stylist. How may I assist you with sizes, custom poshak, or rental enquiries today?'
+      text: 'Khamma Ghani! Welcome to Labiii. I am your personal Jaipur stylist & couture concierge. How may I assist you with sizes, made-to-measure orders, or bridal rental enquiries today?'
     }
   ]);
   const [inputText, setInputText] = useState('');
@@ -32,7 +32,7 @@ const BaisaSaheli = () => {
         ...prev,
         {
           sender: 'saheli',
-          text: `Thank you for asking! For direct personal styling and custom measurements, our master karigar is available right now on WhatsApp at +91 76650 22710.`
+          text: `Thank you for asking! For bespoke measurements and personal consultations, our master karigar is available right now on WhatsApp at +91 76650 22710.`
         }
       ]);
     }, 700);
@@ -42,12 +42,12 @@ const BaisaSaheli = () => {
     setMessages((prev) => [...prev, { sender: 'user', text: q }]);
     setTimeout(() => {
       let reply = '';
-      if (q.includes('size')) {
-        reply = 'All our Aangi blouses and lehenga skirts feature 2-inch internal margins for easy alteration. We also offer made-to-measure tailoring upon request!';
+      if (q.includes('size') || q.includes('margins')) {
+        reply = 'All Labiii Aangi blouses and lehenga skirts are crafted with 2-inch internal margins for easy alteration. We also offer made-to-measure tailoring upon request!';
       } else if (q.includes('rent')) {
-        reply = 'Yes! We offer 3, 5, or 7-day bridal and poshak rentals across India. Explore our "Rent an Outfit" page or message us on WhatsApp.';
+        reply = 'Yes! We offer 3, 5, or 7-day bridal and festive poshak rentals across India. Explore our "Rent an Outfit" page or message us on WhatsApp for scheduling.';
       } else if (q.includes('studio')) {
-        reply = 'Our flagship studio is at 46 Sachivalaya Vihar, New Sanganer Road, Jaipur, Rajasthan 302020. Open all 7 days from 9:00 AM to 8:00 PM!';
+        reply = 'Our flagship studio is at 46 Sachivalaya Vihar, New Sanganer Road, Jaipur, Rajasthan 302020. Open all 7 days from 10:30 AM to 8:00 PM!';
       } else {
         reply = 'Our team provides complimentary custom fitting and alteration consultation for all heirloom pieces.';
       }
@@ -59,17 +59,17 @@ const BaisaSaheli = () => {
     <div id="baisa-saheli" className="baisa-saheli-root">
       {/* Chat Drawer/Panel */}
       {isOpen && (
-        <div className="bs-panel" role="dialog" aria-label="Baisa Saheli Stylist">
+        <div className="bs-panel" role="dialog" aria-label="Labiii Royal Concierge">
           <div className="bs-head">
             <div className="bs-avatar">✦</div>
             <div>
-              <span className="bs-title">Labiii Saheli</span>
-              <span className="bs-subtitle">Personal Jaipur Stylist &amp; Concierge</span>
+              <span className="bs-title">Labiii Concierge</span>
+              <span className="bs-subtitle">Personal Jaipur Stylist &amp; Advisor</span>
             </div>
             <button
               className="bs-close"
               onClick={() => setIsOpen(false)}
-              aria-label="Close Baisa Saheli"
+              aria-label="Close Concierge"
               type="button"
             >
               <X size={18} />
@@ -84,7 +84,7 @@ const BaisaSaheli = () => {
             ))}
 
             <div className="bs-quick-prompts">
-              <span className="prompts-label">Quick questions:</span>
+              <span className="prompts-label">Quick styling prompts:</span>
               <div className="prompts-pills">
                 {QUICK_QUESTIONS.map((q, idx) => (
                   <button
@@ -120,25 +120,24 @@ const BaisaSaheli = () => {
               rel="noreferrer"
               className="bs-wa-direct"
             >
-              <MessageCircle size={14} /> Chat directly on WhatsApp
+              <MessageCircle size={14} /> Chat directly with Jaipur Stylist
             </a>
           </div>
         </div>
       )}
 
-      {/* Floating Pill Launch Button matching Screenshot 2, 3, 4, 5, 6, 7, 8 */}
+      {/* Floating Pill Launch Button */}
       <button
         className="bs-launch"
         onClick={() => setIsOpen(!isOpen)}
-        aria-label="Ask Labiii Saheli"
+        aria-label="Ask Labiii Concierge"
         type="button"
       >
         <span className="bs-spark">✦</span>
-        <span className="bs-label">Ask Labiii Saheli</span>
+        <span className="bs-label">Ask Labiii Concierge</span>
       </button>
     </div>
   );
 };
 
 export default BaisaSaheli;
-

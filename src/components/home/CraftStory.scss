@@ -1,187 +1,223 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
-.v3-making {
-  background-color: var(--v3-paper);
-  padding-block: clamp(56px, 7vw, 100px);
-  overflow: hidden;
+.labiii-craft-journal {
+  padding: clamp(60px, 8vw, 108px) 0;
+  background-color: #FAF7F2;
+  border-bottom: 1px solid rgba(194, 155, 70, 0.16);
 
-  .v3-wrap {
-    max-width: $container-max-width;
-    margin: 0 auto;
-    padding-inline: clamp(16px, 4vw, 64px);
-  }
-
-  .v3-making__grid {
+  .journal-editorial-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 0.9fr);
-    gap: clamp(20px, 3.2vw, 48px);
+    grid-template-columns: 1.15fr 1fr;
+    gap: clamp(36px, 5vw, 76px);
     align-items: center;
 
     @include respond-to(laptop) {
       grid-template-columns: 1fr;
-      gap: 36px;
+      gap: 48px;
     }
   }
 
-  // Left Column
-  .v3-making__copy {
-    .v3-chapter-num {
-      display: block;
-      font-family: $font-heading;
-      font-size: 56px;
-      font-style: italic;
-      color: var(--v3-gold);
-      line-height: 1;
-      margin-bottom: 12px;
-    }
-
-    .v3-eyebrow {
+  // Left Narrative
+  .journal-copy-col {
+    .journal-chapter-tag {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 7px;
       font-family: $font-body;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.22em;
+      font-size: 10.5px;
+      font-weight: $fw-semibold;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--v3-gold-ink);
-      margin: 0 0 10px;
+      color: $color-terracotta;
+      margin-bottom: 14px;
+
+      .tag-spark {
+        color: $color-gold;
+      }
     }
 
-    .v3-h2 {
+    .journal-title {
       font-family: $font-heading;
-      font-size: clamp(34px, 4.2vw, 52px);
-      font-weight: 500;
-      line-height: 1.05;
-      color: var(--v3-ink);
+      font-size: clamp(2.4rem, 3.8vw, 3.6rem);
+      line-height: 1.12;
+      color: $color-primary;
       margin: 0 0 16px;
+
+      em {
+        font-family: $font-heading;
+        font-style: italic;
+        color: $color-terracotta;
+      }
     }
 
-    .v3-making__lede {
+    .journal-lede {
       font-family: $font-body;
       font-size: 15.5px;
-      line-height: 1.65;
-      color: var(--v3-muted);
-      margin: 0 0 24px;
+      line-height: 1.7;
+      color: $color-text-secondary;
+      margin-bottom: 30px;
     }
 
-    .v3-making__bullets {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+    .journal-craft-pillars {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 18px;
+      margin-bottom: 32px;
 
-      li {
+      .pillar-row {
         display: flex;
-        align-items: center;
-        gap: 10px;
-        font-family: $font-body;
-        font-size: 14px;
-        color: var(--v3-muted);
+        align-items: flex-start;
+        gap: 16px;
 
-        .diamond-bullet {
-          color: var(--v3-gold);
-          font-size: 13px;
+        .pillar-num {
+          font-family: $font-heading;
+          font-size: 18px;
+          font-weight: 600;
+          color: $color-gold-ink;
+          padding-top: 2px;
+          min-width: 24px;
         }
+
+        .pillar-name {
+          font-family: $font-heading;
+          font-size: 17px;
+          font-weight: 600;
+          color: $color-primary;
+          display: block;
+          margin-bottom: 3px;
+        }
+
+        .pillar-desc {
+          font-family: $font-body;
+          font-size: 13.5px;
+          color: $color-text-secondary;
+          line-height: 1.5;
+          margin: 0;
+        }
+      }
+    }
+
+    .journal-explore-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: $font-body;
+      font-size: 12px;
+      font-weight: $fw-semibold;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: $color-primary;
+      padding-bottom: 4px;
+      border-bottom: 1.5px solid $color-primary;
+      transition: all $transition-fast;
+
+      &:hover {
+        color: $color-terracotta;
+        border-color: $color-terracotta;
+        gap: 12px;
       }
     }
   }
 
-  // Figure Shared Styles
-  .v3-making-figure {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-
-    .v3-caption-below {
-      padding-top: 10px;
-      font-family: $font-body;
-      font-size: 12px;
-      color: var(--v3-muted);
-      line-height: 1.4;
-    }
-  }
-
-  // Center Arch Media
-  .v3-making__center {
-    position: relative;
-    max-width: 360px;
-    width: 100%;
-    margin: 0 auto;
-
-    .v3-making__arch-media {
+  // Right Visuals
+  .journal-visual-col {
+    .journal-photo-stage {
       position: relative;
       width: 100%;
-      aspect-ratio: 200 / 270;
+      height: clamp(440px, 50vw, 560px);
 
-      .v3-arch--270 {
-        width: 100%;
-        height: 100%;
-        -webkit-mask: var(--v3-arch-270) center / 100% 100% no-repeat;
-        mask: var(--v3-arch-270) center / 100% 100% no-repeat;
+      @include respond-to(laptop) {
+        max-width: 480px;
+        margin: 0 auto;
+      }
+
+      .photo-card {
+        border-radius: $radius-lg;
         overflow: hidden;
-        background-color: #EDE4D8;
-        filter: drop-shadow(0 16px 36px rgba(58, 13, 24, 0.18));
+        border: 1px solid rgba(194, 155, 70, 0.25);
+        box-shadow: 0 16px 40px -8px rgba(43, 14, 22, 0.14);
+        background-color: #EFE8DE;
 
-        .v3-making__img {
+        img {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          display: block;
+          transition: transform 0.5s ease;
+        }
+
+        &:hover img {
+          transform: scale(1.04);
         }
       }
 
-      .v3-play {
+      .main-city-card {
         position: absolute;
-        right: 12%;
-        bottom: 8%;
-        z-index: 5;
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        background: rgba(34, 26, 22, 0.7);
-        backdrop-filter: blur(4px);
-        color: #FFFDF9;
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: background $transition-fast;
+        top: 0;
+        left: 0;
+        width: 72%;
+        height: 78%;
+        z-index: 2;
 
-        &:hover {
-          background: var(--v3-maroon);
+        .photo-play-toggle {
+          position: absolute;
+          bottom: 16px;
+          right: 16px;
+          width: 34px;
+          height: 34px;
+          border-radius: 50%;
+          background-color: rgba(28, 24, 21, 0.65);
+          backdrop-filter: blur(6px);
+          color: #FFFFFF;
+          border: 1px solid rgba(255, 255, 255, 0.25);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all $transition-fast;
+
+          &:hover {
+            background-color: $color-primary;
+            transform: scale(1.08);
+          }
+        }
+
+        .photo-bottom-caption {
+          position: absolute;
+          bottom: 16px;
+          left: 16px;
+          font-family: $font-body;
+          font-size: 11px;
+          color: #FFFFFF;
+          font-weight: $fw-medium;
+          background: rgba(28, 24, 21, 0.6);
+          backdrop-filter: blur(4px);
+          padding: 4px 10px;
+          border-radius: $radius-sm;
         }
       }
-    }
-  }
 
-  // Right Rectangular Media
-  .v3-making__right {
-    max-width: 340px;
-    width: 100%;
-    margin: 0 auto;
+      .offset-studio-card {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 60%;
+        height: 62%;
+        z-index: 3;
+        border: 3px solid #FAF7F2;
 
-    .v3-making__rect-media {
-      width: 100%;
-      aspect-ratio: 4 / 4.8;
-      border-radius: $radius-sm;
-      overflow: hidden;
-      border: 1px solid var(--v3-line);
-      box-shadow: 0 12px 28px rgba(58, 13, 24, 0.1);
-
-      .v3-making__img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-        transition: transform 0.6s var(--v3-ease);
-
-        &:hover {
-          transform: scale(1.03);
+        .photo-studio-tag {
+          position: absolute;
+          bottom: 14px;
+          left: 14px;
+          font-family: $font-body;
+          font-size: 10.5px;
+          color: #FFFFFF;
+          font-weight: $fw-medium;
+          background: rgba(28, 24, 21, 0.65);
+          backdrop-filter: blur(4px);
+          padding: 4px 10px;
+          border-radius: $radius-sm;
         }
       }
     }

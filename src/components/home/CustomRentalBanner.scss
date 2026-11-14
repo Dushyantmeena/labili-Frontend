@@ -2,64 +2,73 @@
 @use '../../styles/mixins' as *;
 
 .custom-rental-section {
-  padding: $space-3xl 0;
-  background-color: #ffffff;
+  padding: clamp(56px, 7vw, 96px) 0;
+  background-color: #FAF7F2;
 
   .rental-banner-card {
     position: relative;
-    background: linear-gradient(135deg, #24140E 0%, #3B1F16 50%, #2A130B 100%);
-    color: #ffffff;
-    border-radius: $radius-sm;
-    padding: $space-3xl $space-2xl;
+    background: linear-gradient(135deg, #3E0E18 0%, #541421 50%, #2B0710 100%);
+    color: #FCFBF7;
+    border-radius: $radius-lg;
+    border: 1px solid rgba(194, 155, 70, 0.35);
+    padding: clamp(40px, 6vw, 72px) clamp(24px, 4vw, 48px);
     overflow: hidden;
-    box-shadow: $shadow-lg;
-
-    @include respond-to(tablet) {
-      padding: $space-2xl $space-lg;
-    }
+    box-shadow: 0 20px 50px -10px rgba(62, 14, 24, 0.45);
 
     .card-decoration-border {
       position: absolute;
       inset: 12px;
-      border: 1px solid rgba(227, 191, 135, 0.25);
+      border: 1px solid rgba(194, 155, 70, 0.22);
       pointer-events: none;
-      border-radius: 2px;
+      border-radius: $radius-md;
     }
   }
 
   .rental-content {
     position: relative;
     z-index: 2;
-    max-width: 760px;
+    max-width: 800px;
     margin: 0 auto;
     text-align: center;
 
+    .brand-eyebrow {
+      color: $color-gold;
+      letter-spacing: 0.2em;
+    }
+
     h2 {
-      font-size: clamp(2rem, 3.8vw, 2.7rem);
-      color: #ffffff;
-      line-height: 1.25;
-      margin-bottom: $space-xs;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      color: #FCFBF7;
+      line-height: 1.15;
+      margin-bottom: 12px;
+      font-family: $font-heading;
+    }
+
+    .title-divider {
+      margin-bottom: 20px;
     }
 
     .rental-desc {
-      font-size: 1rem;
+      font-size: 15.5px;
       line-height: 1.7;
-      color: rgba(251, 246, 238, 0.85);
-      margin: $space-md auto $space-xl;
+      color: rgba(252, 251, 247, 0.85);
+      margin: 0 auto 32px;
+      max-width: 680px;
     }
 
     .rental-perks {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: $space-lg;
-      margin-bottom: $space-2xl;
+      gap: clamp(14px, 2.5vw, 32px);
+      margin-bottom: 38px;
 
       .perk {
         display: flex;
         align-items: center;
         gap: 8px;
-        font-size: 0.84rem;
+        font-family: $font-body;
+        font-size: 13px;
         color: $color-gold-light;
 
         .perk-icon {
@@ -73,30 +82,45 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: $space-md;
+      gap: 16px;
+
+      .btn-primary {
+        background: linear-gradient(135deg, $color-terracotta 0%, #A85236 100%);
+        border-color: rgba(194, 155, 70, 0.35);
+        color: #FCFBF7;
+        font-size: 12.5px;
+        letter-spacing: 0.12em;
+        padding: 15px 30px;
+
+        &:hover {
+          background: linear-gradient(135deg, #D47759 0%, $color-terracotta 100%);
+          transform: translateY(-2px);
+          box-shadow: 0 8px 24px rgba(192, 99, 69, 0.4);
+        }
+      }
 
       .whatsapp-atelier-btn {
         display: inline-flex;
         align-items: center;
         gap: 8px;
         background-color: transparent;
-        color: #ffffff;
+        color: #FCFBF7;
         border: 1px solid rgba(255, 255, 255, 0.35);
-        padding: 13px 24px;
+        padding: 14px 26px;
         border-radius: $radius-sm;
-        font-size: 0.82rem;
+        font-family: $font-body;
+        font-size: 12px;
         font-weight: $fw-semibold;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
         transition: all $transition-fast;
 
         &:hover {
-          background-color: #25D366;
-          border-color: #25D366;
-          color: #ffffff;
+          background-color: #1F6B38;
+          border-color: #1F6B38;
+          color: #FCFBF7;
         }
       }
     }
   }
 }
-
