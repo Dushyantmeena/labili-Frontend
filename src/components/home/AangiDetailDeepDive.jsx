@@ -7,37 +7,37 @@ const AANGI_VIEWS = [
   {
     id: 'full-piece',
     label: 'Full Silhouette',
-    image: 'https://www.baisajaipur.com/cdn/shop/files/Embroidered_Ivory_and_Red_Choli.png?v=1791808189&width=1400',
+    image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1400&q=85',
     alt: 'Off-white, red and gold Rajputi Aangi blouse silhouette'
   },
   {
     id: 'gota-closeup',
     label: 'Gota Zari Close-up',
-    image: 'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-aangi-sun-motif.jpg?v=1793113049&width=1400',
+    image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1400&q=85',
     alt: 'Gota-patti sun medallion embroidery detail'
   },
   {
     id: 'patchwork',
     label: 'Patchwork & Texture',
-    image: 'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-aangi-gota-texture.jpg?v=1793113050&width=1400',
+    image: 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=1400&q=85',
     alt: 'Hand-stitched silk patchwork panels with gold trim'
   },
   {
     id: 'dori',
     label: 'Dori & Tassels',
-    image: 'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-aangi-dori.jpg?v=1793113051&width=1400',
+    image: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=1400&q=85',
     alt: 'Hem with braided silk dori and hand-twisted tassels'
   },
   {
     id: 'red-gold',
     label: 'Crimson & Gold',
-    image: 'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-aangi-red-flatlay.jpg?v=1793120643&width=1400',
+    image: 'https://images.unsplash.com/photo-1616763355603-9755a640a287?auto=format&fit=crop&w=1400&q=85',
     alt: 'Crimson red aangi blouse with gold gota embroidery flatlay'
   },
   {
     id: 'styled-with',
     label: 'Styled Ensemble',
-    image: 'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-teal-set.jpg?v=1793113052&width=1400',
+    image: 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=1400&q=85',
     alt: 'Aangi paired with flared peacock teal gota lehenga'
   }
 ];

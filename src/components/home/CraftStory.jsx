@@ -8,11 +8,11 @@ const CraftStory = () => {
     <section className="labiii-editorial-our-story" aria-label="Our Story & Atelier">
       <div className="container-wide">
         <div className="story-split-grid">
-          {/* Left Column: Natural-Light Atelier Photography (Quinces Style) */}
+          {/* Left Column: Natural-Light Atelier Photography (Contemporary Indian Atelier) */}
           <div className="story-media-stage">
             <div className="story-image-wrap">
               <img
-                src="https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-pink-city-gate.jpg?v=1793113054&width=1400"
+                src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=1400&q=85"
                 alt="Inside the Labiii Jaipur Atelier — Handcrafted textiles and royal Rajputana heritage"
                 className="story-main-img"
                 loading="lazy"

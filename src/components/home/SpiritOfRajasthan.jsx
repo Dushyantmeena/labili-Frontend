@@ -31,21 +31,21 @@ const SpiritOfRajasthan = () => {
             <figure className="spirit-craft-tile">
               <div className="tile-image-frame">
                 <img
-                  src="https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-pink-city-gate.jpg?v=1793113054&width=1400"
-                  alt="Jaipur illuminated royal gate at night"
+                  src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=1200&q=85"
+                  alt="Jaipur royal couture and heritage monument evening"
                   loading="lazy"
                 />
               </div>
               <figcaption className="tile-caption">
                 <strong className="caption-title">Pink City Nights</strong>
-                <span className="caption-desc">Jaipur's illuminated gates and heritage monuments inspire our festive palette.</span>
+                <span className="caption-desc">Jaipur's illuminated havelis and monuments inspire our celebratory palette.</span>
               </figcaption>
             </figure>
 
             <figure className="spirit-craft-tile compact-tile">
               <div className="tile-image-frame">
                 <img
-                  src="https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-aangi-sun-motif.jpg?v=1793113049&width=1400"
+                  src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=85"
                   alt="Gota patti sun medallion embroidery detail"
                   loading="lazy"
                 />
@@ -58,8 +58,8 @@ const SpiritOfRajasthan = () => {
             <div className="center-stage-wrapper">
               <div className="center-photo-frame">
                 <img
-                  src="https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-odhni-portrait.jpg?v=1793113048&width=1400"
-                  alt="Editorial portrait of a Rajasthani bride in red odhni with pure gota borders"
+                  src="https://images.unsplash.com/photo-1616763355603-9755a640a287?auto=format&fit=crop&w=1400&q=85"
+                  alt="Editorial portrait of a Rajasthani bride in crimson odhni with pure gota borders"
                   className="center-portrait-img"
                   loading="lazy"
                 />
@@ -89,7 +89,7 @@ const SpiritOfRajasthan = () => {
             <figure className="spirit-craft-tile">
               <div className="tile-image-frame">
                 <img
-                  src="https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-gota-handwork-v2.jpg?v=1793114321&width=1400"
+                  src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=1200&q=85"
                   alt="Artisan applying gota patti ribbons by hand onto bandhani silk"
                   loading="lazy"
                 />
@@ -103,7 +103,7 @@ const SpiritOfRajasthan = () => {
             <figure className="spirit-craft-tile compact-tile">
               <div className="tile-image-frame">
                 <img
-                  src="https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-teal-set.jpg?v=1793113052&width=1400"
+                  src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=1200&q=85"
                   alt="Handcrafted peacock teal lehenga ensemble"
                   loading="lazy"
                 />

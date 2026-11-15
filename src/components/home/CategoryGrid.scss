@@ -1,98 +1,121 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
-.labiii-editorial-collections {
-  padding: 72px 0 88px;
-  background-color: #FAF7F2;
+.labiii-modern-categories-section {
+  padding: 80px 0 96px;
+  background-color: #FAF8F5;
+  border-bottom: 1px solid rgba(194, 155, 70, 0.18);
 
   @include respond-to('md') {
-    padding: 104px 0 128px;
+    padding: 104px 0 120px;
   }
 
-  .container-wide {
-    max-width: 1600px;
+  .container-fluid-couture {
+    max-width: 1680px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 16px;
 
     @include respond-to('md') {
-      padding: 0 40px;
+      padding: 0 32px;
     }
 
     @include respond-to('lg') {
-      padding: 0 64px;
+      padding: 0 48px;
     }
   }
 
-  // Section Header (Quinces Style)
-  .collections-header-block {
+  // Header
+  .modern-cat-header {
+    text-align: center;
     max-width: 680px;
     margin: 0 auto 52px;
-    text-align: center;
 
     @include respond-to('md') {
       margin-bottom: 64px;
     }
 
-    .collections-main-title {
+    .header-eyebrow-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10.5px;
+      font-weight: $fw-bold;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #0F514E; // Peacock Teal
+      margin-bottom: 12px;
+
+      .eyebrow-sparkle {
+        color: #C29B46;
+      }
+    }
+
+    .header-title {
       font-family: $font-heading;
-      font-size: clamp(32px, 4.2vw, 52px);
+      font-size: clamp(32px, 4vw, 50px);
       font-weight: 400;
-      color: #2D2621;
       line-height: 1.1;
-      margin-bottom: 16px;
+      color: #191614;
+      margin-bottom: 14px;
 
       em {
         font-style: italic;
-        color: #541421;
+        color: #C81E57; // Rani Pink
         font-family: $font-heading;
       }
     }
 
-    .collections-subtitle {
+    .header-sub {
       font-family: $font-body;
-      font-size: 14.5px;
+      font-size: 14px;
       font-weight: 300;
-      line-height: 1.65;
       color: #6E6259;
+      line-height: 1.6;
     }
   }
 
-  // 3-Column Editorial Grid (Quinces Style)
-  .editorial-cards-grid {
+  // 4-Column Grid
+  .modern-cards-row {
     display: grid;
     grid-template-columns: 1fr;
     gap: 24px;
 
-    @include respond-to('md') {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
+    @include respond-to('sm') {
+      grid-template-columns: repeat(2, 1fr);
     }
 
     @include respond-to('lg') {
-      gap: 36px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    @include respond-to('xl') {
+      gap: 32px;
     }
   }
 
-  // Individual Card
-  .editorial-col-card {
+  // Card
+  .category-couture-card {
     position: relative;
-    overflow: hidden;
-    border-radius: 4px;
-    background-color: #EFE8DE;
+    display: flex;
+    flex-direction: column;
 
-    .editorial-card-anchor {
+    .card-link-wrapper {
       display: block;
-      position: relative;
       text-decoration: none;
       color: inherit;
 
       &:hover {
-        .editorial-card-img {
+        .card-media-img {
           transform: scale(1.05);
         }
 
-        .card-action-link {
-          color: #E6CE93;
+        .card-headline {
+          color: #C81E57;
+        }
+
+        .card-action-trigger {
+          color: #0F514E;
 
           .arrow-icon {
             transform: translateX(4px);
@@ -101,13 +124,15 @@
       }
     }
 
-    .media-frame {
+    .card-photo-viewport {
       position: relative;
       width: 100%;
       aspect-ratio: 3 / 4;
+      border-radius: 4px;
       overflow: hidden;
+      background-color: #EFE8DE;
 
-      .editorial-card-img {
+      .card-media-img {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -115,68 +140,84 @@
         transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
       }
 
-      .scrim-overlay {
+      .card-photo-scrim {
         position: absolute;
         inset: 0;
         background: linear-gradient(
           to top,
-          rgba(28, 20, 18, 0.75) 0%,
-          rgba(28, 20, 18, 0.25) 40%,
-          rgba(28, 20, 18, 0.05) 100%
+          rgba(20, 16, 14, 0.4) 0%,
+          transparent 45%
         );
       }
-    }
 
-    // Overlaid Title & Italic Link
-    .card-floating-label {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 24px 22px;
-      color: #FFFFFF;
-      display: flex;
-      flex-direction: column;
-      z-index: 2;
-
-      @include respond-to('md') {
-        padding: 28px 24px;
-      }
-
-      .card-category-heading {
-        font-family: $font-heading;
-        font-size: clamp(21px, 2vw, 26px);
-        font-weight: 500;
-        font-style: italic;
-        line-height: 1.2;
-        color: #FFFFFF;
-        margin-bottom: 4px;
-        text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
-      }
-
-      .card-category-sub {
-        font-family: $font-body;
-        font-size: 12px;
-        font-weight: 300;
-        color: rgba(255, 255, 255, 0.85);
-        margin-bottom: 12px;
-        line-height: 1.4;
-      }
-
-      .card-action-link {
+      .card-index-tag {
+        position: absolute;
+        top: 14px;
+        left: 14px;
         display: inline-flex;
         align-items: center;
         gap: 6px;
+        padding: 4px 10px;
+        background: rgba(250, 248, 245, 0.94);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(194, 155, 70, 0.3);
+        border-radius: 2px;
+
+        .index-num {
+          font-family: $font-heading;
+          font-size: 13px;
+          font-weight: 600;
+          color: #C81E57;
+        }
+
+        .index-eyebrow {
+          font-size: 9.5px;
+          font-weight: $fw-bold;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+          color: #191614;
+        }
+      }
+    }
+
+    .card-caption-container {
+      padding-top: 18px;
+      display: flex;
+      flex-direction: column;
+
+      .card-headline {
         font-family: $font-heading;
-        font-size: 16px;
+        font-size: 20px;
+        font-weight: 500;
         font-style: italic;
-        color: #FFFFFF;
-        text-decoration: underline;
-        text-underline-offset: 4px;
-        transition: color 0.25s ease;
+        line-height: 1.25;
+        color: #191614;
+        margin-bottom: 6px;
+        transition: color 0.2s ease;
+      }
+
+      .card-subheadline {
+        font-family: $font-body;
+        font-size: 12.5px;
+        font-weight: 300;
+        line-height: 1.5;
+        color: #6E6259;
+        margin-bottom: 12px;
+      }
+
+      .card-action-trigger {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 11.5px;
+        font-weight: $fw-semibold;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #191614;
+        transition: color 0.2s ease;
 
         .arrow-icon {
-          transition: transform 0.25s ease;
+          transition: transform 0.2s ease;
         }
       }
     }

@@ -1,76 +1,99 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, Compass } from 'lucide-react';
 import './HeroBanner.scss';
 
 const HeroBanner = () => {
   return (
-    <section className="labiii-editorial-hero" aria-label="Labiii Editorial Hero">
-      {/* Background Editorial Photography */}
-      <div className="hero-media-backdrop">
-        <img
-          src="https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-poshak-steps.jpg?v=1793113045&width=1800"
-          alt="Royal Rajasthani poshak ensemble handcrafted by Labiii on sandstone steps"
-          className="hero-backdrop-img"
-          loading="eager"
-        />
-        {/* Cinematic Scrim Gradient Overlay */}
-        <div className="hero-scrim-gradient" />
-      </div>
+    <section className="labiii-modern-couture-hero" aria-label="Modern Contemporary Couture">
+      <div className="hero-editorial-wrapper">
+        <div className="hero-editorial-grid">
+          {/* Main Visual Column — High-Fashion Couture Photography */}
+          <div className="hero-main-visual">
+            <div className="visual-media-stage">
+              <img
+                src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1600&q=85"
+                alt="Modern Indian Couture Model in Emerald Silk Lehenga and Handcrafted Gota Patti"
+                className="hero-main-fashion-img"
+                loading="eager"
+              />
+              <div className="visual-scrim-ambient" />
 
-      {/* Bottom-Anchored Editorial Content (Quinces Style) */}
-      <div className="hero-stage-container">
-        {/* Left Headline & Quiet Story */}
-        <div className="hero-headline-block">
-          <div className="hero-eyebrow-line">
-            <Sparkles size={13} className="eyebrow-star" />
-            <span>JAIPUR ATELIER · HEIRLOOM SILHOUETTES</span>
+              {/* Floating Signature Tag on Image */}
+              <div className="image-couture-badge">
+                <span className="badge-bullet">✦</span>
+                <span>The Festive Heirloom Edit</span>
+              </div>
+            </div>
           </div>
 
-          <h1 className="hero-title">
-            Royal Roots, <br />
-            <em>Distilled.</em>
-          </h1>
+          {/* Editorial Content & Story Column (Raw Mango / Anita Dongre Style) */}
+          <div className="hero-editorial-content">
+            <div className="content-inner-box">
+              <div className="brand-hallmark-pill">
+                <Sparkles size={12} className="pill-star" />
+                <span>JAIPUR HAUTE COUTURE · AUTUMN FESTIVE 2026</span>
+              </div>
 
-          <p className="hero-subtitle">
-            Considered heirloom silhouettes in pure silks and hand-beaten Gota Patti — handcrafted in our Sanganer atelier to be worn and cherished for generations.
-          </p>
+              <h1 className="editorial-main-headline">
+                Modern Soul. <br />
+                <em>Royal Roots.</em>
+              </h1>
 
-          <div className="hero-actions-row">
-            <Link to="/collections/festive-edit" className="btn-hero-outline">
-              <span>EXPLORE THE EDIT</span>
-            </Link>
-            <Link to="/collections/aangi-blouses" className="btn-hero-textlink">
-              <span>The Rajputi Aangi</span>
-              <ArrowRight size={14} className="arrow-icon" />
-            </Link>
+              <p className="editorial-lede-text">
+                From the royal courts of Rajasthan to the contemporary wardrobe. We craft celebratory Rajputi Aangis, 24-kali flared silk lehengas, and artisanal Sanganeri handblock cottons — uniting ancestral craft with effortless comfort.
+              </p>
+
+              {/* Minimal Luxury CTAs */}
+              <div className="editorial-cta-row">
+                <Link to="/collections/festive-edit" className="btn-modern-primary">
+                  <span>EXPLORE FESTIVE COUTURE</span>
+                  <ArrowRight size={15} />
+                </Link>
+                <Link to="/collections/aangi-blouses" className="btn-modern-ghost">
+                  <span>DISCOVER THE AANGI</span>
+                </Link>
+              </div>
+
+              {/* Secondary Lookbook Detail Card */}
+              <div className="hero-lookbook-mini-card">
+                <Link to="/products/multiclour-gota-patti-rajputi-aangi-blouse" className="mini-card-thumb">
+                  <img
+                    src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=85"
+                    alt="Intricate gold gota needlework blouse"
+                  />
+                </Link>
+                <div className="mini-card-text">
+                  <span className="mini-tag">ATELIER HIGHLIGHT</span>
+                  <h4 className="mini-title">Archival Gota Patti Aangi</h4>
+                  <p className="mini-desc">Hand-beaten gold ribbons on pure silk with 2-inch alteration margins.</p>
+                  <Link to="/collections/aangi-blouses" className="mini-link">
+                    <span>Explore Silhouette</span>
+                    <ArrowRight size={12} />
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Right Floating Campaign Card (Quinces Mid-Season Edit Style) */}
-        <div className="hero-floating-card">
-          <div className="floating-card-inner">
-            <Link to="/products/handcrafted-gota-patti-aangi-blouse-ivory" className="card-thumb-link">
-              <img
-                src="https://www.baisajaipur.com/cdn/shop/files/Embroidered_Ivory_and_Red_Choli.png?v=1791808189&width=300"
-                alt="Ivory Gota Patti Rajputi Aangi Choli"
-                className="card-thumb-img"
-              />
-            </Link>
-
-            <div className="card-info-pane">
-              <span className="card-eyebrow">NEW SEASON PREVIEW</span>
-              <h3 className="card-heading">
-                The Festive Edit is On
-              </h3>
-              <p className="card-subnote">
-                Bespoke sizing · Extra 10% off with <strong>ROYAL10</strong>
-              </p>
-              <Link to="/collections/aangi-blouses" className="card-italic-link">
-                <span>Shop This Look</span>
-                <ArrowRight size={13} className="arrow-icon" />
-              </Link>
-            </div>
+        {/* Bottom Editorial Craft Bar */}
+        <div className="hero-craft-ticker">
+          <div className="ticker-item">
+            <span className="ticker-diamond">❖</span>
+            <span>100% Pure Raw Silk &amp; Handloom Cottons</span>
+          </div>
+          <div className="ticker-item">
+            <span className="ticker-diamond">❖</span>
+            <span>Generations of Jaipur Karigar Hand-Needlework</span>
+          </div>
+          <div className="ticker-item">
+            <span className="ticker-diamond">❖</span>
+            <span>In-House Sanganer Stitching Studio</span>
+          </div>
+          <div className="ticker-item">
+            <span className="ticker-diamond">❖</span>
+            <span>Complimentary Custom Sizing &amp; Pan-India Express Delivery</span>
           </div>
         </div>
       </div>

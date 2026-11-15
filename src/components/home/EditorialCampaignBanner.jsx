@@ -16,10 +16,10 @@ const EditorialCampaignBanner = () => {
 
   return (
     <section className="labiii-editorial-campaign-banner" aria-label="The Limited Edit">
-      {/* Full-width Large Campaign Image (Quinces Style) */}
+      {/* Full-width Large Campaign Image (Raw Mango / Anita Dongre Style) */}
       <div className="campaign-media-wrapper">
         <img
-          src="https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-poshak-front.jpg?v=1793113046&width=2000"
+          src="https://images.unsplash.com/photo-1616763355603-9755a640a287?auto=format&fit=crop&w=2000&q=85"
           alt="The Limited Edit — Handcrafted Royal Rajasthani Poshak"
           className="campaign-full-img"
           loading="lazy"

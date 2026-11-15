@@ -8,7 +8,7 @@ export const CATEGORIES = [
     name: 'Aangi Blouses',
     slug: 'aangi-blouses',
     subtitle: 'Heritage Rajputi Cholis & Gota Blouses',
-    image: 'https://www.baisajaipur.com/cdn/shop/files/Embroidered_Ivory_and_Red_Choli.png?v=1791808189&width=1400',
+    image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=85',
     count: 14
   },
   {
@@ -16,7 +16,7 @@ export const CATEGORIES = [
     name: 'Lehengas & Sets',
     slug: 'gota-patti-lehenga',
     subtitle: 'Flared Silk & Handcrafted Gota Skirts',
-    image: 'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-teal-skirt.jpg?v=1793113061&width=1400',
+    image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1200&q=85',
     count: 22
   },
   {
@@ -24,7 +24,7 @@ export const CATEGORIES = [
     name: 'Kurta Sets',
     slug: 'kurta-sets',
     subtitle: 'Regal Anarkalis & Festive Suit Sets',
-    image: 'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-lehenga-set-neon.jpg?v=1793113052&width=1400',
+    image: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=1200&q=85',
     count: 18
   },
   {
@@ -32,7 +32,7 @@ export const CATEGORIES = [
     name: 'Cotton Kurtis',
     slug: 'cotton-kurtis',
     subtitle: 'Jaipur Hand-Block Prints & Breathable Weaves',
-    image: 'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-poshak-front.jpg?v=1793113046&width=1400',
+    image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=1200&q=85',
     count: 26
   },
   {
@@ -40,7 +40,7 @@ export const CATEGORIES = [
     name: 'Tops & Tunics',
     slug: 'tops-tunics',
     subtitle: 'Contemporary Peplum & Fusion Silhouettes',
-    image: 'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-aangi-sun-motif.jpg?v=1793113049&width=1400',
+    image: 'https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=1200&q=85',
     count: 12
   },
   {
@@ -48,7 +48,7 @@ export const CATEGORIES = [
     name: 'Festive Edit',
     slug: 'festive-edit',
     subtitle: 'Navratri, Diwali & Royal Wedding Ensembles',
-    image: 'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-poshak-steps.jpg?v=1793113045&width=1400',
+    image: 'https://images.unsplash.com/photo-1616763355603-9755a640a287?auto=format&fit=crop&w=1200&q=85',
     count: 30
   }
 ];
@@ -71,13 +71,12 @@ export const PRODUCTS = [
     isFestive: true,
     isNew: false,
     inStock: true,
-    primaryImage: 'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-teal-skirt.jpg?v=1793113061&width=1400',
-    secondaryImage: 'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-teal-set.jpg?v=1793113052&width=1400',
+    primaryImage: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1200&q=85',
+    secondaryImage: 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=1200&q=85',
     images: [
-      'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-teal-skirt.jpg?v=1793113061&width=1400',
-      'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-teal-set.jpg?v=1793113052&width=1400',
-      'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-poshak-steps.jpg?v=1793113045&width=1400',
-      'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-gota-handwork-v2.jpg?v=1793114321&width=1400'
+      'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=85'
     ],
     sizes: ['XS', 'S', 'M', 'L', 'XL', 'Custom Fit'],
     colors: [
@@ -113,13 +112,12 @@ export const PRODUCTS = [
     isFestive: true,
     isNew: false,
     inStock: true,
-    primaryImage: 'https://www.baisajaipur.com/cdn/shop/files/Embroidered_Ivory_and_Red_Choli.png?v=1791808189&width=1400',
-    secondaryImage: 'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-aangi-sun-motif.jpg?v=1793113049&width=1400',
+    primaryImage: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=85',
+    secondaryImage: 'https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=1200&q=85',
     images: [
-      'https://www.baisajaipur.com/cdn/shop/files/Embroidered_Ivory_and_Red_Choli.png?v=1791808189&width=1400',
-      'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-aangi-sun-motif.jpg?v=1793113049&width=1400',
-      'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-aangi-gota-texture.jpg?v=1793113050&width=1400',
-      'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-aangi-red-flatlay.jpg?v=1793120643&width=1400'
+      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1200&q=85'
     ],
     sizes: ['32', '34', '36', '38', '40', '42', 'Custom Fit'],
     colors: [
@@ -153,12 +151,12 @@ export const PRODUCTS = [
     isFestive: true,
     isNew: true,
     inStock: true,
-    primaryImage: 'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-lehenga-set-neon.jpg?v=1793113052&width=1400',
-    secondaryImage: 'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-poshak-front.jpg?v=1793113046&width=1400',
+    primaryImage: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=1200&q=85',
+    secondaryImage: 'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=1200&q=85',
     images: [
-      'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-lehenga-set-neon.jpg?v=1793113052&width=1400',
-      'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-poshak-front.jpg?v=1793113046&width=1400',
-      'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-odhni-portrait.jpg?v=1793113048&width=1400'
+      'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=1200&q=85'
     ],
     sizes: ['XS', 'S', 'M', 'L', 'XL', 'Custom Fit'],
     colors: [
@@ -192,12 +190,12 @@ export const PRODUCTS = [
     isFestive: true,
     isNew: true,
     inStock: true,
-    primaryImage: 'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-aangi-red-flatlay.jpg?v=1793120643&width=1400',
-    secondaryImage: 'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-aangi-dori.jpg?v=1793113051&width=1400',
+    primaryImage: 'https://images.unsplash.com/photo-1616763355603-9755a640a287?auto=format&fit=crop&w=1200&q=85',
+    secondaryImage: 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=1200&q=85',
     images: [
-      'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-aangi-red-flatlay.jpg?v=1793120643&width=1400',
-      'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-aangi-dori.jpg?v=1793113051&width=1400',
-      'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-aangi-gota-texture.jpg?v=1793113050&width=1400'
+      'https://images.unsplash.com/photo-1616763355603-9755a640a287?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=1200&q=85'
     ],
     sizes: ['32', '34', '36', '38', '40', '42'],
     colors: [
@@ -344,12 +342,12 @@ export const PRODUCTS = [
     isFestive: true,
     isNew: false,
     inStock: true,
-    primaryImage: 'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-poshak-front.jpg?v=1793113046&width=1400',
-    secondaryImage: 'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-poshak-steps.jpg?v=1793113045&width=1400',
+    primaryImage: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1200&q=85',
+    secondaryImage: 'https://images.unsplash.com/photo-1616763355603-9755a640a287?auto=format&fit=crop&w=1200&q=85',
     images: [
-      'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-poshak-front.jpg?v=1793113046&width=1400',
-      'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-poshak-steps.jpg?v=1793113045&width=1400',
-      'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-odhni-portrait.jpg?v=1793113048&width=1400'
+      'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1616763355603-9755a640a287?auto=format&fit=crop&w=1200&q=85',
+      'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=1200&q=85'
     ],
     sizes: ['S', 'M', 'L', 'XL', 'Custom Fit'],
     colors: [
@@ -374,7 +372,7 @@ export const REELS_DATA = [
     title: 'Gota Patti Lehenga Skirts — Teal, Pink & Wine',
     handle: '@labiii.official',
     views: '148K',
-    thumbnail: 'https://www.baisajaipur.com/cdn/shop/files/preview_images/da7945c521b645ff9b1757a5325603fd.thumbnail.0000000000.jpg?v=1730030146&width=600',
+    thumbnail: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=600&q=80',
     caption: 'Twirling through the sandstone courtyards of Jaipur in our 6-meter flared gota patti lehenga skirt. Handcrafted in our studio.',
     productId: 'prod-001',
     productName: 'Dark Teal Green Flared Lehenga Skirt',
@@ -385,7 +383,7 @@ export const REELS_DATA = [
     title: 'Gota Patti Rajasthani Aangi',
     handle: '@labiii.official',
     views: '112K',
-    thumbnail: 'https://www.baisajaipur.com/cdn/shop/files/preview_images/9d6ff909242a435d8b6a33f6ee95f0a4.thumbnail.0000000000.jpg?v=1730030172&width=600',
+    thumbnail: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80',
     caption: 'From traditional poshak styling to pairing with high-waist silk skirts and organza sarees — the iconic Aangi reimagined.',
     productId: 'prod-002',
     productName: 'Rajasthani Aangi Blouse — Multicolour',
@@ -396,7 +394,7 @@ export const REELS_DATA = [
     title: 'Dark Teal Gota Patti Skirt',
     handle: '@labiii.official',
     views: '88K',
-    thumbnail: 'https://www.baisajaipur.com/cdn/shop/files/preview_images/431be25e508e4256b54d361900f83af8.thumbnail.0000000000.jpg?v=1730030188&width=600',
+    thumbnail: 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=600&q=80',
     caption: 'Our signature dark teal skirt in natural sunlight. Every single gota ribbon placed by master artisans.',
     productId: 'prod-001',
     productName: 'Dark Teal Flared Gota Skirt',
@@ -407,7 +405,7 @@ export const REELS_DATA = [
     title: 'Rani Pink Lehenga, on the Mannequin',
     handle: '@labiii.official',
     views: '240K',
-    thumbnail: 'https://www.baisajaipur.com/cdn/shop/files/preview_images/5f48a3076eef4b03a56eb48bc7aa674f.thumbnail.0000000000.jpg?v=1730030206&width=600',
+    thumbnail: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=600&q=80',
     caption: 'Our bride wearing custom Rani Pink gota patti for her mehendi evening. Pure joy and royal Rajasthani charm.',
     productId: 'prod-003',
     productName: 'Rani Pink Lehenga with Gota Blouse',
@@ -418,7 +416,7 @@ export const REELS_DATA = [
     title: 'Wine Magenta Lehenga Set',
     handle: '@labiii.official',
     views: '96K',
-    thumbnail: 'https://www.baisajaipur.com/cdn/shop/files/preview_images/281be0655a644692850bab4c5a42edf3.thumbnail.0000000000.jpg?v=1730030222&width=600',
+    thumbnail: 'https://images.unsplash.com/photo-1616763355603-9755a640a287?auto=format&fit=crop&w=600&q=80',
     caption: 'Deep royal jewel tones paired with beaten antique gold zari. Tailored with 24 sweeping kalis.',
     productId: 'prod-001',
     productName: 'Royal Wine Flared Gota Skirt',
@@ -429,7 +427,7 @@ export const REELS_DATA = [
     title: 'Festive Poshak Look',
     handle: '@labiii.official',
     views: '175K',
-    thumbnail: 'https://www.baisajaipur.com/cdn/shop/files/preview_images/c236a3a0be90462caf1a24af1fb28040.thumbnail.0000000000.jpg?v=1730030238&width=600',
+    thumbnail: 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=600&q=80',
     caption: 'Traditional Rajputi Poshak styling captured at a sandstone palace in Jaipur. Timeless, regal and sublime.',
     productId: 'prod-003',
     productName: 'Royal Rajputi Poshak Bridal Set',

@@ -13,10 +13,10 @@ const EditorialShowcase = ({ onQuickView }) => {
     <section className="labiii-editorial-craft-style" aria-label="Craft Your Style">
       <div className="container-wide">
         <div className="craft-style-grid">
-          {/* Left Column: Full-Height Massive Editorial Photograph (Quinces Style) */}
+          {/* Left Column: Full-Height Massive Editorial Photograph (Contemporary Indian Couture) */}
           <div className="craft-lead-stage">
             <img
-              src="https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-poshak-front.jpg?v=1793113046&width=1400"
+              src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=1400&q=85"
               alt="Model in Royal Rajputi Poshak"
               className="craft-lead-img"
               loading="lazy"
