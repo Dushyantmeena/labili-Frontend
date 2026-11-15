@@ -1,107 +1,91 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles } from 'lucide-react';
 import './CategoryGrid.scss';
 
-const WARDROBE_ITEMS = [
+const CATEGORIES_DATA = [
   {
-    num: '01',
-    category: 'Heirloom',
-    title: 'Rajputi Aangi',
-    subtitle: 'Structured Choli with Gota Zari',
+    id: 'farsi-salwar-suit',
+    title: 'FARSI SALWAR\nSUIT',
     link: '/collections/aangi-blouses',
-    image: 'https://www.baisajaipur.com/cdn/shop/files/Embroidered_Ivory_and_Red_Choli.png?v=1791808189&width=1400',
-    alt: 'Off-white, red and gold Rajputi aangi blouse'
+    image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80',
+    alt: 'Farsi Salwar Suit'
   },
   {
-    num: '02',
-    category: 'Celebration',
-    title: 'Gota Patti Lehenga',
-    subtitle: 'Flowing Silk & Gold Borders',
+    id: 'pleated-suit-sets',
+    title: 'PLEATED\nSUIT SETS',
     link: '/collections/gota-patti-lehenga',
     image: 'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-teal-set.jpg?v=1793113052&width=1400',
-    alt: 'Teal gota-patti lehenga with pink aangi'
+    alt: 'Pleated Suit Sets'
   },
   {
-    num: '03',
-    category: 'Occasion',
-    title: 'Festive & Bridal',
-    subtitle: 'Royal Rajputana Poshaks',
-    link: '/collections/festive-edit',
-    image: 'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-poshak-front.jpg?v=1793113046&width=1400',
-    alt: 'Festive Rajasthani poshak ensemble'
+    id: 'a-line-suit-sets',
+    title: 'A LINE\nSUIT SETS',
+    link: '/collections/kurta-sets',
+    image: 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=800&q=80',
+    alt: 'A Line Suit Sets'
   },
   {
-    num: '04',
-    category: 'Daily Luxe',
-    title: 'Everyday Cottons',
-    subtitle: 'Breathable Sanganeri Prints',
+    id: 'straight-suit-sets',
+    title: 'STRAIGHT\nSUIT SETS',
     link: '/collections/cotton-kurtis',
     image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80',
-    alt: 'Handcrafted Jaipur Cotton Kurti'
+    alt: 'Straight Suit Sets'
   },
   {
-    num: '05',
-    category: 'New In',
-    title: 'Fresh From Atelier',
-    subtitle: 'Limited Seasonal Silhouettes',
-    link: '/collections/new-in',
-    image: 'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-teal-skirt.jpg?v=1793113061&width=1400',
-    alt: 'Dark teal gota-patti lehenga skirt'
+    id: 'peplum-suit-sets',
+    title: 'PEPLUM &\nFUSION SETS',
+    link: '/collections/tops-tunics',
+    image: 'https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=800&q=80',
+    alt: 'Peplum and Fusion Tops'
+  },
+  {
+    id: 'festive-poshak-sets',
+    title: 'ROYAL FESTIVE\nPOSHAK',
+    link: '/collections/festive-edit',
+    image: 'https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-poshak-steps.jpg?v=1793113045&width=1400',
+    alt: 'Royal Festive Poshaks'
   }
 ];
 
 const CategoryGrid = () => {
   return (
-    <section className="labiii-wardrobe-section" aria-label="Five Signatures of Labiii">
+    <section className="shop-by-category-section" aria-label="Shop By Category">
       <div className="container">
-        {/* Section Header */}
-        <div className="wardrobe-section-header">
-          <div className="header-left">
-            <span className="brand-eyebrow">The Royal Wardrobe</span>
-            <h2 className="section-main-heading">
-              Five Signatures of <em>Labiii</em>
-            </h2>
-            <p className="section-subtext">
-              Heirloom Aangi cholis and Gota Patti lehengas for momentous occasions; effortless hand-block cottons for everyday grace.
-            </p>
-          </div>
-          <Link className="view-all-link" to="/collections/all">
-            <span>VIEW COMPLETE ATELIER</span>
-            <ArrowRight size={15} />
-          </Link>
+        {/* Title matching screenshot: ✨ Shop By Category ✨ */}
+        <div className="category-section-header">
+          <h2 className="category-sparkle-title">
+            <span className="sparkle-star">✨</span>
+            <span className="title-text">Shop By Category</span>
+            <span className="sparkle-star">✨</span>
+          </h2>
+          <p className="category-subtext">
+            Handcrafted Jaipur ethnic silhouettes — from celebratory farsi suits to everyday cottons
+          </p>
         </div>
 
-        {/* 5-Column Editorial Cards Grid */}
-        <div className="wardrobe-cards-grid">
-          {WARDROBE_ITEMS.map((item, idx) => (
+        {/* 2-Column (Mobile) / 3-Column (Tablet/Desktop) Circular Category Grid */}
+        <div className="category-circles-grid">
+          {CATEGORIES_DATA.map((item) => (
             <Link
-              key={item.num}
+              key={item.id}
               to={item.link}
-              className={`wardrobe-editorial-card card-index-${idx}`}
-              aria-label={`${item.num} ${item.title}`}
+              className="category-circle-card"
+              aria-label={item.title.replace('\n', ' ')}
             >
-              <div className="card-media-wrapper">
+              <div className="circle-media-wrapper">
                 <img
                   src={item.image}
                   alt={item.alt}
-                  className="card-bg-image"
+                  className="circle-img"
                   loading="lazy"
                 />
-                <div className="card-shade-vignette" />
+                {/* Bottom dark gradient overlay */}
+                <div className="circle-gradient-scrim" />
 
-                {/* Top Number Tag */}
-                <div className="card-top-tag">
-                  <span className="card-num-text">{item.num}</span>
-                  <span className="card-category-text">{item.category}</span>
-                </div>
-
-                {/* Bottom Title & Subtitle */}
-                <div className="card-caption-block">
-                  <h3 className="card-silhouette-title">{item.title}</h3>
-                  <p className="card-silhouette-sub">{item.subtitle}</p>
-                  <span className="card-explore-arrow">
-                    Explore Silhouettes &rarr;
+                {/* Centered label inside circle bottom */}
+                <div className="circle-label-container">
+                  <span className="circle-category-name">
+                    {item.title}
                   </span>
                 </div>
               </div>

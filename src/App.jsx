@@ -10,6 +10,7 @@ import { WishlistProvider } from './context/WishlistContext';
 // Common Components
 import AnnouncementBar from './components/common/Header/AnnouncementBar';
 import Navbar from './components/common/Header/Navbar';
+import MobileBottomBar from './components/common/Header/MobileBottomBar';
 import Footer from './components/common/Footer/Footer';
 import CartDrawer from './components/common/CartDrawer/CartDrawer';
 import SearchModal from './components/common/SearchModal/SearchModal';
@@ -89,6 +90,7 @@ function App() {
             </Routes>
 
             <Footer />
+            <MobileBottomBar onOpenSearch={() => setIsSearchOpen(true)} />
 
             {/* Global Overlays */}
             <CartDrawer />
