@@ -21,20 +21,20 @@ const HomePage = ({ onQuickView }) => {
       {/* 01. Royal Festive Edit Editorial Hero Banner */}
       <HeroBanner />
 
-      {/* 02. Curated Privileges & Promotional Campaigns (10% Off First Purchase, Festive Pair, Free Express Ship) */}
-      <PromotionalBannerGrid />
+      {/* 02. Cinematic Campaign Film Advertisement — Full-width Fashion Video */}
+      <CampaignVideoHero />
 
       {/* 03. The Royal Wardrobe — Shop By Category */}
       <CategoryGrid />
 
-      {/* 04. Watch Labiii in Motion — 9:16 Vertical Shoppable Video Experience */}
+      {/* 04. Curated Privileges & Promotional Campaigns (10% Off First Purchase, Festive Pair, Free Express Ship) */}
+      <PromotionalBannerGrid />
+
+      {/* 05. Watch Labiii in Motion — 9:16 Vertical Shoppable Video Experience */}
       <MotionVideoSection onQuickView={onQuickView} />
 
-      {/* 05. The Spirit of Rajasthan — Atelier Stills & Heritage Archive */}
+      {/* 06. The Spirit of Rajasthan — Atelier Stills & Heritage Archive */}
       <SpiritOfRajasthan />
-
-      {/* 06. Cinematic Campaign Film Advertisement — Full-width Fashion Video */}
-      <CampaignVideoHero />
 
       {/* 07. The Gota Patti Aangi — Interactive Craft Deep Dive */}
       <AangiDetailDeepDive />
