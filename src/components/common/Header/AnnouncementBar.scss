@@ -2,17 +2,23 @@
 @use '../../../styles/mixins' as *;
 
 .labiii-announcement-bar {
-  background: linear-gradient(90deg, #3E0E18 0%, #541421 50%, #3E0E18 100%);
+  background: linear-gradient(90deg, #3A0C16 0%, #541421 50%, #3A0C16 100%);
   color: #FCFBF7;
-  padding: 9px 18px;
+  padding: 7px 14px;
   text-align: center;
   font-family: $font-body;
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: $fw-medium;
-  letter-spacing: 0.1em;
-  border-bottom: 1px solid rgba(194, 155, 70, 0.2);
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid rgba(194, 155, 70, 0.25);
   position: relative;
   overflow: hidden;
+  user-select: none;
+
+  @include respond-to('md') {
+    padding: 8px 24px;
+    font-size: 11.5px;
+  }
 
   .labiii-announcement-inner {
     max-width: $container-max-width;
@@ -20,18 +26,65 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    gap: 12px;
   }
 
+  // Ticker Prev / Next Buttons
+  .ticker-nav-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    padding: 2px 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+
+    &:hover {
+      color: #E6CE93;
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  // Main Pill
   .announcement-pill {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    animation: fadeInAnnounce 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    justify-content: center;
+    gap: 10px;
+    animation: fadeInAnnounce 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    max-width: calc(100% - 60px);
+    flex-wrap: wrap;
+
+    @include respond-to('md') {
+      flex-wrap: nowrap;
+    }
   }
 
-  .announcement-icon {
-    color: $color-gold;
+  .announcement-badge-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
     flex-shrink: 0;
+
+    .announcement-icon {
+      color: #E6CE93;
+    }
+
+    .announcement-badge {
+      background: rgba(194, 155, 70, 0.2);
+      border: 1px solid rgba(194, 155, 70, 0.4);
+      color: #E6CE93;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 9.5px;
+      font-weight: $fw-bold;
+      letter-spacing: 0.12em;
+    }
   }
 
   .announcement-text {
@@ -40,12 +93,68 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
+  // Coupon Code Chip
+  .announcement-code-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px dashed rgba(230, 206, 147, 0.6);
+    color: #FCFBF7;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 10.5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.24);
+      border-color: #E6CE93;
+    }
+
+    .chip-prefix {
+      font-size: 9px;
+      opacity: 0.8;
+      letter-spacing: 0.06em;
+    }
+
+    .chip-code {
+      letter-spacing: 0.1em;
+      font-weight: $fw-bold;
+      color: #E6CE93;
+    }
+
+    .chip-copy-icon {
+      opacity: 0.85;
+    }
+
+    &.is-copied {
+      background: #2E7D32;
+      border-color: #2E7D32;
+      color: #FFFFFF;
+
+      .chip-code {
+        color: #FFFFFF;
+      }
+
+      .chip-copied-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        font-size: 9.5px;
+        font-weight: $fw-bold;
+        letter-spacing: 0.08em;
+      }
+    }
+  }
 }
 
 @keyframes fadeInAnnounce {
   from {
     opacity: 0;
-    transform: translateY(4px);
+    transform: translateY(3px);
   }
   to {
     opacity: 1;

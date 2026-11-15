@@ -1,0 +1,190 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.labiii-campaign-video-hero {
+  position: relative;
+  width: 100%;
+  background-color: #1C1815;
+  overflow: hidden;
+  border-top: 1px solid rgba(194, 155, 70, 0.22);
+  border-bottom: 1px solid rgba(194, 155, 70, 0.22);
+
+  .campaign-video-viewport {
+    position: relative;
+    width: 100%;
+    min-height: clamp(520px, 68vh, 760px);
+    display: flex;
+    align-items: center;
+
+    .campaign-video-media {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      transition: opacity 0.5s ease;
+    }
+
+    // Gradient Scrim for luxury contrast
+    .campaign-scrim-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        circle at 20% 50%,
+        rgba(43, 14, 22, 0.72) 0%,
+        rgba(28, 24, 21, 0.55) 50%,
+        rgba(28, 24, 21, 0.75) 100%
+      );
+      pointer-events: none;
+    }
+
+    // Video Controls
+    .campaign-controls-bar {
+      position: absolute;
+      bottom: 24px;
+      right: clamp(20px, 4vw, 48px);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 10;
+
+      .video-action-btn {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background-color: rgba(28, 24, 21, 0.65);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        color: #FCFBF7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all $transition-fast;
+
+        &:hover {
+          background-color: $color-primary;
+          border-color: $color-gold;
+          color: #FFFFFF;
+          transform: scale(1.08);
+        }
+      }
+    }
+
+    // Content Box
+    .campaign-content-container {
+      position: relative;
+      z-index: 5;
+      padding-top: clamp(40px, 6vw, 80px);
+      padding-bottom: clamp(40px, 6vw, 80px);
+    }
+
+    .campaign-editorial-box {
+      max-width: 640px;
+
+      .campaign-badge-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px;
+        background-color: rgba(194, 155, 70, 0.2);
+        border: 1px solid rgba(194, 155, 70, 0.4);
+        border-radius: $radius-pill;
+        font-family: $font-body;
+        font-size: 11px;
+        font-weight: $fw-semibold;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: $color-gold-light;
+        margin-bottom: 20px;
+        backdrop-filter: blur(6px);
+
+        .badge-spark {
+          color: $color-gold;
+        }
+      }
+
+      .campaign-headline {
+        font-family: $font-heading;
+        font-size: clamp(2.6rem, 5vw, 4.4rem);
+        color: #FFFFFF;
+        line-height: 1.1;
+        margin: 0 0 16px;
+        text-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+
+        em {
+          font-family: $font-heading;
+          font-style: italic;
+          color: $color-gold-light;
+        }
+      }
+
+      .campaign-subheadline {
+        font-family: $font-body;
+        font-size: clamp(15px, 1.2vw, 17px);
+        line-height: 1.65;
+        color: rgba(252, 251, 247, 0.88);
+        margin-bottom: 32px;
+        max-width: 520px;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+      }
+
+      .campaign-cta-row {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+
+        .btn-campaign-primary {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          background: linear-gradient(135deg, $color-primary 0%, #3E0E18 100%);
+          color: #FCFBF7;
+          border: 1px solid rgba(194, 155, 70, 0.4);
+          border-radius: $radius-sm;
+          padding: 16px 32px;
+          font-family: $font-body;
+          font-size: 12.5px;
+          font-weight: $fw-semibold;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+          box-shadow: 0 8px 24px rgba(84, 20, 33, 0.4);
+
+          &:hover {
+            background: linear-gradient(135deg, #6B1C2E 0%, $color-primary 100%);
+            border-color: $color-gold;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(84, 20, 33, 0.55);
+          }
+        }
+
+        .btn-campaign-ghost {
+          display: inline-flex;
+          align-items: center;
+          background: rgba(255, 255, 255, 0.08);
+          backdrop-filter: blur(8px);
+          border: 1px solid rgba(255, 255, 255, 0.35);
+          color: #FCFBF7;
+          padding: 15px 26px;
+          border-radius: $radius-sm;
+          font-family: $font-body;
+          font-size: 12px;
+          font-weight: $fw-semibold;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          cursor: pointer;
+          transition: all $transition-fast;
+
+          &:hover {
+            background: rgba(255, 255, 255, 0.18);
+            border-color: #FFFFFF;
+          }
+        }
+      }
+    }
+  }
+}
