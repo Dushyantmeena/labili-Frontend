@@ -9,19 +9,27 @@
   font-family: $font-body;
   text-align: left;
 
-  @include respond-to(mobile) {
-    right: 14px;
-    bottom: 14px;
+  @include respond-to(tablet) {
+    left: 16px;
+    right: auto;
+    bottom: 68px;
+    z-index: 97;
+
+    .bs-launch {
+      padding: 10px 16px;
+      font-size: 12px;
+      min-height: 40px;
+    }
   }
 
   // Floating Pill Button
   .bs-launch {
-    border: 1px solid rgba(194, 155, 70, 0.4);
+    border: 1px solid rgba(173, 102, 85, 0.3);
     border-radius: $radius-pill;
-    background: linear-gradient(135deg, $color-primary 0%, #3E0E18 100%);
-    color: #FCFBF7;
+    background: linear-gradient(135deg, $color-terracotta 0%, #935344 100%);
+    color: #FFFFFF;
     padding: 12px 22px;
-    box-shadow: 0 10px 28px -4px rgba(62, 14, 24, 0.4);
+    box-shadow: 0 8px 24px -4px rgba(173, 102, 85, 0.4);
     display: flex;
     align-items: center;
     gap: 9px;
@@ -34,15 +42,15 @@
     transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 
     &:hover {
-      background: linear-gradient(135deg, #6B1C2E 0%, $color-primary 100%);
+      background: linear-gradient(135deg, #C98289 0%, $color-terracotta 100%);
       transform: translateY(-2px);
-      box-shadow: 0 14px 34px -4px rgba(62, 14, 24, 0.5);
-      border-color: $color-gold;
+      box-shadow: 0 12px 28px -4px rgba(173, 102, 85, 0.5);
+      border-color: $color-dusty-rose;
     }
 
     .bs-spark {
       font-size: 14px;
-      color: $color-gold;
+      color: #E9B99F;
     }
 
     .bs-label {
@@ -55,9 +63,9 @@
     width: 380px;
     height: min(600px, calc(100dvh - 100px));
     max-width: calc(100vw - 32px);
-    background: #FAF7F2;
-    border: 1px solid rgba(194, 155, 70, 0.3);
-    border-radius: 20px;
+    background: #FFFDF8;
+    border: 1px solid rgba(173, 102, 85, 0.2);
+    border-radius: 16px;
     box-shadow: 0 20px 60px -10px rgba(43, 14, 22, 0.35);
     overflow: hidden;
     display: flex;
@@ -66,7 +74,7 @@
     animation: fadeIn 0.3s ease-out;
 
     .bs-head {
-      background: linear-gradient(135deg, $color-primary 0%, #3E0E18 100%);
+      background: linear-gradient(135deg, $color-terracotta 0%, #935344 100%);
       color: #FCFBF7;
       padding: 16px 18px;
       display: flex;
@@ -239,7 +247,7 @@
           transition: background $transition-fast;
 
           &:hover {
-            background-color: #3E0E18;
+            background-color: $color-terracotta-hover;
           }
         }
       }

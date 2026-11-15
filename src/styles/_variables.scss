@@ -1,92 +1,117 @@
 // ==========================================================================
-// LABIII · NEW BRAND DESIGN SYSTEM
-// Creative Direction: "Rajasthan Heritage. Contemporary Luxury."
+// LABIII · NEW BRAND DESIGN SYSTEM (AURANIC-INSPIRED FRESH AESTHETIC)
+// Creative Direction: "Rajasthani Heritage. Fresh Contemporary Elegance."
+// Fresh, Feminine, Elegant, Colourful, Premium, Contemporary
 // ==========================================================================
 
 :root {
-  // Brand Canvas & Light Neutrals
-  --labiii-ivory: #FBF9F5;         // Warm Pale Ivory Canvas
-  --labiii-ivory-warm: #F5F0E8;    // Warm Ecru Surface
-  --labiii-paper: #FFFFFF;         // Pure Crisp Card Surface
-  --labiii-sandstone: #E8DFD5;     // Jaipur Sandstone Beige
-  --labiii-sandstone-light: #F4EFEA;
-  --labiii-sandstone-dark: #D4C5B5;
+  // Brand Color Tokens (User Specified Palette)
+  --labiii-bg-primary: #FFFDF8;       // Primary Background (Porcelain White)
+  --labiii-bg-secondary: #F8F1E9;     // Secondary Background (Warm Linen/Almond)
+  --labiii-dusty-rose: #C98289;       // Dusty Rose (Primary Feminine Accent)
+  --labiii-sage-green: #A6B59A;       // Sage Green (Fresh Botanical Accent)
+  --labiii-muted-peach: #E9B99F;      // Muted Peach (Warm Pastel Accent)
+  --labiii-terracotta: #AD6655;       // Terracotta (Jaipur Clay Accent / CTAs)
+  --labiii-warm-charcoal: #38332F;    // Warm Charcoal (Luxury Editorial Text)
+  --labiii-white: #FFFFFF;            // Pure White (Surfaces & Cards)
 
-  // Royal Rajasthan Accents
-  --labiii-burgundy: #4A0E17;      // Primary Deep Burgundy
-  --labiii-burgundy-deep: #380A11; // Velvet Night Burgundy
-  --labiii-burgundy-light: #6A1826;
-  --labiii-rose-muted: #B85D6B;    // Muted Desert Rose
-  --labiii-rose-deep: #9E4755;     // Vintage Rose Accent
-  --labiii-terracotta: #C2593F;    // Muted Jaipur Terracotta
-  --labiii-gold: #C5A059;          // Antique Zari Gold
-  --labiii-gold-light: #E5D5B5;    // Champagne Mist
-  --labiii-gold-ink: #8A6B29;      // Deep Gold Accent
-  --labiii-gold-metallic: #D4AF37; // Polished Metallic Zari
-
-  // Typography Tones
-  --labiii-espresso: #1A1412;      // Deep Espresso / Slate Charcoal (High contrast)
-  --labiii-espresso-soft: #302624; // Secondary Body Text
-  --labiii-muted: #726662;         // Meta taupe
-  --labiii-border: rgba(197, 160, 89, 0.25); // Fine Antique Gold Hairline
-  --labiii-border-subtle: rgba(26, 20, 18, 0.08);
+  // Subtle Tonal Variants
+  --labiii-rose-light: #F6EAEB;       // Soft rose wash
+  --labiii-rose-dark: #A85D65;        // Deep dusty rose
+  --labiii-sage-light: #EFF4EC;       // Soft sage wash
+  --labiii-peach-light: #FAF2EC;      // Soft peach wash
+  --labiii-terracotta-hover: #935344; // Deep terracotta
+  --labiii-charcoal-soft: #5C544E;    // Secondary taupe body text
+  --labiii-charcoal-muted: #857B74;   // Micro-copy and captions
+  --labiii-border: rgba(173, 102, 85, 0.18); // Soft terracotta hairline
+  --labiii-border-subtle: rgba(56, 51, 47, 0.08); // Barely perceptible line
 
   // Fonts & Animation Easing
   --labiii-serif: 'Cormorant Garamond', Garamond, Georgia, serif;
   --labiii-sans: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --labiii-ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --labiii-shadow-card: 0 10px 30px -6px rgba(26, 20, 18, 0.06), 0 4px 12px -2px rgba(26, 20, 18, 0.03);
-  --labiii-shadow-hover: 0 20px 48px -10px rgba(74, 14, 23, 0.14), 0 8px 20px -4px rgba(194, 89, 63, 0.08);
+  --labiii-shadow-card: 0 4px 20px rgba(56, 51, 47, 0.05);
+  --labiii-shadow-hover: 0 14px 34px rgba(173, 102, 85, 0.12);
 
-  // Compatibility tokens
-  --v3-ivory: var(--labiii-ivory);
-  --v3-ivory-2: var(--labiii-ivory-warm);
-  --v3-paper: var(--labiii-paper);
-  --v3-sand: var(--labiii-sandstone);
+  // Backward compatibility CSS variables
+  --v3-ivory: var(--labiii-bg-primary);
+  --v3-ivory-2: var(--labiii-bg-secondary);
+  --v3-paper: var(--labiii-white);
+  --v3-sand: var(--labiii-bg-secondary);
   --v3-sandstone: var(--labiii-terracotta);
-  --v3-gold: var(--labiii-gold);
-  --v3-gold-ink: var(--labiii-gold-ink);
-  --v3-maroon: var(--labiii-burgundy);
-  --v3-wine: var(--labiii-burgundy-deep);
-  --v3-ink: var(--labiii-espresso);
-  --v3-muted: var(--labiii-muted);
+  --v3-gold: var(--labiii-muted-peach);
+  --v3-gold-ink: var(--labiii-terracotta);
+  --v3-maroon: var(--labiii-dusty-rose);
+  --v3-wine: var(--labiii-terracotta);
+  --v3-ink: var(--labiii-warm-charcoal);
+  --v3-muted: var(--labiii-charcoal-muted);
   --v3-line: var(--labiii-border);
-  --v3-white: var(--labiii-paper);
+  --v3-white: var(--labiii-white);
   --v3-serif: var(--labiii-serif);
   --v3-sans: var(--labiii-sans);
 }
 
-// SCSS Color Palette
-$color-bg-primary: #FBF9F5;         // Warm Pale Ivory Canvas
-$color-bg-secondary: #F5F0E8;       // Soft warm ecru
-$color-bg-sand: #E8DFD5;            // Sandstone beige
-$color-bg-surface: #FFFFFF;         // Pure crisp card surface
-$color-bg-dark: #380A11;            // Velvet Night Burgundy
+// SCSS Color Palette Variables
+$color-bg-primary: #FFFDF8;         // Primary Background
+$color-bg-secondary: #F8F1E9;       // Secondary Background
+$color-bg-surface: #FFFFFF;         // White
+$color-bg-dark: #38332F;            // Warm Charcoal
 
-$color-text-primary: #1A1412;       // Charcoal Slate Espresso
-$color-text-secondary: #423633;     // Refined body taupe
-$color-text-muted: #726662;         // Micro-caps & labels
-$color-text-light: #FBF9F5;         // Warm off-white
-$color-text-accent: #4A0E17;        // Deep noble burgundy
+$color-dusty-rose: #C98289;         // Dusty Rose
+$color-rose: #C98289;
+$color-rose-light: #F6EAEB;
+$color-rose-dark: #A85D65;
 
-$color-primary: #4A0E17;            // Deep Burgundy
-$color-primary-hover: #380A11;      // Velvet Night
-$color-primary-dark: #24050B;       // Midnight Burgundy
-$color-primary-light: #F7EEF0;      // Burgundy blossom wash
+$color-sage-green: #A6B59A;         // Sage Green
+$color-sage: #A6B59A;
+$color-sage-light: #EFF4EC;
 
-$color-rose: #B85D6B;               // Muted Desert Rose
-$color-rose-deep: #9E4755;
-$color-terracotta: #C2593F;         // Jaipur terracotta clay
-$color-terracotta-hover: #A74730;
+$color-muted-peach: #E9B99F;        // Muted Peach
+$color-peach: #E9B99F;
+$color-peach-light: #FAF2EC;
 
-$color-gold: #C5A059;               // Antique Zari Gold
-$color-gold-ink: #8A6B29;           // Deep Gold Accent
-$color-gold-soft: #E5D5B5;          // Champagne Mist
-$color-gold-hover: #B38A3E;
+$color-terracotta: #AD6655;         // Terracotta (Primary Accent & CTA)
+$color-terracotta-hover: #935344;
+$color-primary: #AD6655;            // Primary brand interactive color
+$color-primary-hover: #935344;
+$color-primary-dark: #7A4235;
+$color-primary-light: #FAF2EC;
 
-$color-border: rgba(197, 160, 89, 0.25); // Fine Antique Gold Hairline
-$color-border-dark: #D4C5B5;
-$color-border-subtle: rgba(26, 20, 18, 0.08);
+$color-text-primary: #38332F;       // Warm Charcoal
+$color-text-secondary: #5C544E;     // Secondary soft charcoal taupe
+$color-text-muted: #857B74;         // Micro-copy
+$color-text-light: #FFFDF8;         // Primary background off-white
+$color-text-accent: #AD6655;        // Terracotta accent
+
+$color-white: #FFFFFF;
+$color-border: rgba(173, 102, 85, 0.2);
+$color-border-subtle: rgba(56, 51, 47, 0.08);
+$color-border-dark: #D9CCC1;
+
+// Legacy Aliases for Seamless Build Compatibility
+$color-gold: #AD6655;
+$color-gold-light: #E9B99F;
+$color-gold-ink: #AD6655;
+$color-gold-soft: #F8F1E9;
+$color-gold-hover: #935344;
+$color-gold-metallic: #AD6655;
+
+$color-burgundy: #C98289;
+$color-burgundy-deep: #38332F;
+$color-burgundy-light: #F6EAEB;
+$color-rani-pink: #C98289;
+$color-teal: #A6B59A;
+$color-sandstone: #F8F1E9;
+$color-sandstone-light: #FFFDF8;
+$color-sandstone-dark: #E6D7C8;
+
+$color-success: #6A8E67;
+$color-error: #BA4E4E;
+$color-warning: #D98838;
+$color-sale-red: #AD6655;
+$color-discount: #AD6655;
+$color-danger: #BA4E4E;
+$color-badge: #AD6655;
 
 // Typography
 $font-heading: 'Cormorant Garamond', Garamond, Georgia, serif;
@@ -100,58 +125,50 @@ $fw-medium: 500;
 $fw-semibold: 600;
 $fw-bold: 700;
 
-// Spacing System
+// Spacing Scale
 $space-xxs: 4px;
 $space-xs: 8px;
-$space-sm: 12px;
-$space-md: 16px;
-$space-lg: 24px;
-$space-xl: 32px;
-$space-2xl: 48px;
-$space-3xl: 64px;
-$space-4xl: 80px;
-$space-5xl: 104px;
+$space-sm: 16px;
+$space-md: 24px;
+$space-lg: 32px;
+$space-xl: 48px;
+$space-xxl: 64px;
+$space-2xl: 64px;
+$space-3xl: 80px;
+$space-4xl: 96px;
+$space-section: 96px;
 
-// Border Radii
+// Border Radius
 $radius-xs: 2px;
 $radius-sm: 4px;
-$radius-md: 6px;
-$radius-lg: 10px;
+$radius-md: 8px;
+$radius-lg: 16px;
+$radius-xl: 24px;
 $radius-pill: 9999px;
-$radius-arch: 140px 140px 0 0;
+$radius-circle: 50%;
 
-// Shadows
-$shadow-sm: 0 2px 8px rgba(26, 20, 18, 0.04);
-$shadow-md: 0 8px 24px -4px rgba(26, 20, 18, 0.08);
-$shadow-lg: 0 16px 40px -8px rgba(74, 14, 23, 0.12);
-$shadow-hover: 0 20px 48px -10px rgba(74, 14, 23, 0.16);
+// Box Shadows (Delicate, soft and warm)
+$shadow-sm: 0 2px 8px rgba(56, 51, 47, 0.04);
+$shadow-md: 0 6px 20px rgba(56, 51, 47, 0.06);
+$shadow-lg: 0 14px 34px rgba(173, 102, 85, 0.1);
+$shadow-card: 0 4px 18px rgba(56, 51, 47, 0.05);
+$shadow-hover: 0 16px 36px rgba(173, 102, 85, 0.14);
 
-// Container
-$container-max-width: 1600px;
-$container-padding-mobile: 16px;
-$container-padding-desktop: 48px;
+// Transitions
 $transition-fast: 0.2s cubic-bezier(0.22, 1, 0.36, 1);
-$transition-base: 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-$transition-slow: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+$transition-normal: 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+$transition-slow: 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+$transition-smooth: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 
+// Breakpoints
+$bp-mobile-sm: 360px;
+$bp-mobile: 480px;
+$bp-tablet: 768px;
+$bp-laptop: 1024px;
+$bp-desktop: 1280px;
+$bp-wide: 1440px;
 
-// Breakpoints System
-$bp-mobile-sm: 480px;
-$bp-mobile: 768px;
-$bp-tablet: 992px;
-$bp-laptop: 1200px;
-$bp-desktop: 1440px;
-$bp-wide: 1600px;
-
-$container-narrow-width: 1100px;
-$transition-normal: 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-$color-sale-red: #A8201A;
-
-
-// Compatibility Aliases for components
-$color-gold-light: #E5D5B5;
-$shadow-card: 0 10px 30px -6px rgba(26, 20, 18, 0.06);
-$color-success: #2E7D32;
-$color-rani-pink: #C81E57;
-$color-teal: #0F514E;
-$color-sage: #52634F;
+// Container Layout
+$container-max-width: 1320px;
+$container-narrow-width: 980px;
+$container-fluid-width: 1600px;

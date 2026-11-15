@@ -5,18 +5,18 @@
   position: sticky;
   top: 0;
   z-index: 990;
-  background-color: #FBF9F5;
-  border-bottom: 1px solid rgba(197, 160, 89, 0.22);
+  background-color: #FFFDF8; // Primary Background
+  border-bottom: 1px solid rgba(173, 102, 85, 0.16);
   transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 
   &.is-scrolled {
-    background-color: rgba(251, 249, 245, 0.96);
+    background-color: rgba(255, 253, 248, 0.97);
     backdrop-filter: blur(14px);
-    box-shadow: 0 4px 20px rgba(26, 20, 18, 0.05);
+    box-shadow: 0 4px 20px rgba(56, 51, 47, 0.06);
   }
 
   .navbar-container {
-    max-width: 1680px;
+    max-width: 1540px;
     margin: 0 auto;
     padding: 14px 16px;
     display: flex;
@@ -25,11 +25,11 @@
     gap: 16px;
 
     @include respond-to('md') {
-      padding: 16px 32px;
+      padding: 16px 28px;
     }
 
     @include respond-to('lg') {
-      padding: 18px 48px;
+      padding: 18px 40px;
     }
   }
 
@@ -40,7 +40,7 @@
     justify-content: center;
     background: transparent;
     border: none;
-    color: #1A1412;
+    color: $color-text-primary;
     cursor: pointer;
     padding: 6px;
 
@@ -53,14 +53,14 @@
   .desktop-nav-menu {
     display: none;
     align-items: center;
-    gap: 24px;
+    gap: 22px;
 
     @include respond-to('lg') {
       display: flex;
     }
 
     @include respond-to('xl') {
-      gap: 32px;
+      gap: 30px;
     }
 
     .nav-item-link {
@@ -69,7 +69,7 @@
       font-weight: $fw-semibold;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: #1A1412;
+      color: $color-text-primary;
       text-decoration: none;
       position: relative;
       padding: 8px 0;
@@ -83,13 +83,13 @@
         left: 0;
         width: 0;
         height: 1.5px;
-        background: #4A0E17;
+        background: $color-terracotta;
         transition: width 0.25s ease;
       }
 
       &:hover,
       &.active {
-        color: #4A0E17;
+        color: $color-terracotta;
 
         &::after {
           width: 100%;
@@ -120,24 +120,24 @@
     }
   }
 
-  // Mega Menu Overlay
+  // Mega Menu Overlay (Luminous Porcelain Surface)
   .mega-menu-overlay {
     position: absolute;
     top: 100%;
-    left: -32px;
-    width: 880px;
-    background: #FFFFFF;
-    border: 1px solid rgba(197, 160, 89, 0.25);
-    border-radius: 4px;
-    box-shadow: 0 20px 48px rgba(26, 20, 18, 0.12);
-    padding: 32px 36px;
+    left: -20px;
+    width: 860px;
+    background: #FFFDF8;
+    border: 1px solid rgba(173, 102, 85, 0.2);
+    border-radius: $radius-sm;
+    box-shadow: 0 16px 40px rgba(56, 51, 47, 0.08);
+    padding: 30px 34px;
     animation: fadeInMega 0.25s cubic-bezier(0.22, 1, 0.36, 1);
     z-index: 1000;
 
     .mega-menu-inner {
       display: grid;
       grid-template-columns: 2.2fr 1fr;
-      gap: 36px;
+      gap: 32px;
       align-items: center;
     }
 
@@ -148,12 +148,12 @@
 
       .mega-col-title {
         font-family: $font-heading;
-        font-size: 17px;
+        font-size: 16.5px;
         font-weight: 600;
-        color: #4A0E17;
-        margin-bottom: 14px;
+        color: $color-terracotta;
+        margin-bottom: 12px;
         padding-bottom: 8px;
-        border-bottom: 1px solid rgba(197, 160, 89, 0.25);
+        border-bottom: 1px solid rgba(173, 102, 85, 0.18);
       }
 
       .mega-links-list {
@@ -162,17 +162,17 @@
         margin: 0;
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 9px;
 
         li a {
           font-size: 13px;
-          color: #423633;
+          color: $color-text-secondary;
           text-decoration: none;
           transition: all 0.2s ease;
           display: inline-block;
 
           &:hover {
-            color: #C2593F;
+            color: $color-dusty-rose;
             transform: translateX(3px);
           }
         }
@@ -184,9 +184,9 @@
         position: relative;
         width: 100%;
         aspect-ratio: 3 / 4;
-        border-radius: 3px;
+        border-radius: $radius-xs;
         overflow: hidden;
-        background: #F5F0E8;
+        background: #F8F1E9;
 
         .featured-card-img {
           width: 100%;
@@ -202,7 +202,7 @@
         .featured-scrim {
           position: absolute;
           inset: 0;
-          background: linear-gradient(to top, rgba(26, 20, 18, 0.75) 0%, transparent 60%);
+          background: linear-gradient(to top, rgba(56, 51, 47, 0.75) 0%, transparent 60%);
         }
 
         .featured-caption {
@@ -217,7 +217,7 @@
             font-weight: $fw-bold;
             letter-spacing: 0.16em;
             text-transform: uppercase;
-            color: #E5D5B5;
+            color: $color-muted-peach;
             display: block;
             margin-bottom: 3px;
           }
@@ -242,7 +242,7 @@
             text-underline-offset: 3px;
 
             &:hover {
-              color: #E5D5B5;
+              color: $color-muted-peach;
             }
           }
         }
@@ -270,21 +270,21 @@
       font-weight: 400;
       letter-spacing: 0.18em;
       line-height: 1;
-      color: #4A0E17;
+      color: $color-text-primary; // Warm Charcoal
       transition: color 0.2s ease;
 
       &:hover {
-        color: #380A11;
+        color: $color-terracotta;
       }
     }
 
     .brand-subtext {
       font-family: $font-body;
       font-size: 8.5px;
-      font-weight: $fw-bold;
+      font-weight: $fw-semibold;
       letter-spacing: 0.26em;
       text-transform: uppercase;
-      color: #8A6B29;
+      color: $color-dusty-rose; // Dusty Rose tagline
       margin-top: 4px;
     }
   }
@@ -296,7 +296,7 @@
     gap: 12px;
 
     @include respond-to('md') {
-      gap: 18px;
+      gap: 16px;
     }
 
     .currency-selector-wrap {
@@ -307,24 +307,24 @@
         align-items: center;
         gap: 5px;
         background: transparent;
-        border: 1px solid rgba(26, 20, 18, 0.15);
+        border: 1px solid rgba(56, 51, 47, 0.15);
         border-radius: 20px;
         padding: 5px 10px;
         font-family: $font-body;
         font-size: 11px;
         font-weight: $fw-semibold;
         letter-spacing: 0.08em;
-        color: #1A1412;
+        color: $color-text-primary;
         cursor: pointer;
         transition: all 0.2s ease;
 
         &:hover {
-          border-color: #4A0E17;
-          color: #4A0E17;
+          border-color: $color-terracotta;
+          color: $color-terracotta;
         }
 
         .globe-icon {
-          color: #8A6B29;
+          color: $color-terracotta;
         }
       }
 
@@ -333,9 +333,9 @@
         top: calc(100% + 8px);
         right: 0;
         background: #FFFFFF;
-        border: 1px solid rgba(197, 160, 89, 0.25);
+        border: 1px solid rgba(173, 102, 85, 0.2);
         border-radius: 4px;
-        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 10px 28px rgba(56, 51, 47, 0.08);
         padding: 6px;
         min-width: 110px;
         z-index: 1000;
@@ -353,14 +353,14 @@
           border: none;
           font-size: 11.5px;
           font-weight: $fw-medium;
-          color: #1A1412;
+          color: $color-text-primary;
           cursor: pointer;
           transition: background 0.15s ease;
 
           &:hover,
           &.active {
-            background: #F5F0E8;
-            color: #4A0E17;
+            background: #F8F1E9;
+            color: $color-terracotta;
           }
         }
       }
@@ -370,7 +370,7 @@
       position: relative;
       background: transparent;
       border: none;
-      color: #1A1412;
+      color: $color-text-primary;
       padding: 6px;
       display: flex;
       align-items: center;
@@ -380,7 +380,7 @@
       transition: color 0.2s ease, transform 0.2s ease;
 
       &:hover {
-        color: #4A0E17;
+        color: $color-terracotta;
         transform: translateY(-1px);
       }
 
@@ -390,7 +390,7 @@
         right: 4px;
         width: 6px;
         height: 6px;
-        background: #2E7D32;
+        background: #4CAF50;
         border-radius: 50%;
       }
 
@@ -398,7 +398,7 @@
         position: absolute;
         top: 2px;
         right: -2px;
-        background: #4A0E17;
+        background: $color-dusty-rose; // Dusty Rose badge
         color: #FFFFFF;
         font-size: 9.5px;
         font-weight: $fw-bold;
@@ -411,7 +411,7 @@
         line-height: 1;
 
         &.bag-counter {
-          background: #C2593F;
+          background: $color-terracotta; // Terracotta for Bag
         }
       }
     }
@@ -421,16 +421,16 @@
   .mobile-nav-drawer-backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(26, 20, 18, 0.6);
+    background: rgba(56, 51, 47, 0.45);
     backdrop-filter: blur(4px);
     z-index: 1100;
     display: flex;
 
     .mobile-nav-drawer {
       width: 82%;
-      max-width: 360px;
+      max-width: 340px;
       height: 100%;
-      background: #FBF9F5;
+      background: #FFFDF8;
       padding: 24px;
       display: flex;
       flex-direction: column;
@@ -443,20 +443,20 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding-bottom: 20px;
-      border-bottom: 1px solid rgba(197, 160, 89, 0.25);
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(173, 102, 85, 0.16);
 
       .drawer-brand {
         font-family: $font-heading;
-        font-size: 28px;
+        font-size: 26px;
         letter-spacing: 0.16em;
-        color: #4A0E17;
+        color: $color-text-primary;
       }
 
       .drawer-close-btn {
         background: transparent;
         border: none;
-        color: #1A1412;
+        color: $color-text-primary;
         cursor: pointer;
       }
     }
@@ -471,29 +471,29 @@
         font-family: $font-heading;
         font-size: 19px;
         font-style: italic;
-        color: #1A1412;
+        color: $color-text-primary;
         text-decoration: none;
         transition: color 0.2s ease;
 
         &:hover {
-          color: #C2593F;
+          color: $color-terracotta;
         }
       }
     }
 
     .drawer-footer {
-      padding-top: 20px;
-      border-top: 1px solid rgba(197, 160, 89, 0.25);
+      padding-top: 18px;
+      border-top: 1px solid rgba(173, 102, 85, 0.16);
       display: flex;
       flex-direction: column;
       gap: 8px;
 
       .drawer-phone {
         font-size: 12.5px;
-        color: #726662;
+        color: $color-text-muted;
 
         a {
-          color: #4A0E17;
+          color: $color-terracotta;
           font-weight: $fw-bold;
           text-decoration: none;
         }
@@ -503,7 +503,7 @@
         font-family: $font-heading;
         font-size: 14px;
         font-style: italic;
-        color: #8A6B29;
+        color: $color-dusty-rose;
       }
     }
   }

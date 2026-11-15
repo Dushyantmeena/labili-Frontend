@@ -2,9 +2,9 @@
 @use '../../styles/mixins' as *;
 
 .labiii-motion-section {
-  padding: clamp(56px, 7vw, 100px) 0;
-  background-color: #FAF7F2;
-  border-bottom: 1px solid rgba(194, 155, 70, 0.16);
+  padding: clamp(56px, 7vw, 96px) 0;
+  background-color: #FFFDF8; // Primary Background
+  border-bottom: 1px solid rgba(173, 102, 85, 0.14);
   overflow: hidden;
 
   // Header Row
@@ -13,7 +13,7 @@
     align-items: flex-end;
     justify-content: space-between;
     gap: 24px;
-    margin-bottom: clamp(32px, 4vw, 52px);
+    margin-bottom: clamp(32px, 4vw, 48px);
     flex-wrap: wrap;
 
     .header-text-column {
@@ -24,70 +24,72 @@
         align-items: center;
         gap: 6px;
         padding: 5px 12px;
-        background-color: rgba(194, 155, 70, 0.12);
-        border: 1px solid rgba(194, 155, 70, 0.28);
+        background-color: #EFF4EC; // Sage Green tint
+        border: 1px solid rgba(166, 181, 154, 0.5);
         border-radius: $radius-pill;
         font-family: $font-body;
         font-size: 10.5px;
-        font-weight: $fw-semibold;
+        font-weight: $fw-bold;
         letter-spacing: 0.18em;
         text-transform: uppercase;
-        color: $color-gold-ink;
-        margin-bottom: 14px;
+        color: #4D6341;
+        margin-bottom: 12px;
 
         .eyebrow-spark {
-          color: $color-gold;
+          color: $color-terracotta;
         }
       }
 
       .motion-section-title {
         font-family: $font-heading;
         font-size: clamp(2.2rem, 3.8vw, 3.2rem);
-        color: $color-primary;
+        color: $color-text-primary; // Warm Charcoal #38332F
         margin: 0 0 10px;
         line-height: 1.15;
+        font-weight: 500;
 
         em {
           font-family: $font-heading;
           font-style: italic;
-          color: $color-terracotta;
+          color: $color-dusty-rose; // Dusty Rose #C98289
         }
       }
 
       .motion-section-sub {
         font-family: $font-body;
-        font-size: 15px;
+        font-size: 14.5px;
         line-height: 1.6;
         color: $color-text-secondary;
         margin: 0;
+        font-weight: 300;
       }
     }
 
     .motion-controls-group {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
 
       .carousel-nav-btn {
-        width: 46px;
-        height: 46px;
+        width: 44px;
+        height: 44px;
         border-radius: 50%;
         background-color: #FFFFFF;
-        border: 1px solid rgba(194, 155, 70, 0.28);
-        color: $color-primary;
+        border: 1px solid rgba(173, 102, 85, 0.22);
+        color: $color-text-primary;
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
         transition: all $transition-fast;
-        box-shadow: 0 4px 14px rgba(43, 14, 22, 0.06);
+        box-shadow: 0 2px 10px rgba(56, 51, 47, 0.05);
 
         &:hover {
-          background-color: $color-primary;
-          color: #FCFBF7;
-          border-color: $color-primary;
-          transform: scale(1.06);
-          box-shadow: 0 8px 20px rgba(84, 20, 33, 0.25);
+          background-color: $color-terracotta;
+          color: #FFFFFF;
+          border-color: $color-terracotta;
+          transform: scale(1.05);
+          box-shadow: 0 6px 16px rgba(173, 102, 85, 0.25);
         }
 
         &:active {
@@ -97,52 +99,52 @@
     }
   }
 
-  // 9:16 Carousel Track (Horizontal swipe on mobile, smooth scroll on desktop)
+  // 9:16 Carousel Track
   .motion-carousel-track {
     display: flex;
-    gap: clamp(16px, 2.2vw, 26px);
+    gap: clamp(16px, 2.2vw, 24px);
     overflow-x: auto;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
-    padding-bottom: 18px;
+    padding-bottom: 16px;
     margin: 0 -4px;
     -webkit-overflow-scrolling: touch;
 
     &::-webkit-scrollbar {
-      height: 5px;
+      height: 4px;
     }
 
     &::-webkit-scrollbar-track {
-      background-color: rgba(194, 155, 70, 0.12);
+      background-color: #F8F1E9;
       border-radius: 4px;
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: rgba(194, 155, 70, 0.4);
+      background-color: rgba(173, 102, 85, 0.35);
       border-radius: 4px;
 
       &:hover {
-        background-color: $color-gold;
+        background-color: $color-terracotta;
       }
     }
   }
 
   // Individual 9:16 Video Card
   .motion-video-card {
-    flex: 0 0 clamp(270px, 25vw, 320px);
+    flex: 0 0 clamp(260px, 24vw, 300px);
     scroll-snap-align: start;
-    border-radius: 20px;
+    border-radius: 16px;
     overflow: hidden;
-    background-color: #1C1815;
-    border: 1.5px solid rgba(194, 155, 70, 0.25);
-    box-shadow: 0 12px 32px -6px rgba(43, 14, 22, 0.14);
+    background-color: #38332F;
+    border: 1.5px solid rgba(173, 102, 85, 0.25);
+    box-shadow: 0 10px 28px rgba(56, 51, 47, 0.1);
     transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
     position: relative;
 
     &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 48px -8px rgba(84, 20, 33, 0.22);
-      border-color: $color-gold;
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(173, 102, 85, 0.2);
+      border-color: $color-dusty-rose;
 
       .video-ctrl-btn {
         opacity: 1;
@@ -169,10 +171,10 @@
         inset: 0;
         background: linear-gradient(
           180deg,
-          rgba(28, 24, 21, 0.5) 0%,
-          rgba(28, 24, 21, 0) 30%,
-          rgba(28, 24, 21, 0.3) 60%,
-          rgba(28, 24, 21, 0.94) 100%
+          rgba(56, 51, 47, 0.45) 0%,
+          transparent 30%,
+          rgba(56, 51, 47, 0.25) 60%,
+          rgba(56, 51, 47, 0.92) 100%
         );
         pointer-events: none;
       }
@@ -193,7 +195,7 @@
           align-items: center;
           gap: 6px;
           padding: 4px 10px;
-          background-color: rgba(28, 24, 21, 0.65);
+          background-color: rgba(56, 51, 47, 0.65);
           backdrop-filter: blur(8px);
           border: 1px solid rgba(255, 255, 255, 0.2);
           border-radius: $radius-pill;
@@ -202,12 +204,12 @@
           font-weight: $fw-semibold;
           letter-spacing: 0.12em;
           text-transform: uppercase;
-          color: #FCFBF7;
+          color: #FFFDF8;
 
           .live-pulse-dot {
             width: 6px;
             height: 6px;
-            background-color: #E26D5C;
+            background-color: $color-terracotta;
             border-radius: 50%;
             animation: pulseDot 1.5s infinite;
           }
@@ -219,13 +221,13 @@
           gap: 6px;
 
           .video-ctrl-btn {
-            width: 34px;
-            height: 34px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
-            background-color: rgba(28, 24, 21, 0.65);
+            background-color: rgba(56, 51, 47, 0.65);
             backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.25);
-            color: #FCFBF7;
+            color: #FFFDF8;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -233,9 +235,9 @@
             transition: all $transition-fast;
 
             &:hover {
-              background-color: $color-primary;
+              background-color: $color-terracotta;
               color: #FFFFFF;
-              border-color: $color-gold;
+              border-color: $color-terracotta;
               transform: scale(1.1);
             }
           }
@@ -251,20 +253,20 @@
         z-index: 6;
 
         .shoppable-product-card {
-          background-color: rgba(255, 255, 255, 0.94);
+          background-color: rgba(255, 253, 248, 0.95);
           backdrop-filter: blur(12px);
-          border: 1px solid rgba(194, 155, 70, 0.28);
-          border-radius: $radius-md;
+          border: 1px solid rgba(173, 102, 85, 0.25);
+          border-radius: $radius-sm;
           padding: 10px;
           display: flex;
           align-items: center;
           gap: 10px;
-          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+          box-shadow: 0 8px 24px rgba(56, 51, 47, 0.25);
           transition: all $transition-fast;
 
           &:hover {
             background-color: #FFFFFF;
-            border-color: $color-gold;
+            border-color: $color-dusty-rose;
           }
 
           .product-thumb-link {
@@ -273,7 +275,7 @@
             border-radius: 4px;
             overflow: hidden;
             flex-shrink: 0;
-            background-color: #F4EFE6;
+            background-color: #F8F1E9;
 
             .product-thumb-img {
               width: 100%;
@@ -312,7 +314,7 @@
                 transition: color $transition-fast;
 
                 &:hover {
-                  color: $color-primary;
+                  color: $color-terracotta;
                 }
               }
             }
@@ -326,7 +328,7 @@
                 font-family: $font-body;
                 font-size: 12.5px;
                 font-weight: $fw-semibold;
-                color: $color-primary;
+                color: $color-terracotta;
               }
 
               .price-original {
@@ -342,10 +344,10 @@
             display: inline-flex;
             align-items: center;
             gap: 4px;
-            background: linear-gradient(135deg, $color-primary 0%, #3E0E18 100%);
-            color: #FCFBF7;
+            background-color: $color-terracotta;
+            color: #FFFFFF;
             border: none;
-            border-radius: $radius-sm;
+            border-radius: $radius-xs;
             padding: 8px 10px;
             font-family: $font-body;
             font-size: 11px;
@@ -357,9 +359,9 @@
             transition: all $transition-fast;
 
             &:hover {
-              background: linear-gradient(135deg, #6B1C2E 0%, $color-primary 100%);
+              background-color: $color-terracotta-hover;
               transform: scale(1.04);
-              box-shadow: 0 4px 12px rgba(84, 20, 33, 0.35);
+              box-shadow: 0 4px 12px rgba(173, 102, 85, 0.35);
             }
           }
         }

@@ -43,20 +43,20 @@ ul, ol {
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #F3EADB;
+  background: #F8F1E9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #D3C5B1;
+  background: #E9B99F;
   border-radius: 4px;
 
   &:hover {
-    background: #6B1E2A;
+    background: #AD6655;
   }
 }
 

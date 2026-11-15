@@ -21,12 +21,12 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: clamp(2.2rem, 5vw, 3.6rem);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
 }
 
 h2 {
   font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
 }
 
 h3 {
@@ -57,37 +57,36 @@ a {
   font-size: 0.75rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: $color-gold;
-  font-weight: $fw-medium;
-  display: block;
-  margin-bottom: $space-xs;
+  color: $color-terracotta;
+  font-weight: $fw-semibold;
 }
 
-.section-title {
-  text-align: center;
-  margin-bottom: $space-2xl;
-
-  .title-divider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: $space-md;
-    margin: $space-sm auto 0;
-    max-width: 240px;
-
-    &::before, &::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(to right, transparent, $color-gold-light, transparent);
-    }
-
-    .divider-gem {
-      width: 6px;
-      height: 6px;
-      background-color: $color-gold;
-      transform: rotate(45deg);
-    }
-  }
+.text-gold {
+  color: $color-terracotta;
 }
 
+.text-rose {
+  color: $color-dusty-rose;
+}
+
+.text-sage {
+  color: $color-sage-green;
+}
+
+.text-charcoal {
+  color: $color-text-primary;
+}
+
+.font-serif {
+  font-family: $font-heading;
+}
+
+.font-sans {
+  font-family: $font-body;
+}
+
+// Global text selection styling
+::selection {
+  background-color: rgba(201, 130, 137, 0.25);
+  color: $color-text-primary;
+}

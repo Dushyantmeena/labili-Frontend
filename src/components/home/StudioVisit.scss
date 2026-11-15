@@ -2,38 +2,46 @@
 @use '../../styles/mixins' as *;
 
 .studio-visit-section {
-  padding: clamp(60px, 8vw, 100px) 0;
-  background-color: #FAF7F2;
+  padding: clamp(56px, 7vw, 92px) 0;
+  background-color: #FFFDF8; // Primary Background
+  border-bottom: 1px solid rgba(173, 102, 85, 0.14);
 
   .studio-card-grid {
     display: grid;
     grid-template-columns: 1.15fr 1fr;
     gap: clamp(32px, 5vw, 64px);
     align-items: center;
-    background-color: #FFFFFF;
-    border: 1px solid rgba(194, 155, 70, 0.22);
-    border-radius: $radius-lg;
-    padding: clamp(32px, 5vw, 60px);
-    box-shadow: 0 16px 44px -10px rgba(43, 14, 22, 0.1);
+    background-color: #F8F1E9; // Secondary Background
+    border: 1px solid rgba(173, 102, 85, 0.18);
+    border-radius: $radius-sm;
+    padding: clamp(28px, 4vw, 52px);
+    box-shadow: 0 10px 30px rgba(56, 51, 47, 0.05);
 
     @include respond-to(laptop) {
       grid-template-columns: 1fr;
-      padding: 32px 24px;
-      gap: 36px;
+      padding: 28px 20px;
+      gap: 32px;
     }
   }
 
   .studio-info-side {
     .brand-eyebrow {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: $fw-bold;
       letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: $color-terracotta;
+      margin-bottom: 10px;
     }
 
     .studio-title {
       font-family: $font-heading;
       font-size: clamp(2.2rem, 3.6vw, 3rem);
-      color: $color-primary;
+      color: $color-text-primary; // Warm Charcoal #38332F
       margin: 0 0 10px;
       line-height: 1.15;
+      font-weight: 500;
     }
 
     .title-divider.left-align {
@@ -47,145 +55,93 @@
         content: '';
         flex: 1;
         height: 1px;
-        background: linear-gradient(90deg, transparent, $color-gold);
+        background: rgba(173, 102, 85, 0.25);
       }
 
       .divider-gem {
-        width: 6px;
-        height: 6px;
-        background-color: $color-gold;
+        width: 5px;
+        height: 5px;
+        background-color: $color-terracotta;
         transform: rotate(45deg);
       }
     }
 
-    .studio-text {
+    .studio-desc {
       font-family: $font-body;
-      font-size: 15px;
-      line-height: 1.7;
+      font-size: 14.5px;
+      line-height: 1.65;
       color: $color-text-secondary;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
+      font-weight: 300;
     }
 
-    .studio-meta-details {
+    .studio-contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 28px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      margin-bottom: 32px;
+      gap: 14px;
 
-      .meta-row {
+      li {
         display: flex;
         align-items: flex-start;
         gap: 12px;
+        font-size: 13.5px;
+        color: $color-text-primary;
 
-        .meta-icon {
-          color: $color-primary;
+        .contact-icon {
+          color: $color-terracotta;
           flex-shrink: 0;
           margin-top: 2px;
         }
 
-        strong {
-          font-family: $font-heading;
-          font-size: 17px;
-          color: $color-primary;
-          display: block;
-          margin-bottom: 2px;
-        }
+        a {
+          color: inherit;
+          text-decoration: none;
+          transition: color 0.2s ease;
 
-        p {
-          font-family: $font-body;
-          font-size: 14px;
-          color: $color-text-secondary;
-          margin: 0;
-          line-height: 1.5;
-
-          a {
-            color: $color-primary;
-            font-weight: $fw-semibold;
+          &:hover {
+            color: $color-terracotta;
           }
         }
       }
     }
 
-    .studio-buttons-row {
+    .studio-cta-row {
       display: flex;
+      gap: 12px;
       flex-wrap: wrap;
-      gap: 14px;
 
-      .maps-btn {
+      .btn-primary {
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        background: linear-gradient(135deg, $color-primary 0%, #3E0E18 100%);
-        color: #FCFBF7;
-        padding: 14px 26px;
-        border-radius: $radius-sm;
-        border: 1px solid rgba(194, 155, 70, 0.3);
-        font-size: 12px;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-
-        &:hover {
-          background: linear-gradient(135deg, #6B1C2E 0%, $color-primary 100%);
-          transform: translateY(-2px);
-          box-shadow: 0 8px 20px rgba(84, 20, 33, 0.3);
-        }
-      }
-
-      .appointment-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background-color: transparent;
-        color: $color-primary;
-        border: 1px solid rgba(84, 20, 33, 0.35);
-        padding: 13px 24px;
-        border-radius: $radius-sm;
-        font-size: 12px;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-
-        &:hover {
-          background-color: rgba(84, 20, 33, 0.05);
-          border-color: $color-primary;
-        }
       }
     }
   }
 
-  .studio-image-side {
-    .studio-image-frame {
-      position: relative;
-      border-radius: $radius-lg;
+  .studio-media-side {
+    position: relative;
+
+    .studio-photo-frame {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border-radius: $radius-xs;
       overflow: hidden;
-      aspect-ratio: 4 / 5;
-      box-shadow: 0 16px 40px -8px rgba(43, 14, 22, 0.18);
-      border: 1px solid rgba(194, 155, 70, 0.3);
+      background-color: #EFE8DE;
+      box-shadow: 0 10px 28px rgba(56, 51, 47, 0.08);
 
       img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.6s ease;
+        display: block;
+        transition: transform 0.8s ease;
 
         &:hover {
           transform: scale(1.03);
         }
-      }
-
-      .studio-tag-overlay {
-        position: absolute;
-        bottom: 16px;
-        left: 16px;
-        background-color: rgba(43, 14, 22, 0.88);
-        backdrop-filter: blur(8px);
-        color: $color-gold-light;
-        padding: 6px 14px;
-        border-radius: $radius-sm;
-        font-family: $font-body;
-        font-size: 11px;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        font-weight: $fw-semibold;
       }
     }
   }

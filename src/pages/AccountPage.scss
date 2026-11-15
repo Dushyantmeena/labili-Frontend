@@ -7,15 +7,16 @@
   padding-bottom: $space-4xl;
 
   .profile-banner-card {
-    background: linear-gradient(135deg, #24140E 0%, #3B1B14 100%);
-    color: #ffffff;
+    background-color: #F8F1E9;
+    color: $color-text-primary;
+    border: 1px solid rgba(173, 102, 85, 0.2);
     border-radius: $radius-sm;
     padding: $space-2xl;
     margin: $space-3xl 0 $space-2xl;
     display: flex;
     align-items: center;
     gap: $space-lg;
-    box-shadow: $shadow-md;
+    box-shadow: $shadow-card;
 
     @include respond-to(tablet) {
       flex-direction: column;
@@ -26,8 +27,9 @@
       width: 76px;
       height: 76px;
       border-radius: 50%;
-      background-color: rgba(227, 191, 135, 0.15);
-      border: 2px solid $color-gold;
+      background-color: #FFFFFF;
+      border: 2px solid $color-terracotta;
+      color: $color-terracotta;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -38,25 +40,25 @@
       flex: 1;
 
       h1 {
-        color: #ffffff;
+        color: $color-text-primary;
         font-size: 2rem;
         margin-bottom: 2px;
       }
 
       .user-email {
         font-size: 0.9rem;
-        color: rgba(251, 246, 238, 0.75);
+        color: $color-text-secondary;
         margin: 0;
       }
     }
 
     .logout-btn {
-      border-color: rgba(227, 191, 135, 0.5);
-      color: $color-gold-light;
+      border-color: rgba(173, 102, 85, 0.4);
+      color: $color-terracotta;
 
       &:hover {
-        background-color: $color-sale-red;
-        border-color: $color-sale-red;
+        background-color: $color-terracotta;
+        border-color: $color-terracotta;
         color: #ffffff;
       }
     }

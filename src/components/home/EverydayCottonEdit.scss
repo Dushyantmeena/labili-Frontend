@@ -2,24 +2,31 @@
 @use '../../styles/mixins' as *;
 
 .everyday-cotton-section {
-  padding: clamp(60px, 8vw, 104px) 0;
-  background-color: #FAF7F2;
-  border-bottom: 1px solid rgba(194, 155, 70, 0.16);
+  padding: clamp(56px, 7vw, 96px) 0;
+  background-color: #F8F1E9; // Secondary Background
+  border-bottom: 1px solid rgba(173, 102, 85, 0.14);
 
   .section-title {
     text-align: center;
     max-width: 680px;
     margin: 0 auto clamp(24px, 3.5vw, 40px);
 
-    h2 {
-      font-family: $font-heading;
-      font-size: clamp(2.2rem, 3.6vw, 3.2rem);
-      color: $color-primary;
-      margin: 0 0 10px;
+    .brand-eyebrow {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: $fw-bold;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: $color-terracotta;
+      margin-bottom: 10px;
     }
 
-    .brand-eyebrow {
-      letter-spacing: 0.2em;
+    h2 {
+      font-family: $font-heading;
+      font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+      color: $color-text-primary; // Warm Charcoal #38332F
+      margin: 0 0 10px;
+      font-weight: 500;
     }
   }
 
@@ -27,22 +34,22 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: clamp(28px, 4vw, 48px);
+    gap: 10px;
+    margin-bottom: clamp(28px, 4vw, 44px);
 
     .perk-pill {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 18px;
-      background-color: #FFFFFF;
-      border: 1px solid rgba(194, 155, 70, 0.22);
+      padding: 7px 16px;
+      background-color: #EFF4EC; // Sage Green tint
+      border: 1px solid rgba(166, 181, 154, 0.5);
       border-radius: $radius-pill;
       font-family: $font-body;
       font-size: 12px;
       font-weight: $fw-medium;
-      color: $color-text-secondary;
-      box-shadow: 0 2px 8px rgba(43, 14, 22, 0.04);
+      color: #4D6341;
+      box-shadow: 0 2px 6px rgba(56, 51, 47, 0.03);
     }
   }
 
@@ -50,7 +57,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: clamp(16px, 2.2vw, 28px);
-    margin-bottom: clamp(36px, 5vw, 64px);
+    margin-bottom: clamp(36px, 5vw, 56px);
 
     @include respond-to(laptop) {
       grid-template-columns: repeat(3, 1fr);
@@ -66,71 +73,33 @@
     }
   }
 
-  .under-thousand-banner {
+  .cotton-bottom-cta {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: clamp(28px, 4vw, 44px) clamp(24px, 4vw, 48px);
-    background: linear-gradient(135deg, #FFFFFF 0%, #F4EFE6 100%);
-    border: 1.5px solid rgba(194, 155, 70, 0.35);
-    border-radius: $radius-lg;
-    gap: 32px;
-    box-shadow: 0 12px 32px -6px rgba(43, 14, 22, 0.08);
+    justify-content: center;
 
-    @include respond-to(laptop) {
-      flex-direction: column;
-      text-align: center;
-      padding: 32px 24px;
-    }
-
-    .banner-text {
-      max-width: 620px;
-
-      .banner-eyebrow {
-        font-family: $font-body;
-        font-size: 11px;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        font-weight: $fw-semibold;
-        color: $color-terracotta;
-        display: block;
-        margin-bottom: 6px;
-      }
-
-      h3 {
-        font-family: $font-heading;
-        font-size: clamp(1.8rem, 2.6vw, 2.4rem);
-        color: $color-primary;
-        margin: 0 0 10px;
-        line-height: 1.2;
-      }
-
-      p {
-        font-family: $font-body;
-        font-size: 14.5px;
-        color: $color-text-secondary;
-        line-height: 1.6;
-        margin: 0;
-      }
-    }
-
-    .banner-btn {
-      white-space: nowrap;
+    .btn-secondary {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      background: linear-gradient(135deg, $color-primary 0%, #3E0E18 100%);
-      color: #FCFBF7;
-      border: 1px solid rgba(194, 155, 70, 0.3);
-      padding: 15px 30px;
-      font-size: 12.5px;
-      letter-spacing: 0.12em;
+      gap: 8px;
+      padding: 13px 28px;
+      background: #FFFFFF;
+      border: 1px solid rgba(56, 51, 47, 0.22);
       border-radius: $radius-sm;
+      color: $color-text-primary;
+      font-family: $font-body;
+      font-size: 12px;
+      font-weight: $fw-semibold;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.25s ease;
 
       &:hover {
-        background: linear-gradient(135deg, #6B1C2E 0%, $color-primary 100%);
+        background-color: $color-terracotta;
+        border-color: $color-terracotta;
+        color: #FFFFFF;
         transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(84, 20, 33, 0.3);
+        box-shadow: 0 6px 18px rgba(173, 102, 85, 0.25);
       }
     }
   }

@@ -2,29 +2,30 @@
 @use '../../styles/mixins' as *;
 
 .labiii-editorial-our-story {
-  padding: 80px 0 96px;
-  background-color: #FAF7F2;
-  border-top: 1px solid rgba(194, 155, 70, 0.18);
+  padding: 64px 0 84px;
+  background-color: #FFFDF8; // Primary Background
+  border-top: 1px solid rgba(173, 102, 85, 0.14);
+  border-bottom: 1px solid rgba(173, 102, 85, 0.14);
 
   @include respond-to('md') {
-    padding: 110px 0 130px;
+    padding: 96px 0 116px;
   }
 
   .container-wide {
-    max-width: 1600px;
+    max-width: 1540px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 16px;
 
     @include respond-to('md') {
-      padding: 0 40px;
+      padding: 0 32px;
     }
 
     @include respond-to('lg') {
-      padding: 0 64px;
+      padding: 0 48px;
     }
   }
 
-  // 2-Column Balanced Grid (Quinces Style)
+  // 2-Column Balanced Grid
   .story-split-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -33,11 +34,11 @@
 
     @include respond-to('md') {
       grid-template-columns: 1fr 1fr;
-      gap: 56px;
+      gap: 52px;
     }
 
     @include respond-to('lg') {
-      gap: 80px;
+      gap: 72px;
     }
   }
 
@@ -48,10 +49,10 @@
     .story-image-wrap {
       width: 100%;
       aspect-ratio: 4 / 3;
-      border-radius: 4px;
+      border-radius: $radius-sm;
       overflow: hidden;
-      background-color: #EFE8DE;
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+      background-color: #F8F1E9;
+      box-shadow: 0 12px 36px rgba(56, 51, 47, 0.08);
 
       @include respond-to('md') {
         aspect-ratio: 3 / 2;
@@ -61,7 +62,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: center 40%;
+        object-position: center 35%;
         transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
 
         &:hover {
@@ -78,22 +79,22 @@
       align-items: center;
       gap: 6px;
       padding: 5px 12px;
-      background: rgba(250, 247, 242, 0.94);
+      background: rgba(255, 253, 248, 0.95);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(194, 155, 70, 0.3);
+      border: 1px solid rgba(173, 102, 85, 0.22);
       border-radius: 2px;
       font-size: 10.5px;
       font-weight: $fw-medium;
       letter-spacing: 0.12em;
-      color: #541421;
+      color: $color-terracotta;
 
       .caption-spark {
-        color: #C29B46;
+        color: $color-dusty-rose;
       }
     }
   }
 
-  // Right Editorial Copy (Quinces Style)
+  // Right Editorial Copy
   .story-editorial-copy {
     max-width: 540px;
 
@@ -101,54 +102,53 @@
       display: block;
       font-size: 10.5px;
       font-weight: $fw-bold;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: #C06345;
+      color: $color-terracotta;
       margin-bottom: 12px;
     }
 
     .story-title {
       font-family: $font-heading;
-      font-size: clamp(34px, 4vw, 54px);
+      font-size: clamp(32px, 4vw, 48px);
       font-weight: 400;
-      line-height: 1.1;
-      color: #2D2621;
-      margin-bottom: 22px;
+      line-height: 1.15;
+      color: $color-text-primary;
+      margin-bottom: 20px;
 
       em {
+        color: $color-dusty-rose;
         font-style: italic;
-        color: #541421;
-        font-family: $font-heading;
       }
     }
 
     .story-lead-p {
       font-family: $font-body;
       font-size: 15px;
-      font-weight: 300;
       line-height: 1.7;
-      color: #4A423B;
+      color: $color-text-primary;
       margin-bottom: 16px;
+      font-weight: 400;
     }
 
     .story-secondary-p {
       font-family: $font-body;
-      font-size: 13.5px;
-      font-weight: 300;
+      font-size: 14px;
       line-height: 1.65;
-      color: #6E6259;
-      margin-bottom: 32px;
+      color: $color-text-secondary;
+      margin-bottom: 28px;
+      font-weight: 300;
     }
 
-    // Hallmarks Metrics Row
+    // Atelier Hallmark Strip
     .story-hallmarks-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
       padding: 20px 0;
-      border-top: 1px solid rgba(194, 155, 70, 0.2);
-      border-bottom: 1px solid rgba(194, 155, 70, 0.2);
-      margin-bottom: 32px;
+      border-top: 1px solid rgba(173, 102, 85, 0.16);
+      border-bottom: 1px solid rgba(173, 102, 85, 0.16);
+      margin-bottom: 28px;
 
       .hallmark-cell {
         display: flex;
@@ -158,16 +158,16 @@
           font-family: $font-heading;
           font-size: 26px;
           font-weight: 500;
-          color: #541421;
-          line-height: 1.1;
+          color: $color-terracotta;
+          line-height: 1;
           margin-bottom: 4px;
         }
 
         .cell-label {
-          font-family: $font-body;
           font-size: 11px;
+          color: $color-text-muted;
           line-height: 1.35;
-          color: #7A6F66;
+          letter-spacing: 0.04em;
         }
       }
     }
@@ -176,12 +176,13 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-family: $font-heading;
-      font-size: 19px;
-      font-style: italic;
-      color: #541421;
-      text-decoration: underline;
-      text-underline-offset: 5px;
+      font-family: $font-body;
+      font-size: 12.5px;
+      font-weight: $fw-semibold;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: $color-terracotta;
+      text-decoration: none;
       transition: all 0.2s ease;
 
       .arrow-icon {
@@ -189,7 +190,7 @@
       }
 
       &:hover {
-        color: #C06345;
+        color: $color-terracotta-hover;
 
         .arrow-icon {
           transform: translateX(4px);

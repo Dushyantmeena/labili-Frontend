@@ -5,89 +5,88 @@ import './HeroBanner.scss';
 
 const HeroBanner = () => {
   return (
-    <section className="labiii-heritage-hero" aria-label="Where Royal Heritage Meets Modern Grace">
-      {/* Background Ambience Texture */}
-      <div className="hero-sandstone-texture" aria-hidden="true" />
-
-      <div className="hero-layout-grid">
-        {/* Left Column: Editorial Headline & Narrative */}
-        <div className="hero-narrative-col">
-          <div className="hero-eyebrow-chip">
-            <Sparkles size={12} className="chip-sparkle" />
-            <span>JAIPUR ATELIER · AUTUMN / FESTIVE 2026</span>
-          </div>
-
-          <h1 className="hero-editorial-title">
-            Where Royal Heritage <br />
-            <em>Meets Modern Grace.</em>
-          </h1>
-
-          <p className="hero-editorial-desc">
-            Born in the historic ateliers of Rajasthan. We craft architectural Rajputi Aangis, voluminous 24-kali flared silk lehengas, and breathable handblock cottons — uniting regal grandeur with contemporary ease.
-          </p>
-
-          <div className="hero-cta-group">
-            <Link to="/collections/festive-edit" className="btn-hero-solid">
-              <span>EXPLORE THE COLLECTION</span>
-              <ArrowRight size={15} />
-            </Link>
-            <Link to="/about" className="btn-hero-outline">
-              <span>DISCOVER OUR STORY</span>
-            </Link>
-          </div>
-
-          {/* Value Hallmarks Strip */}
-          <div className="hero-hallmarks-list">
-            <div className="hallmark-entry">
-              <span className="entry-icon">❖</span>
-              <span className="entry-text">In-House Sanganer Stitching Studio</span>
+    <section className="labiii-fresh-hero" aria-label="Where Royal Roots Bloom Into Modern Elegance">
+      <div className="hero-container">
+        <div className="hero-editorial-grid">
+          {/* Left Column: Fresh Feminine Narrative */}
+          <div className="hero-narrative-col">
+            <div className="hero-eyebrow-pill">
+              <Sparkles size={12} className="pill-spark" />
+              <span>JAIPUR ATELIER · SPRING / FESTIVE '26</span>
             </div>
-            <div className="hallmark-entry">
-              <span className="entry-icon">❖</span>
-              <span className="entry-text">Generational Gota Patti Karigar Craft</span>
-            </div>
-            <div className="hallmark-entry">
-              <span className="entry-icon">❖</span>
-              <span className="entry-text">Bespoke 2-Inch Alteration Margins</span>
-            </div>
-          </div>
-        </div>
 
-        {/* Right Column: Distinctive Layered Editorial Stage */}
-        <div className="hero-visual-stage-col">
-          <div className="editorial-stage-frame">
-            {/* Primary Main Photograph */}
-            <div className="main-editorial-canvas">
-              <img
-                src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1600&q=85"
-                alt="Model in royal Rajasthani silk lehenga standing against sunlit sandstone haveli"
-                className="main-hero-img"
-                loading="eager"
-              />
-              <div className="main-canvas-scrim" />
-              <div className="main-photo-caption">
-                <span className="caption-tag">AUTUMN EDIT</span>
-                <span className="caption-title">The Royal Rajputana Poshak</span>
+            <h1 className="hero-editorial-title">
+              Where Royal Roots Bloom <br />
+              <em>Into Modern Elegance.</em>
+            </h1>
+
+            <p className="hero-editorial-desc">
+              Born in the sunlit courtyards of Rajasthan. We create vibrant floral suit sets, graceful kalidar Anarkalis, and handcrafted Gota Patti aangis — uniting heirloom artisanal craft with breezy, contemporary femininity.
+            </p>
+
+            <div className="hero-cta-group">
+              <Link to="/collections/kurta-sets" className="btn-hero-primary">
+                <span>EXPLORE SPRING EDIT</span>
+                <ArrowRight size={15} />
+              </Link>
+              <Link to="/collections/all" className="btn-hero-secondary">
+                <span>VIEW THE LOOKBOOK</span>
+              </Link>
+            </div>
+
+            {/* Hallmarks Row */}
+            <div className="hero-hallmarks-strip">
+              <div className="hallmark-pill">
+                <span className="dot-sage" />
+                <span>Pure Breathable Silks &amp; Cottons</span>
+              </div>
+              <div className="hallmark-pill">
+                <span className="dot-sage" />
+                <span>Hand-Stitched Gota Patti Needlework</span>
+              </div>
+              <div className="hallmark-pill">
+                <span className="dot-sage" />
+                <span>Tailored With 2" Alteration Margins</span>
               </div>
             </div>
+          </div>
 
-            {/* Overlapping Secondary Lookbook Card */}
-            <div className="secondary-lookbook-card">
-              <div className="lookbook-thumb-frame">
+          {/* Right Column: Layered Editorial Fashion Visual */}
+          <div className="hero-visual-stage-col">
+            <div className="editorial-stage-wrapper">
+              {/* Main Campaign Canvas */}
+              <div className="main-editorial-frame">
                 <img
-                  src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=85"
-                  alt="Gota patti hand needlework close up"
-                  className="lookbook-thumb-img"
+                  src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=1200&q=85"
+                  alt="Model in vibrant floral ethnic suit set walking in sunlit courtyard"
+                  className="main-hero-img"
+                  loading="eager"
                 />
+                <div className="main-frame-scrim" />
+                <div className="main-frame-badge">
+                  <span className="badge-kicker">SPRING ARRIVALS</span>
+                  <span className="badge-title">The Floral Kalidar Edit</span>
+                </div>
               </div>
-              <div className="lookbook-meta-info">
-                <span className="meta-kicker">CRAFT SPOTLIGHT</span>
-                <h4 className="meta-heading">Archival Gota Patti Aangi</h4>
-                <p className="meta-summary">Hand-beaten gold ribbons on pure silk with pure mulmul lining.</p>
-                <Link to="/collections/aangi-blouses" className="meta-action-link">
-                  <span>Explore Silhouette</span>
-                  <ArrowRight size={12} />
-                </Link>
+
+              {/* Overlapping Inset Card: Craft Spotlight */}
+              <div className="floating-craft-card">
+                <div className="craft-card-thumb">
+                  <img
+                    src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=400&q=85"
+                    alt="Hand-embroidered blush peach suit set"
+                    className="craft-thumb-img"
+                  />
+                </div>
+                <div className="craft-card-info">
+                  <span className="craft-kicker">SIGNATURE CRAFT</span>
+                  <h4 className="craft-heading">Blush Zari &amp; Gota Suit</h4>
+                  <p className="craft-desc">Pure georgette with scalloped organza dupatta.</p>
+                  <Link to="/collections/kurta-sets" className="craft-link">
+                    <span>Shop Look</span>
+                    <ArrowRight size={12} />
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

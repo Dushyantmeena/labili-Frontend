@@ -8,24 +8,24 @@
   @include respond-to(tablet) {
     display: flex;
     position: fixed;
-    bottom: 74px;
+    bottom: 72px;
     right: 18px;
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
-    background-color: #E26D5C; // Terracotta coral from screenshot!
+    background-color: $color-terracotta; // Terracotta #AD6655
     color: #FFFFFF;
     border: none;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 6px 18px rgba(226, 109, 92, 0.45);
+    box-shadow: 0 6px 18px rgba(173, 102, 85, 0.35);
     z-index: 95;
     cursor: pointer;
     transition: all $transition-fast;
     animation: fadeIn 0.3s ease;
 
     &:hover {
-      background-color: #C06345;
+      background-color: $color-terracotta-hover;
       transform: translateY(-2px);
     }
   }
@@ -43,10 +43,10 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: 58px;
+    height: 56px;
     background-color: #FFFFFF;
-    border-top: 1px solid rgba(194, 155, 70, 0.22);
-    box-shadow: 0 -4px 18px rgba(28, 24, 21, 0.08);
+    border-top: 1px solid rgba(173, 102, 85, 0.16);
+    box-shadow: 0 -4px 18px rgba(56, 51, 47, 0.06);
     z-index: 98;
     padding: 0 12px;
   }
@@ -66,7 +66,7 @@
 
     &:hover,
     &.active {
-      color: $color-primary;
+      color: $color-terracotta;
     }
 
     .cart-icon-wrapper {
@@ -79,7 +79,7 @@
         position: absolute;
         top: -6px;
         right: -9px;
-        background-color: #E26D5C; // Coral badge from screenshot!
+        background-color: $color-dusty-rose; // Dusty Rose #C98289
         color: #FFFFFF;
         font-family: $font-body;
         font-size: 10px;

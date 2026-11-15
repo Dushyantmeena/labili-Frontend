@@ -50,21 +50,21 @@
   }
 }
 
-// Button Mixins
+// Button Mixins - Fresh, feminine, elegant with Terracotta and Dusty Rose
 @mixin btn-royal-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: $space-xs;
-  background-color: $color-primary;
-  color: $color-text-light;
+  background-color: $color-terracotta;
+  color: #FFFFFF;
   font-family: $font-body;
   font-size: 0.85rem;
   font-weight: $fw-medium;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 14px 28px;
-  border: 1px solid $color-primary;
+  padding: 13px 28px;
+  border: 1px solid $color-terracotta;
   border-radius: $radius-sm;
   cursor: pointer;
   transition: all $transition-normal;
@@ -73,9 +73,9 @@
   overflow: hidden;
 
   &:hover {
-    background-color: $color-primary-hover;
-    border-color: $color-primary-hover;
-    box-shadow: 0 4px 14px rgba(107, 30, 42, 0.28);
+    background-color: $color-terracotta-hover;
+    border-color: $color-terracotta-hover;
+    box-shadow: 0 6px 18px rgba(173, 102, 85, 0.28);
     transform: translateY(-1px);
   }
 
@@ -96,22 +96,23 @@
   justify-content: center;
   gap: $space-xs;
   background-color: transparent;
-  color: $color-primary;
+  color: $color-text-primary;
   font-family: $font-body;
   font-size: 0.85rem;
   font-weight: $fw-medium;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 13px 26px;
-  border: 1px solid $color-primary;
+  padding: 12px 26px;
+  border: 1px solid rgba(56, 51, 47, 0.22);
   border-radius: $radius-sm;
   cursor: pointer;
   transition: all $transition-normal;
   text-decoration: none;
 
   &:hover {
-    background-color: $color-primary;
-    color: $color-text-light;
+    background-color: $color-terracotta;
+    border-color: $color-terracotta;
+    color: #FFFFFF;
   }
 
   &:disabled {
@@ -125,25 +126,25 @@
   align-items: center;
   justify-content: center;
   gap: $space-xs;
-  background-color: $color-gold;
-  color: $color-bg-dark;
+  background-color: $color-dusty-rose;
+  color: #FFFFFF;
   font-family: $font-body;
   font-size: 0.85rem;
   font-weight: $fw-medium;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 14px 28px;
-  border: 1px solid $color-gold;
+  padding: 13px 28px;
+  border: 1px solid $color-dusty-rose;
   border-radius: $radius-sm;
   cursor: pointer;
   transition: all $transition-normal;
   text-decoration: none;
 
   &:hover {
-    background-color: $color-gold-hover;
-    border-color: $color-gold-hover;
-    color: #ffffff;
-    box-shadow: 0 4px 14px rgba(197, 155, 39, 0.35);
+    background-color: $color-rose-dark;
+    border-color: $color-rose-dark;
+    color: #FFFFFF;
+    box-shadow: 0 6px 18px rgba(201, 130, 137, 0.35);
   }
 }
 
@@ -160,4 +161,3 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-

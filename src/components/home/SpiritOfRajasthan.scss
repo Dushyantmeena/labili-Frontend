@@ -3,19 +3,11 @@
 
 .labiii-spirit-section {
   position: relative;
-  background: linear-gradient(180deg, #3E0E18 0%, #2B0710 100%);
-  color: #FCFBF7;
-  padding: clamp(60px, 8vw, 110px) 0;
+  background-color: #FFFDF8; // Primary Background
+  color: $color-text-primary;
+  padding: clamp(56px, 7vw, 96px) 0;
   overflow: hidden;
-  border-bottom: 1px solid rgba(194, 155, 70, 0.2);
-
-  .spirit-radial-glow {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 50% 40%, rgba(194, 155, 70, 0.12) 0%, transparent 60%);
-    pointer-events: none;
-    z-index: 1;
-  }
+  border-bottom: 1px solid rgba(173, 102, 85, 0.14);
 
   .container {
     position: relative;
@@ -26,7 +18,7 @@
   .spirit-section-header {
     text-align: center;
     max-width: 680px;
-    margin: 0 auto clamp(36px, 5vw, 64px);
+    margin: 0 auto clamp(32px, 4.5vw, 52px);
 
     .header-ornament {
       display: inline-flex;
@@ -36,13 +28,13 @@
 
       .ornament-line {
         display: inline-block;
-        width: 36px;
+        width: 32px;
         height: 1px;
-        background: linear-gradient(90deg, transparent, $color-gold);
+        background: rgba(173, 102, 85, 0.3);
       }
 
       .ornament-star {
-        color: $color-gold;
+        color: $color-terracotta;
         font-size: 13px;
       }
     }
@@ -50,193 +42,178 @@
     .spirit-eyebrow {
       display: block;
       font-family: $font-body;
-      font-size: 11px;
-      font-weight: $fw-semibold;
-      letter-spacing: 0.22em;
+      font-size: 10.5px;
+      font-weight: $fw-bold;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: $color-gold-light;
+      color: $color-terracotta;
       margin-bottom: 8px;
     }
 
     .spirit-heading {
       font-family: $font-heading;
-      font-size: clamp(2.2rem, 3.8vw, 3.4rem);
-      color: #FCFBF7;
+      font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+      font-weight: 500;
+      color: $color-text-primary;
       margin: 0 0 12px;
-      letter-spacing: 0.02em;
+      line-height: 1.15;
     }
 
     .spirit-subtext {
       font-family: $font-body;
-      font-size: 15px;
+      font-size: 14.5px;
       line-height: 1.6;
-      color: rgba(252, 251, 247, 0.8);
-      margin: 0;
+      color: $color-text-secondary;
+      margin: 0 auto;
+      max-width: 560px;
+      font-weight: 300;
     }
   }
 
-  // 3-Column Stage
+  // 3-Column Editorial Stage
   .spirit-editorial-stage {
     display: grid;
     grid-template-columns: 1fr 1.35fr 1fr;
-    gap: clamp(20px, 2.5vw, 36px);
+    gap: clamp(16px, 2.5vw, 32px);
     align-items: center;
 
     @include respond-to(laptop) {
       grid-template-columns: 1fr;
-      gap: 36px;
       max-width: 580px;
       margin: 0 auto;
+      gap: 28px;
     }
-  }
 
-  // Side Columns
-  .spirit-side-col {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    .spirit-side-col {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
 
-    .spirit-craft-tile {
-      margin: 0;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(194, 155, 70, 0.2);
-      border-radius: $radius-md;
-      overflow: hidden;
-      transition: all 0.35s ease;
-
-      &:hover {
-        border-color: $color-gold;
-        transform: translateY(-3px);
-      }
-
-      .tile-image-frame {
-        width: 100%;
-        height: 220px;
+      .spirit-craft-tile {
+        position: relative;
+        border-radius: $radius-sm;
         overflow: hidden;
-        background-color: rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(173, 102, 85, 0.18);
+        box-shadow: 0 4px 18px rgba(56, 51, 47, 0.05);
+        background: #F8F1E9;
+        margin: 0;
 
-        img {
+        .tile-image-frame {
+          width: 100%;
+          aspect-ratio: 4 / 3;
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.75s ease;
+          }
+
+          &:hover img {
+            transform: scale(1.04);
+          }
+        }
+
+        .tile-caption {
+          padding: 16px;
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+
+          .caption-title {
+            font-family: $font-heading;
+            font-size: 16px;
+            color: $color-text-primary;
+          }
+
+          .caption-desc {
+            font-size: 12.5px;
+            color: $color-text-secondary;
+            line-height: 1.5;
+            font-weight: 300;
+          }
+        }
+      }
+    }
+
+    .spirit-center-stage {
+      .center-photo-frame {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 3 / 4;
+        border-radius: $radius-sm;
+        overflow: hidden;
+        border: 1px solid rgba(173, 102, 85, 0.22);
+        box-shadow: 0 14px 36px rgba(56, 51, 47, 0.1);
+        background: #F8F1E9;
+
+        .center-portrait-img {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          transition: transform 0.5s ease;
+          display: block;
+          transition: transform 0.8s ease;
+
+          &:hover {
+            transform: scale(1.03);
+          }
         }
 
-        &:hover img {
-          transform: scale(1.05);
-        }
-      }
-
-      &.compact-tile .tile-image-frame {
-        height: 160px;
-      }
-
-      .tile-caption {
-        padding: 14px 16px;
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-
-        .caption-title {
-          font-family: $font-heading;
-          font-size: 17px;
-          color: $color-gold-light;
-          font-weight: 500;
+        .center-photo-gradient {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(to top, rgba(56, 51, 47, 0.75) 0%, transparent 60%);
+          pointer-events: none;
         }
 
-        .caption-desc {
-          font-family: $font-body;
-          font-size: 12.5px;
-          line-height: 1.5;
-          color: rgba(252, 251, 247, 0.75);
-        }
-      }
-    }
-  }
+        .center-play-btn {
+          position: absolute;
+          top: 16px;
+          right: 16px;
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.85);
+          backdrop-filter: blur(6px);
+          border: 1px solid rgba(173, 102, 85, 0.25);
+          color: $color-text-primary;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.2s ease;
 
-  // Center Stage
-  .spirit-center-stage {
-    .center-stage-wrapper {
-      position: relative;
-    }
-
-    .center-photo-frame {
-      position: relative;
-      width: 100%;
-      height: clamp(480px, 58vh, 600px);
-      border-radius: 28px 28px 12px 12px;
-      overflow: hidden;
-      border: 1.5px solid rgba(194, 155, 70, 0.35);
-      box-shadow: 0 24px 64px -16px rgba(0, 0, 0, 0.6);
-      background-color: rgba(0, 0, 0, 0.4);
-
-      .center-portrait-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center top;
-        transition: transform 0.65s ease;
-
-        &:hover {
-          transform: scale(1.03);
-        }
-      }
-
-      .center-photo-gradient {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(180deg, transparent 55%, rgba(43, 14, 22, 0.88) 100%);
-        pointer-events: none;
-      }
-
-      .center-play-btn {
-        position: absolute;
-        bottom: 22px;
-        right: 22px;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background-color: rgba(28, 24, 21, 0.65);
-        backdrop-filter: blur(8px);
-        color: #FCFBF7;
-        border: 1px solid rgba(194, 155, 70, 0.35);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        z-index: 4;
-        transition: all $transition-fast;
-
-        &:hover {
-          background-color: $color-gold;
-          color: #2B0710;
-          transform: scale(1.08);
-        }
-      }
-
-      .center-craft-badge {
-        position: absolute;
-        bottom: 22px;
-        left: 22px;
-        display: flex;
-        flex-direction: column;
-        gap: 3px;
-        z-index: 3;
-
-        .badge-hallmark {
-          font-family: $font-body;
-          font-size: 10.5px;
-          letter-spacing: 0.16em;
-          text-transform: uppercase;
-          color: $color-gold;
-          font-weight: $fw-semibold;
+          &:hover {
+            background: $color-terracotta;
+            color: #FFFFFF;
+          }
         }
 
-        .badge-title {
-          font-family: $font-heading;
-          font-size: 18px;
+        .center-craft-badge {
+          position: absolute;
+          bottom: 20px;
+          left: 20px;
+          right: 20px;
           color: #FFFFFF;
-          font-weight: 500;
+          z-index: 2;
+
+          .badge-hallmark {
+            font-size: 10px;
+            font-weight: $fw-bold;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: $color-muted-peach;
+            display: block;
+            margin-bottom: 4px;
+          }
+
+          .badge-title {
+            font-family: $font-heading;
+            font-size: 20px;
+            font-weight: 500;
+          }
         }
       }
     }

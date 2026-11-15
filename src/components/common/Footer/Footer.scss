@@ -2,38 +2,39 @@
 @use '../../../styles/mixins' as *;
 
 .labiii-editorial-footer {
-  background-color: #340B13; // Deep Velvet Wine
-  color: #FCFBF7;
-  border-top: 1px solid rgba(194, 155, 70, 0.25);
+  background-color: #F8F1E9; // Secondary Background (Warm Linen/Almond)
+  color: $color-text-primary; // Warm Charcoal #38332F
+  border-top: 1px solid rgba(173, 102, 85, 0.16);
   font-family: $font-body;
 
   .container-wide {
-    max-width: 1600px;
+    max-width: 1540px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 16px;
 
     @include respond-to('md') {
-      padding: 0 40px;
+      padding: 0 32px;
     }
 
     @include respond-to('lg') {
-      padding: 0 64px;
+      padding: 0 48px;
     }
   }
 
-  // Newsletter Section
+  // Newsletter Section (Luminous Porcelain Surface)
   .footer-newsletter-section {
-    padding: 56px 0 48px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: #FFFDF8;
+    padding: 48px 0 44px;
+    border-bottom: 1px solid rgba(173, 102, 85, 0.14);
 
     @include respond-to('md') {
-      padding: 68px 0 56px;
+      padding: 60px 0 52px;
     }
 
     .newsletter-editorial-row {
       display: flex;
       flex-direction: column;
-      gap: 32px;
+      gap: 28px;
       justify-content: space-between;
 
       @include respond-to('lg') {
@@ -47,33 +48,34 @@
 
       .newsletter-eyebrow {
         display: block;
-        font-size: 10px;
+        font-size: 10.5px;
         font-weight: $fw-bold;
-        letter-spacing: 0.25em;
+        letter-spacing: 0.22em;
         text-transform: uppercase;
-        color: #E6CE93;
-        margin-bottom: 10px;
+        color: $color-terracotta;
+        margin-bottom: 8px;
       }
 
       .newsletter-headline {
         font-family: $font-heading;
-        font-size: clamp(26px, 3.2vw, 38px);
-        font-weight: 400;
+        font-size: clamp(24px, 3vw, 36px);
+        font-weight: 500;
         line-height: 1.15;
-        color: #FFFFFF;
+        color: $color-text-primary;
         margin-bottom: 10px;
 
         em {
           font-style: italic;
-          color: #E6CE93;
+          color: $color-dusty-rose;
         }
       }
 
       .newsletter-sub {
-        font-size: 13.5px;
+        font-size: 14px;
         font-weight: 300;
-        color: rgba(255, 255, 255, 0.75);
+        color: $color-text-secondary;
         line-height: 1.6;
+        margin: 0;
       }
     }
 
@@ -84,25 +86,29 @@
       .minimal-input-wrapper {
         display: flex;
         align-items: center;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-        padding-bottom: 8px;
-        transition: border-color 0.2s ease;
+        background: #FFFFFF;
+        border: 1px solid rgba(173, 102, 85, 0.25);
+        border-radius: $radius-sm;
+        padding: 4px 6px 4px 14px;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
         &:focus-within {
-          border-color: #E6CE93;
+          border-color: $color-terracotta;
+          box-shadow: 0 2px 10px rgba(173, 102, 85, 0.12);
         }
 
         input {
           flex: 1;
           background: transparent;
           border: none;
-          color: #FFFFFF;
+          color: $color-text-primary;
           font-family: $font-body;
-          font-size: 14px;
+          font-size: 13.5px;
           outline: none;
+          padding: 8px 0;
 
           &::placeholder {
-            color: rgba(255, 255, 255, 0.45);
+            color: $color-text-muted;
           }
         }
 
@@ -110,66 +116,125 @@
           display: inline-flex;
           align-items: center;
           gap: 6px;
-          background: transparent;
-          border: none;
+          background-color: $color-terracotta;
           color: #FFFFFF;
+          border: none;
+          border-radius: $radius-xs;
+          padding: 10px 18px;
           font-family: $font-body;
           font-size: 11px;
           font-weight: $fw-bold;
-          letter-spacing: 0.2em;
+          letter-spacing: 0.12em;
           text-transform: uppercase;
           cursor: pointer;
-          padding: 4px 8px;
-          transition: color 0.2s ease;
+          transition: background-color 0.2s ease;
 
           &:hover {
-            color: #E6CE93;
+            background-color: $color-terracotta-hover;
           }
         }
       }
 
       .subscribe-success-badge {
-        display: flex;
+        display: inline-flex;
         align-items: center;
         gap: 8px;
+        padding: 10px 16px;
+        background: #EFF4EC;
+        border: 1px solid rgba(166, 181, 154, 0.5);
+        border-radius: $radius-sm;
+        color: #4D6341;
         font-size: 13px;
-        color: #E6CE93;
+        font-weight: $fw-medium;
       }
     }
   }
 
-  // Main Columns
+  // Main 4-Column Grid
   .footer-main-columns {
-    padding: 64px 0 52px;
+    padding: 56px 0 44px;
 
     @include respond-to('md') {
-      padding: 80px 0 68px;
+      padding: 68px 0 52px;
     }
 
     .footer-cols-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 40px;
+      gap: 36px;
 
-      @include respond-to('md') {
+      @include respond-to('sm') {
         grid-template-columns: repeat(2, 1fr);
-        gap: 48px;
       }
 
       @include respond-to('lg') {
         grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
-        gap: 52px;
+        gap: 48px;
       }
     }
 
     .footer-col {
+      display: flex;
+      flex-direction: column;
+
       .col-heading {
-        font-size: 11px;
-        font-weight: $fw-bold;
-        letter-spacing: 0.25em;
-        text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.6);
-        margin-bottom: 22px;
+        font-family: $font-heading;
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        color: $color-text-primary;
+        margin-bottom: 18px;
+        position: relative;
+        padding-bottom: 8px;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 24px;
+          height: 1.5px;
+          background-color: $color-terracotta;
+        }
+      }
+
+      &.brand-col {
+        .footer-brand-title {
+          font-family: $font-heading;
+          font-size: 32px;
+          letter-spacing: 0.16em;
+          color: $color-text-primary;
+          text-decoration: none;
+          margin-bottom: 14px;
+          display: inline-block;
+
+          &:hover {
+            color: $color-terracotta;
+          }
+        }
+
+        .brand-statement {
+          font-size: 13.5px;
+          color: $color-text-secondary;
+          line-height: 1.65;
+          margin-bottom: 18px;
+          font-weight: 300;
+        }
+
+        .brand-heritage-tag {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 11px;
+          font-weight: $fw-semibold;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: $color-dusty-rose;
+
+          .tag-spark {
+            color: $color-terracotta;
+          }
+        }
       }
 
       .footer-links-list {
@@ -178,159 +243,113 @@
         margin: 0;
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 10px;
 
         li a {
-          color: rgba(255, 255, 255, 0.85);
-          text-decoration: none;
           font-size: 13.5px;
-          font-weight: 300;
-          transition: color 0.2s ease;
-          text-underline-offset: 4px;
+          color: $color-text-secondary;
+          text-decoration: none;
+          transition: all 0.2s ease;
+          display: inline-block;
 
           &:hover {
-            color: #FFFFFF;
-            text-decoration: underline;
+            color: $color-terracotta;
+            transform: translateX(3px);
           }
         }
       }
-    }
 
-    // Brand Column (Quinces Style)
-    .brand-col {
-      .footer-brand-title {
-        display: inline-block;
-        font-family: $font-heading;
-        font-size: 42px;
-        font-weight: 400;
-        font-style: italic;
-        line-height: 1;
-        color: #FFFFFF;
-        text-decoration: none;
-        margin-bottom: 18px;
-        letter-spacing: 0.02em;
-      }
-
-      .brand-statement {
-        font-size: 13.5px;
-        font-weight: 300;
-        line-height: 1.65;
-        color: rgba(255, 255, 255, 0.72);
-        max-width: 320px;
-        margin-bottom: 20px;
-      }
-
-      .brand-heritage-tag {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 10.5px;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: #E6CE93;
-
-        .tag-spark {
-          color: #C29B46;
-        }
-      }
-    }
-
-    // Visit Us Column
-    .visit-col {
-      .visit-info-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-        font-size: 13px;
-        font-weight: 300;
-        color: rgba(255, 255, 255, 0.8);
-        line-height: 1.5;
-
-        .visit-address,
-        .visit-contact {
+      &.concierge-col {
+        .concierge-contact-list {
+          list-style: none;
+          padding: 0;
+          margin: 0 0 16px;
           display: flex;
-          align-items: flex-start;
-          gap: 8px;
+          flex-direction: column;
+          gap: 12px;
 
-          .visit-icon {
-            color: #E6CE93;
-            flex-shrink: 0;
-            margin-top: 2px;
-          }
+          li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 13px;
+            color: $color-text-secondary;
+            line-height: 1.5;
 
-          a {
-            color: inherit;
-            text-decoration: none;
-            transition: color 0.2s ease;
-            text-underline-offset: 4px;
+            .contact-icon {
+              color: $color-terracotta;
+              flex-shrink: 0;
+              margin-top: 2px;
+            }
 
-            &:hover {
-              color: #FFFFFF;
-              text-decoration: underline;
+            a {
+              color: inherit;
+              text-decoration: none;
+              transition: color 0.2s ease;
+
+              &:hover {
+                color: $color-terracotta;
+              }
             }
           }
         }
 
-        .visit-hours {
+        .visiting-hours {
           display: flex;
           flex-direction: column;
-          gap: 2px;
-          padding-left: 23px;
           font-size: 12px;
-          color: rgba(255, 255, 255, 0.65);
+          color: $color-text-muted;
+          padding-top: 10px;
+          border-top: 1px dashed rgba(173, 102, 85, 0.18);
+
+          strong {
+            color: $color-text-primary;
+            margin-bottom: 2px;
+          }
         }
       }
     }
   }
 
-  // Bottom Legal & Tagline Bar
+  // Bottom Legal & Copyright Bar
   .footer-bottom-bar {
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-    padding: 24px 0;
+    padding: 20px 0;
+    border-top: 1px solid rgba(173, 102, 85, 0.14);
+    background-color: #F8F1E9;
 
     .bottom-bar-inner {
       display: flex;
       flex-direction: column;
+      gap: 12px;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.55);
 
       @include respond-to('md') {
         flex-direction: row;
       }
 
       .copyright-text {
-        font-weight: 300;
+        font-size: 12px;
+        color: $color-text-muted;
       }
 
-      .payment-tags-row {
+      .legal-links-row {
         display: flex;
-        align-items: center;
-        gap: 8px;
-        flex-wrap: wrap;
+        gap: 18px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
 
-        .pay-chip {
-          padding: 2px 7px;
-          border-radius: 2px;
-          background: rgba(255, 255, 255, 0.08);
-          border: 1px solid rgba(255, 255, 255, 0.15);
-          font-size: 10px;
-          font-weight: $fw-medium;
-          letter-spacing: 0.08em;
-          color: rgba(255, 255, 255, 0.75);
+        li a {
+          font-size: 12px;
+          color: $color-text-muted;
+          text-decoration: none;
+          transition: color 0.2s ease;
+
+          &:hover {
+            color: $color-terracotta;
+          }
         }
-      }
-
-      .brand-italic-signoff {
-        font-family: $font-heading;
-        font-style: italic;
-        font-size: 15px;
-        color: #E6CE93;
       }
     }
   }

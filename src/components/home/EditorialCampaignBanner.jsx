@@ -15,32 +15,32 @@ const EditorialCampaignBanner = () => {
   };
 
   return (
-    <section className="labiii-editorial-campaign-banner" aria-label="The Limited Edit">
-      {/* Full-width Large Campaign Image (Raw Mango / Anita Dongre Style) */}
+    <section className="labiii-editorial-campaign-banner" aria-label="Festive Trousseau Edit">
+      {/* Full-width Large Campaign Image */}
       <div className="campaign-media-wrapper">
         <img
-          src="https://images.unsplash.com/photo-1616763355603-9755a640a287?auto=format&fit=crop&w=2000&q=85"
-          alt="The Limited Edit — Handcrafted Royal Rajasthani Poshak"
+          src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=2000&q=85"
+          alt="The Festive Trousseau Edit — Handcrafted Indian Ethnic Wear"
           className="campaign-full-img"
           loading="lazy"
         />
         <div className="campaign-subtle-scrim" />
       </div>
 
-      {/* Floating Bottom-Left Anchored Card (Quinces Style) */}
+      {/* Floating Bottom-Left Anchored Card */}
       <div className="campaign-floating-container">
         <div className="campaign-card-box">
           <div className="card-badge-pill">
             <Sparkles size={11} className="badge-spark" />
-            <span>AUTUMN / WINTER TROUSSEAU</span>
+            <span>SPRING / FESTIVE TROUSSEAU</span>
           </div>
 
           <h2 className="card-title">
-            The Limited <em>Edit</em>
+            The Festive <em>Trousseau</em>
           </h2>
 
           <p className="card-description">
-            Heirloom poshak ensembles and Rajputi aangis hand-embroidered with archival Gota Patti, produced in limited seasonal batches in Jaipur.
+            Fluid kalidar Anarkalis and artisanal Rajputi Aangis hand-embroidered with archival Gota Patti, crafted in limited seasonal editions in our Jaipur atelier.
           </p>
 
           <div className="card-offer-line">

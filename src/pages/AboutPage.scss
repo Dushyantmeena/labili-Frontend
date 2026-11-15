@@ -156,21 +156,22 @@
     }
 
     .about-cta-box {
-      background: linear-gradient(135deg, #2A140E 0%, #3B1B14 100%);
-      color: #ffffff;
+      background-color: #F8F1E9;
+      color: $color-text-primary;
+      border: 1px solid rgba(173, 102, 85, 0.2);
       border-radius: $radius-sm;
       padding: $space-3xl;
       text-align: center;
-      box-shadow: $shadow-lg;
+      box-shadow: $shadow-card;
 
       h3 {
-        color: #ffffff;
+        color: $color-text-primary;
         font-size: 2rem;
         margin-bottom: 6px;
       }
 
       p {
-        color: rgba(251, 246, 238, 0.85);
+        color: $color-text-secondary;
         font-size: 1rem;
         margin-bottom: $space-xl;
       }

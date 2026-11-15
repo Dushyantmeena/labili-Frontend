@@ -5,62 +5,54 @@ import FeaturedCollection from '../components/home/FeaturedCollection';
 import EditorialShowcase from '../components/home/EditorialShowcase';
 import EditorialCampaignBanner from '../components/home/EditorialCampaignBanner';
 import MotionVideoSection from '../components/home/MotionVideoSection';
-import SpiritOfRajasthan from '../components/home/SpiritOfRajasthan';
-import AangiDetailDeepDive from '../components/home/AangiDetailDeepDive';
-import EverydayCottonEdit from '../components/home/EverydayCottonEdit';
+import RajasthaniCraftSection from '../components/home/RajasthaniCraftSection';
 import CraftStory from '../components/home/CraftStory';
-import CustomRentalBanner from '../components/home/CustomRentalBanner';
 import ShoppingSupportStrip from '../components/home/ShoppingSupportStrip';
 import TestimonialsSection from '../components/home/TestimonialsSection';
+import InstagramLookbook from '../components/home/InstagramLookbook';
 import FaqSection from '../components/home/FaqSection';
 import StudioVisit from '../components/home/StudioVisit';
 
 const HomePage = ({ onQuickView }) => {
   return (
     <main className="home-page-main">
-      {/* 01. Minimalist Editorial Fashion Hero */}
+      {/* 01. Fresh Feminine Editorial Hero Section */}
       <HeroBanner />
 
-      {/* 02. ✨ Shop By Category ✨ — Circular Silhouette Showcase (Auranic.co Style) */}
+      {/* 02. ✨ Shop By Category ✨ — 8 Circular Cards (Auranic.co Style) */}
       <CategoryGrid />
 
-      {/* 03. The Labiii Bestsellers — Curated Archive with Tabs */}
+      {/* 03. The Labiii Bestsellers & New Arrivals — Tabbed Archive */}
       <FeaturedCollection onQuickView={onQuickView} />
 
-      {/* 04. Craft Your Signature — Split Editorial Showcase */}
+      {/* 04. Featured Collections — Split Editorial Showcase */}
       <EditorialShowcase onQuickView={onQuickView} />
 
-      {/* 05. The Limited Edit — Full-Width Large Campaign Image Banner */}
+      {/* 05. Promotional Campaign Banner — The Festive Trousseau Edit */}
       <EditorialCampaignBanner />
 
-      {/* 06. Watch Labiii in Motion — 9:16 Shoppable Video Experience */}
+      {/* 06. Fashion Video Reels — Watch Labiii in Motion (9:16 Vertical Video) */}
       <MotionVideoSection onQuickView={onQuickView} />
 
-      {/* 07. The Spirit of Rajasthan — Atelier Stills & Heritage Archive */}
-      <SpiritOfRajasthan />
+      {/* 07. Rajasthani Craftsmanship — Bandhani, Leheriya, Gota Patti & Handblock */}
+      <RajasthaniCraftSection />
 
-      {/* 08. The Gota Patti Aangi — Interactive Craft Deep Dive */}
-      <AangiDetailDeepDive />
-
-      {/* 09. Cotton for Every Day — Handblock Prints & Daily Luxe */}
-      <EverydayCottonEdit onQuickView={onQuickView} />
-
-      {/* 10. Our Story — Magazine-Style 2-Column Editorial Spread */}
+      {/* 08. Brand Story — Our Story: Magazine-Style 2-Column Spread */}
       <CraftStory />
 
-      {/* 11. Bespoke Couture & Rajputi Poshak Rentals */}
-      <CustomRentalBanner />
-
-      {/* 12. Shopping Support & Fit Consultation */}
+      {/* 09. Shopping Support & Fit Consultation */}
       <ShoppingSupportStrip />
 
-      {/* 13. Voices of Royal Patronage — Client Testimonials */}
+      {/* 10. Customer Reviews — Voices of Royal Patronage */}
       <TestimonialsSection />
 
-      {/* 14. Questions, Answered — FAQ Accordion */}
+      {/* 11. Instagram Community Lookbook — @labiii.official */}
+      <InstagramLookbook />
+
+      {/* 12. Questions, Answered — FAQ Accordion */}
       <FaqSection />
 
-      {/* 15. Flagship Atelier Visit — 46 Sachivalaya Vihar, Jaipur */}
+      {/* 13. Flagship Atelier Visit — Jaipur, Rajasthan */}
       <StudioVisit />
     </main>
   );

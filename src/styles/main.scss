@@ -24,7 +24,7 @@
   @include btn-royal-gold;
 }
 
-// Fade in animations
+// Subtle fade-in animations
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -40,7 +40,7 @@
   animation: fadeIn 0.4s ease forwards;
 }
 
-// Badge styling
+// Delicate badge styling inspired by Auranic
 .badge {
   display: inline-block;
   font-family: $font-body;
@@ -49,54 +49,66 @@
   text-transform: uppercase;
   font-weight: $fw-semibold;
   padding: 4px 10px;
-  border-radius: $radius-sm;
+  border-radius: $radius-xs;
 
   &.badge-bestseller {
-    background-color: $color-gold;
+    background-color: $color-dusty-rose;
     color: #ffffff;
   }
 
   &.badge-handcrafted {
-    background-color: $color-primary;
-    color: $color-text-light;
+    background-color: $color-terracotta;
+    color: #ffffff;
   }
 
   &.badge-new {
-    background-color: $color-text-primary;
+    background-color: $color-sage-green;
     color: #ffffff;
   }
 
   &.badge-sale {
-    background-color: $color-sale-red;
+    background-color: #AD6655;
     color: #ffffff;
   }
 }
 
-// Loading Spinner
-.spinner {
-  width: 32px;
-  height: 32px;
-  border: 3px solid rgba(107, 30, 42, 0.15);
-  border-top-color: $color-primary;
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-  margin: 0 auto;
-}
+// Section Header Helper
+.section-header-editorial {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 48px;
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
+  .editorial-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: $fw-semibold;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: $color-terracotta;
+    margin-bottom: 12px;
+  }
 
-// Modal Backdrop
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(30, 18, 13, 0.65);
-  backdrop-filter: blur(4px);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: $space-md;
-}
+  .editorial-heading {
+    font-family: $font-heading;
+    font-size: clamp(28px, 3.6vw, 44px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: $color-text-primary;
+    margin-bottom: 12px;
 
+    em {
+      font-style: italic;
+      color: $color-dusty-rose;
+    }
+  }
+
+  .editorial-sub {
+    font-family: $font-body;
+    font-size: 14.5px;
+    color: $color-text-secondary;
+    line-height: 1.6;
+    margin: 0 auto;
+  }
+}

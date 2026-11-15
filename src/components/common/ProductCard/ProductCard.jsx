@@ -15,6 +15,13 @@ const ProductCard = ({ product, onQuickView }) => {
 
   const isSaved = isInWishlist(product.id);
 
+  // Calculate discount percentage if not provided
+  const discountText = product.discount || (
+    product.originalPrice && product.originalPrice > product.price
+      ? `${Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}% OFF`
+      : null
+  );
+
   const handleAddDirect = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -39,7 +46,7 @@ const ProductCard = ({ product, onQuickView }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Editorial Image Container (3:4 ratio - Quinces Style) */}
+      {/* Editorial Image Container (3:4 ratio) */}
       <div className="card-media-stage">
         <Link to={`/products/${product.slug || product.id}`} className="card-media-anchor">
           <img
@@ -50,12 +57,15 @@ const ProductCard = ({ product, onQuickView }) => {
           />
         </Link>
 
-        {/* Minimal Luxury Badge */}
-        {product.badge && (
-          <div className="card-badge-wrap">
-            <span className="minimal-badge">{product.badge}</span>
-          </div>
-        )}
+        {/* Minimal Luxury Badges */}
+        <div className="card-badges-column">
+          {product.badge && (
+            <span className="minimal-badge badge-signature">{product.badge}</span>
+          )}
+          {discountText && (
+            <span className="minimal-badge badge-discount">{discountText}</span>
+          )}
+        </div>
 
         {/* Floating Heart / Wishlist Button */}
         <button
@@ -67,9 +77,9 @@ const ProductCard = ({ product, onQuickView }) => {
         >
           <Heart
             size={15}
-            fill={isSaved ? '#541421' : 'none'}
-            color={isSaved ? '#541421' : '#2D2621'}
-            strokeWidth={1.5}
+            fill={isSaved ? '#C98289' : 'none'}
+            color={isSaved ? '#C98289' : '#38332F'}
+            strokeWidth={1.6}
           />
         </button>
 
@@ -91,26 +101,24 @@ const ProductCard = ({ product, onQuickView }) => {
             title="Quick add to bag"
           >
             <ShoppingBag size={13} />
-            <span>Add</span>
+            <span>Add to Bag</span>
           </button>
         </div>
       </div>
 
-      {/* Quinces-Style Editorial Info: Italic title on left, price on right */}
+      {/* Clean & Elegant Product Info */}
       <div className="card-editorial-info">
-        <span className="card-category-meta">{product.category || 'Atelier Signature'}</span>
-        <div className="card-title-price-row">
-          <h3 className="card-product-title">
-            <Link to={`/products/${product.slug || product.id}`}>
-              {product.name}
-            </Link>
-          </h3>
-          <div className="card-price-block">
-            <span className="current-price">{formatPrice(product.price)}</span>
-            {product.originalPrice && product.originalPrice > product.price && (
-              <span className="original-price">{formatPrice(product.originalPrice)}</span>
-            )}
-          </div>
+        <span className="card-category-meta">{product.categoryName || product.category || 'Jaipur Signature'}</span>
+        <h3 className="card-product-title">
+          <Link to={`/products/${product.slug || product.id}`}>
+            {product.name}
+          </Link>
+        </h3>
+        <div className="card-price-block">
+          <span className="current-price">{formatPrice(product.price)}</span>
+          {product.originalPrice && product.originalPrice > product.price && (
+            <span className="original-price">{formatPrice(product.originalPrice)}</span>
+          )}
         </div>
       </div>
     </article>

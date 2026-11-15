@@ -2,16 +2,16 @@
 @use '../../styles/mixins' as *;
 
 .labiii-circular-categories-section {
-  padding: 44px 0 60px;
-  background-color: #FAF8F5;
-  border-bottom: 1px solid rgba(194, 155, 70, 0.16);
+  padding: 48px 0 68px;
+  background-color: #F8F1E9; // Secondary Background (Warm Linen/Almond)
+  border-bottom: 1px solid rgba(173, 102, 85, 0.14);
 
   @include respond-to('md') {
-    padding: 68px 0 84px;
+    padding: 72px 0 92px;
   }
 
   .circular-categories-container {
-    max-width: 1180px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 16px;
 
@@ -28,10 +28,10 @@
   .circular-cat-header {
     text-align: center;
     max-width: 680px;
-    margin: 0 auto 32px;
+    margin: 0 auto 36px;
 
     @include respond-to('md') {
-      margin-bottom: 44px;
+      margin-bottom: 48px;
     }
 
     .circular-cat-title {
@@ -40,16 +40,16 @@
       justify-content: center;
       gap: 10px;
       font-family: $font-heading;
-      font-size: clamp(1.65rem, 3.8vw, 2.6rem);
+      font-size: clamp(1.75rem, 3.8vw, 2.7rem);
       font-weight: 500;
       line-height: 1.2;
-      color: #2E181D; // Deep wine-charcoal
+      color: $color-text-primary; // Warm Charcoal #38332F
       margin: 0 0 10px;
       letter-spacing: 0.02em;
 
       .sparkle-accent {
         font-size: clamp(1.1rem, 2.4vw, 1.6rem);
-        color: #C5A059; // Champagne Gold
+        color: $color-terracotta; // Terracotta sparkle
         display: inline-block;
         animation: sparklePulse 3s ease-in-out infinite alternate;
         user-select: none;
@@ -66,15 +66,15 @@
 
     .circular-cat-subtitle {
       font-family: $font-body;
-      font-size: 13.5px;
+      font-size: 14px;
       font-weight: 300;
-      color: #7A6960;
+      color: $color-text-secondary;
       line-height: 1.55;
       margin: 0 auto;
-      max-width: 540px;
+      max-width: 560px;
 
       @include respond-to('md') {
-        font-size: 14.5px;
+        font-size: 15px;
       }
     }
   }
@@ -118,7 +118,7 @@
       outline: none;
 
       &:focus-visible .circle-frame {
-        outline: 3px solid #C5A059;
+        outline: 3px solid $color-dusty-rose;
         outline-offset: 3px;
       }
     }
@@ -130,11 +130,11 @@
       aspect-ratio: 1 / 1;
       border-radius: 50%;
       overflow: hidden;
-      background-color: #EFE7DE;
-      // Terracotta / Copper Border Ring matching reference
-      border: 2px solid #C2593F;
-      box-shadow: 0 4px 14px rgba(60, 22, 28, 0.09);
-      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+      background-color: #FFFFFF;
+      // Terracotta Border Ring #AD6655
+      border: 2px solid $color-terracotta;
+      box-shadow: 0 4px 14px rgba(56, 51, 47, 0.07);
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
                   box-shadow 0.4s ease,
                   border-color 0.3s ease;
 
@@ -145,7 +145,7 @@
         object-position: top center;
         border-radius: 50%;
         display: block;
-        transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+        transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
       }
 
       // Dark Gradient Overlay for Crisp Text Contrast
@@ -155,9 +155,9 @@
         border-radius: 50%;
         background: linear-gradient(
           to top,
-          rgba(18, 7, 9, 0.85) 0%,
-          rgba(28, 12, 16, 0.48) 32%,
-          rgba(0, 0, 0, 0.06) 54%,
+          rgba(56, 51, 47, 0.85) 0%,
+          rgba(56, 51, 47, 0.45) 32%,
+          rgba(0, 0, 0, 0.04) 54%,
           transparent 70%
         );
         pointer-events: none;
@@ -200,8 +200,8 @@
     .circle-link:hover {
       .circle-frame {
         transform: translateY(-4px);
-        border-color: #4A0E17; // Deep Burgundy hover
-        box-shadow: 0 12px 28px rgba(74, 14, 23, 0.22);
+        border-color: $color-dusty-rose; // Dusty Rose hover
+        box-shadow: 0 12px 28px rgba(173, 102, 85, 0.2);
 
         .circle-image {
           transform: scale(1.08);
@@ -210,15 +210,15 @@
         .circle-scrim {
           background: linear-gradient(
             to top,
-            rgba(74, 14, 23, 0.92) 0%,
-            rgba(45, 10, 16, 0.55) 36%,
-            rgba(0, 0, 0, 0.08) 58%,
+            rgba(173, 102, 85, 0.9) 0%,
+            rgba(56, 51, 47, 0.5) 36%,
+            rgba(0, 0, 0, 0.06) 58%,
             transparent 74%
           );
         }
 
         .circle-label-text {
-          color: #FFF6E8;
+          color: #FFFDF8;
           transform: translateY(-1px);
         }
       }

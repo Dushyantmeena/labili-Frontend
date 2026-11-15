@@ -6,11 +6,11 @@ import { ArrowRight, Sparkles } from 'lucide-react';
 import './FeaturedCollection.scss';
 
 const TABS = [
-  { id: 'all', label: 'All Heirlooms' },
-  { id: 'gota-patti-lehenga', label: 'Gota Patti Lehengas' },
+  { id: 'all', label: 'All Silhouettes' },
+  { id: 'kurta-sets', label: 'Suit Sets & Anarkalis' },
   { id: 'aangi-blouses', label: 'Rajputi Aangis' },
-  { id: 'cotton-kurtis', label: 'Everyday Cottons' },
-  { id: 'kurta-sets', label: 'Kurta Sets' },
+  { id: 'cotton-kurtis', label: 'Handblock Cottons' },
+  { id: 'gota-patti-lehenga', label: 'Festive Lehengas' }
 ];
 
 const FeaturedCollection = ({ onQuickView }) => {
@@ -22,16 +22,16 @@ const FeaturedCollection = ({ onQuickView }) => {
       : PRODUCTS.filter((p) => p.category === activeTab);
 
   return (
-    <section className="featured-collection-section">
+    <section className="featured-collection-section" aria-label="The Labiii Bestsellers">
       <div className="container">
         <div className="section-title">
-          <span className="brand-eyebrow">Handcrafted in Rajasthan</span>
-          <h2>The Labiii Bestsellers</h2>
-          <div className="title-divider">
-            <span className="divider-gem" />
+          <div className="collection-eyebrow-pill">
+            <Sparkles size={11} className="pill-spark" />
+            <span>HEIRLOOM ARCHIVE</span>
           </div>
+          <h2>The Labiii Bestsellers</h2>
           <p className="section-subtitle">
-            Most adored silhouettes celebrated by women across India and around the globe.
+            Most adored Rajasthani silhouettes celebrated for their fluid movement, breathable hand-spun fabrics, and timeless Jaipuri grace.
           </p>
         </div>
 
@@ -43,6 +43,7 @@ const FeaturedCollection = ({ onQuickView }) => {
                 key={tab.id}
                 className={`tab-btn ${activeTab === tab.id ? 'active' : ''}`}
                 onClick={() => setActiveTab(tab.id)}
+                type="button"
               >
                 {tab.label}
               </button>
@@ -63,8 +64,9 @@ const FeaturedCollection = ({ onQuickView }) => {
 
         {/* Bottom CTA */}
         <div className="collection-bottom-cta">
-          <Link to="/collections/all" className="btn-secondary explore-all-btn">
-            Explore All 80+ Pieces <ArrowRight size={16} />
+          <Link to="/collections/all" className="explore-all-btn">
+            <span>Explore Complete Collection</span>
+            <ArrowRight size={15} />
           </Link>
         </div>
       </div>
@@ -73,4 +75,3 @@ const FeaturedCollection = ({ onQuickView }) => {
 };
 
 export default FeaturedCollection;
-
