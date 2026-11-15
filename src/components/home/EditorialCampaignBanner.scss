@@ -1,0 +1,178 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.labiii-editorial-campaign-banner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: #2D2621;
+  border-top: 1px solid rgba(194, 155, 70, 0.2);
+  border-bottom: 1px solid rgba(194, 155, 70, 0.2);
+
+  .campaign-media-wrapper {
+    position: relative;
+    width: 100%;
+    height: clamp(420px, 68vh, 720px);
+
+    .campaign-full-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+      transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .campaign-subtle-scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(30, 20, 22, 0.65) 0%,
+        rgba(30, 20, 22, 0.25) 50%,
+        rgba(30, 20, 22, 0.1) 100%
+      );
+    }
+  }
+
+  // Floating Bottom-Left Card (Quinces Style)
+  .campaign-floating-container {
+    position: absolute;
+    bottom: 24px;
+    left: 16px;
+    right: 16px;
+    z-index: 3;
+    pointer-events: none;
+
+    @include respond-to('md') {
+      left: 48px;
+      bottom: 40px;
+      right: auto;
+    }
+
+    @include respond-to('lg') {
+      left: 80px;
+      bottom: 48px;
+    }
+
+    .campaign-card-box {
+      pointer-events: auto;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(14px);
+      padding: 28px 24px;
+      max-width: 460px;
+      border: 1px solid rgba(194, 155, 70, 0.3);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.22);
+      border-radius: 4px;
+
+      @include respond-to('md') {
+        padding: 36px 36px 32px;
+      }
+
+      .card-badge-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 10px;
+        font-weight: $fw-bold;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #C06345;
+        margin-bottom: 12px;
+
+        .badge-spark {
+          color: #C29B46;
+        }
+      }
+
+      .card-title {
+        font-family: $font-heading;
+        font-size: clamp(28px, 3.2vw, 40px);
+        font-weight: 400;
+        font-style: italic;
+        line-height: 1.15;
+        color: #2D2621;
+        margin-bottom: 12px;
+
+        em {
+          color: #541421;
+          font-style: italic;
+        }
+      }
+
+      .card-description {
+        font-family: $font-body;
+        font-size: 13.5px;
+        font-weight: 300;
+        line-height: 1.6;
+        color: #5A4E46;
+        margin-bottom: 18px;
+      }
+
+      .card-offer-line {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 22px;
+        padding-top: 14px;
+        border-top: 1px solid rgba(194, 155, 70, 0.2);
+
+        .offer-note {
+          font-size: 11px;
+          color: #7A6F66;
+          letter-spacing: 0.05em;
+        }
+
+        .code-copy-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          padding: 4px 10px;
+          border-radius: 3px;
+          background: rgba(84, 20, 33, 0.06);
+          border: 1px dashed rgba(84, 20, 33, 0.4);
+          color: #541421;
+          font-size: 11px;
+          font-weight: $fw-bold;
+          letter-spacing: 0.1em;
+          cursor: pointer;
+          transition: all 0.2s ease;
+
+          &:hover {
+            background: rgba(84, 20, 33, 0.12);
+          }
+
+          &.is-copied {
+            background: #2E7D32;
+            color: #FFFFFF;
+            border-color: #2E7D32;
+          }
+        }
+      }
+
+      .card-italic-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        font-family: $font-heading;
+        font-size: 18px;
+        font-style: italic;
+        color: #541421;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        transition: all 0.2s ease;
+
+        .arrow-icon {
+          transition: transform 0.2s ease;
+        }
+
+        &:hover {
+          color: #C06345;
+
+          .arrow-icon {
+            transform: translateX(4px);
+          }
+        }
+      }
+    }
+  }
+}

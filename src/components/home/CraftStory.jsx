@@ -1,103 +1,66 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Pause, Play, Sparkles, ArrowRight } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import './CraftStory.scss';
 
 const CraftStory = () => {
-  const [isPlaying, setIsPlaying] = useState(true);
-
   return (
-    <section className="labiii-craft-journal" aria-label="The Labiii Craft Journal">
-      <div className="container">
-        <div className="journal-editorial-grid">
-          {/* Left Narrative Column */}
-          <div className="journal-copy-col">
-            <div className="journal-chapter-tag">
-              <Sparkles size={12} className="tag-spark" />
-              <span>THE ATELIER JOURNAL · CHAPTER I</span>
+    <section className="labiii-editorial-our-story" aria-label="Our Story & Atelier">
+      <div className="container-wide">
+        <div className="story-split-grid">
+          {/* Left Column: Natural-Light Atelier Photography (Quinces Style) */}
+          <div className="story-media-stage">
+            <div className="story-image-wrap">
+              <img
+                src="https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-pink-city-gate.jpg?v=1793113054&width=1400"
+                alt="Inside the Labiii Jaipur Atelier — Handcrafted textiles and royal Rajputana heritage"
+                className="story-main-img"
+                loading="lazy"
+              />
             </div>
-
-            <h2 className="journal-title">
-              Conceived in the <em>Pink City</em>
-            </h2>
-
-            <p className="journal-lede">
-              Every Labiii silhouette begins as a conversation between Mewar heritage and modern life. Ideas sketched in our Sanganer atelier reflect the architecture, desert light, and celebratory soul of Rajasthan.
-            </p>
-
-            <div className="journal-craft-pillars">
-              <div className="pillar-row">
-                <span className="pillar-num">01</span>
-                <div>
-                  <strong className="pillar-name">Archival Jaipur Sketching</strong>
-                  <p className="pillar-desc">
-                    Silhouettes drafted on handmade paper, capturing royal court cholis and royal wedding poshak cuts.
-                  </p>
-                </div>
-              </div>
-
-              <div className="pillar-row">
-                <span className="pillar-num">02</span>
-                <div>
-                  <strong className="pillar-name">Heirloom Gota Patti &amp; Zari</strong>
-                  <p className="pillar-desc">
-                    Genuine gold and silver ribbons pressed, folded, and stitched petal by petal by generations of karigars.
-                  </p>
-                </div>
-              </div>
-
-              <div className="pillar-row">
-                <span className="pillar-num">03</span>
-                <div>
-                  <strong className="pillar-name">Tailored for Modern Comfort</strong>
-                  <p className="pillar-desc">
-                    Soft breathable cotton inner linings and generous 2-inch interior margins for a bespoke fit.
-                  </p>
-                </div>
-              </div>
+            {/* Ambient Caption Tag */}
+            <div className="story-caption-pill">
+              <Sparkles size={11} className="caption-spark" />
+              <span>Sanganer Atelier · Jaipur, Rajasthan</span>
             </div>
-
-            <Link to="/about" className="journal-explore-link">
-              <span>READ THE COMPLETE ATELIER STORY</span>
-              <ArrowRight size={14} />
-            </Link>
           </div>
 
-          {/* Right Photographic Essay */}
-          <div className="journal-visual-col">
-            <div className="journal-photo-stage">
-              {/* Main Visual: City Gate Illuminated */}
-              <div className="photo-card main-city-card">
-                <img
-                  src="https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-pink-city-gate.jpg?v=1793113054&width=1400"
-                  alt="Jaipur illuminated royal gate at night"
-                  loading="lazy"
-                />
-                <button
-                  className="photo-play-toggle"
-                  onClick={() => setIsPlaying(!isPlaying)}
-                  aria-label={isPlaying ? 'Pause ambient clip' : 'Play ambient clip'}
-                  type="button"
-                >
-                  {isPlaying ? <Pause size={13} /> : <Play size={13} />}
-                </button>
-                <div className="photo-bottom-caption">
-                  <span>Jaipur Royal Gates · Architectural Inspiration</span>
-                </div>
-              </div>
+          {/* Right Column: Magazine-Style Editorial Narrative (Quinces Style) */}
+          <div className="story-editorial-copy">
+            <span className="story-eyebrow">THE LABIII DEVOTION</span>
 
-              {/* Offset Visual: Designer Sketching at Studio */}
-              <div className="photo-card offset-studio-card">
-                <img
-                  src="https://www.baisajaipur.com/cdn/shop/files/baisa-v3-still-unit-sketch.jpg?v=1793113055&width=1400"
-                  alt="Designer sketching Rajputi silhouettes at Labiii Studio"
-                  loading="lazy"
-                />
-                <div className="photo-studio-tag">
-                  <span>Studio Sketching &amp; Moodboard</span>
-                </div>
+            <h2 className="story-title">
+              Our <em>Story</em>
+            </h2>
+
+            <p className="story-lead-p">
+              Labiii began in a quiet Jaipur atelier with a single conviction: fewer pieces, crafted with royal reverence. We design the heirloom silhouettes that anchor an ethnic wardrobe — cut honestly, sourced responsibly, and made to be worn and cherished for decades.
+            </p>
+
+            <p className="story-secondary-p">
+              From our signature Rajputi Aangi cholis with architectural necklines to flowing 24-kali Gota Patti lehengas, each garment is tailored in our Sanganer workshop with breathable cotton linings and 2-inch alteration margins — uniting timeless regal grace with modern ease.
+            </p>
+
+            {/* Atelier Hallmark Strip */}
+            <div className="story-hallmarks-row">
+              <div className="hallmark-cell">
+                <span className="cell-num">40+</span>
+                <span className="cell-label">Hours of Gota Needlework</span>
+              </div>
+              <div className="hallmark-cell">
+                <span className="cell-num">100%</span>
+                <span className="cell-label">Pure Silk &amp; Handloom Cottons</span>
+              </div>
+              <div className="hallmark-cell">
+                <span className="cell-num">2"</span>
+                <span className="cell-label">Bespoke Fitting Margins</span>
               </div>
             </div>
+
+            <Link to="/about" className="story-italic-link">
+              <span>Discover Our Heritage &amp; Craft</span>
+              <ArrowRight size={14} className="arrow-icon" />
+            </Link>
           </div>
         </div>
       </div>

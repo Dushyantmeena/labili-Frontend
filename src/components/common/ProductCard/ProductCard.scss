@@ -1,41 +1,35 @@
 @use '../../../styles/variables' as *;
 @use '../../../styles/mixins' as *;
 
-.labiii-product-card {
+.labiii-editorial-product-card {
   position: relative;
   display: flex;
   flex-direction: column;
-  background-color: #FFFFFF;
-  border-radius: $radius-md;
-  border: 1px solid rgba(194, 155, 70, 0.16);
-  overflow: hidden;
-  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  background-color: transparent;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 36px -8px rgba(84, 20, 33, 0.12), 0 4px 12px -2px rgba(28, 24, 21, 0.05);
-    border-color: rgba(194, 155, 70, 0.35);
+    .card-product-img {
+      transform: scale(1.04);
+    }
 
-    .card-quick-actions {
+    .card-hover-actions {
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
     }
-
-    .card-product-img {
-      transform: scale(1.04);
-    }
   }
 
-  // Media Stage
+  // Media Container (Quinces 3:4 ratio)
   .card-media-stage {
     position: relative;
     width: 100%;
     aspect-ratio: 3 / 4;
     overflow: hidden;
     background-color: #F4EFE6;
+    border-radius: 3px;
 
-    .card-link-wrapper {
+    .card-media-anchor {
       display: block;
       width: 100%;
       height: 100%;
@@ -45,263 +39,178 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
-      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
+      object-position: center 25%;
+      transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
 
       &.is-secondary {
         animation: fadeInImg 0.35s ease;
       }
     }
 
-    // Badges
-    .card-badges-stack {
+    // Minimal Badge
+    .card-badge-wrap {
       position: absolute;
-      top: 12px;
-      left: 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      z-index: 3;
+      top: 10px;
+      left: 10px;
+      z-index: 2;
       pointer-events: none;
 
-      .editorial-badge {
-        font-family: $font-body;
-        font-size: 10px;
-        font-weight: $fw-semibold;
+      .minimal-badge {
+        display: inline-block;
+        padding: 3px 8px;
+        background: rgba(250, 247, 242, 0.92);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(194, 155, 70, 0.3);
+        color: #541421;
+        font-size: 9.5px;
+        font-weight: $fw-bold;
         letter-spacing: 0.14em;
         text-transform: uppercase;
-        padding: 4px 9px;
-        border-radius: $radius-sm;
-
-        &.badge-handcrafted {
-          background-color: $color-terracotta;
-          color: #FFFFFF;
-        }
-
-        &.badge-bestseller {
-          background-color: $color-gold;
-          color: #FFFFFF;
-        }
-
-        &.badge-discount {
-          background-color: $color-primary;
-          color: #FFFFFF;
-        }
+        border-radius: 2px;
       }
     }
 
-    // Wishlist Button
-    .card-wishlist-btn {
+    // Wishlist Pill Button
+    .card-wishlist-pill {
       position: absolute;
-      top: 12px;
-      right: 12px;
-      width: 34px;
-      height: 34px;
+      top: 10px;
+      right: 10px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
-      background-color: rgba(255, 255, 255, 0.88);
+      background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(8px);
-      border: 1px solid rgba(194, 155, 70, 0.22);
+      border: 1px solid rgba(0, 0, 0, 0.05);
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      z-index: 4;
-      transition: all $transition-fast;
+      z-index: 3;
+      transition: all 0.25s ease;
 
       &:hover {
-        background-color: #FFFFFF;
-        transform: scale(1.1);
-        border-color: $color-gold;
+        background: #FFFFFF;
+        transform: scale(1.08);
       }
 
-      &.is-active {
-        background-color: #FAF2F4;
-        border-color: $color-primary;
+      &.is-saved {
+        background: #FAF7F2;
       }
     }
 
-    // Quick Action Bar
-    .card-quick-actions {
+    // Hover Action Bar
+    .card-hover-actions {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 10px 12px;
-      background: linear-gradient(180deg, rgba(28, 24, 21, 0) 0%, rgba(28, 24, 21, 0.65) 100%);
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
+      grid-template-columns: 1fr auto;
+      gap: 6px;
+      z-index: 3;
       opacity: 0;
       visibility: hidden;
-      transform: translateY(10px);
-      transition: all 0.28s cubic-bezier(0.22, 1, 0.36, 1);
-      z-index: 5;
+      transform: translateY(8px);
+      transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 
-      button {
+      .action-btn {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        gap: 6px;
-        padding: 9px 8px;
-        font-family: $font-body;
-        font-size: 11.5px;
+        gap: 5px;
+        padding: 8px 12px;
+        border-radius: 2px;
+        font-size: 11px;
         font-weight: $fw-medium;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        border-radius: $radius-sm;
         cursor: pointer;
-        transition: all $transition-fast;
-      }
-
-      .quick-view-action {
-        background-color: rgba(255, 255, 255, 0.95);
+        transition: all 0.2s ease;
         border: none;
-        color: $color-text-primary;
 
-        &:hover {
-          background-color: #FFFFFF;
-          color: $color-primary;
+        &.quick-view-btn {
+          background: rgba(255, 255, 255, 0.94);
+          backdrop-filter: blur(8px);
+          color: #2D2621;
+
+          &:hover {
+            background: #FFFFFF;
+            color: #541421;
+          }
         }
-      }
 
-      .quick-add-action {
-        background-color: $color-primary;
-        border: none;
-        color: #FFFFFF;
+        &.quick-bag-btn {
+          background: #541421;
+          color: #FFFFFF;
 
-        &:hover {
-          background-color: #3E0E18;
+          &:hover {
+            background: #3E0E18;
+          }
         }
-      }
-
-      @include respond-to(laptop) {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-        background: rgba(28, 24, 21, 0.4);
       }
     }
   }
 
-  // Info Content Details
-  .card-info-content {
-    padding: 14px 16px 16px;
+  // Editorial Info (Quinces Style)
+  .card-editorial-info {
+    padding-top: 14px;
     display: flex;
     flex-direction: column;
-    flex: 1;
 
-    .card-category-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 6px;
-
-      .card-category-name {
-        font-family: $font-body;
-        font-size: 10.5px;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        color: $color-gold-ink;
-        font-weight: $fw-semibold;
-      }
-
-      .card-mini-rating {
-        display: flex;
-        align-items: center;
-        gap: 3px;
-
-        .rating-num {
-          font-size: 11px;
-          color: $color-text-muted;
-          font-weight: $fw-medium;
-        }
-      }
+    .card-category-meta {
+      font-size: 10px;
+      font-weight: $fw-semibold;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #9E8F82;
+      margin-bottom: 4px;
     }
 
-    .card-product-title {
-      font-family: $font-heading;
-      font-size: 16.5px;
-      font-weight: 500;
-      line-height: 1.3;
-      margin: 0 0 10px;
-      letter-spacing: 0.01em;
-
-      a {
-        color: $color-text-primary;
-        transition: color $transition-fast;
-
-        &:hover {
-          color: $color-primary;
-        }
-      }
-    }
-
-    // Pricing
-    .card-pricing-row {
+    .card-title-price-row {
       display: flex;
       align-items: baseline;
-      gap: 8px;
-      margin-bottom: 10px;
+      justify-content: space-between;
+      gap: 12px;
 
-      .current-price {
-        font-family: $font-body;
-        font-size: 15px;
-        font-weight: $fw-semibold;
-        color: $color-primary;
-      }
+      .card-product-title {
+        font-family: $font-heading;
+        font-size: 17px;
+        font-weight: 500;
+        font-style: italic;
+        line-height: 1.3;
+        color: #2D2621;
+        margin: 0;
 
-      .original-price {
-        font-family: $font-body;
-        font-size: 13px;
-        color: $color-text-muted;
-        text-decoration: line-through;
-      }
-    }
-
-    // Size Pills
-    .card-sizes-row {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: auto;
-      padding-top: 8px;
-      border-top: 1px solid rgba(194, 155, 70, 0.12);
-
-      .size-label-text {
-        font-family: $font-body;
-        font-size: 10px;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: $color-text-muted;
-      }
-
-      .size-pills-list {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        flex-wrap: wrap;
-
-        .size-mini-pill {
-          background: #FAF7F2;
-          border: 1px solid rgba(194, 155, 70, 0.2);
-          border-radius: 3px;
-          padding: 2px 6px;
-          font-family: $font-body;
-          font-size: 10px;
-          color: $color-text-secondary;
-          cursor: pointer;
-          transition: all $transition-fast;
+        a {
+          color: inherit;
+          text-decoration: none;
+          transition: color 0.2s ease;
 
           &:hover {
-            border-color: $color-primary;
-            color: $color-primary;
+            color: #541421;
           }
+        }
+      }
 
-          &.is-selected {
-            background-color: $color-primary;
-            color: #FFFFFF;
-            border-color: $color-primary;
-          }
+      .card-price-block {
+        display: flex;
+        align-items: baseline;
+        gap: 6px;
+        flex-shrink: 0;
+
+        .current-price {
+          font-family: $font-body;
+          font-size: 14px;
+          font-weight: $fw-semibold;
+          color: #541421;
+          white-space: nowrap;
+        }
+
+        .original-price {
+          font-size: 11.5px;
+          color: #A09489;
+          text-decoration: line-through;
+          white-space: nowrap;
         }
       }
     }
@@ -309,6 +218,10 @@
 }
 
 @keyframes fadeInImg {
-  from { opacity: 0.6; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

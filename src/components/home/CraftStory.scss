@@ -1,223 +1,198 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
-.labiii-craft-journal {
-  padding: clamp(60px, 8vw, 108px) 0;
+.labiii-editorial-our-story {
+  padding: 80px 0 96px;
   background-color: #FAF7F2;
-  border-bottom: 1px solid rgba(194, 155, 70, 0.16);
+  border-top: 1px solid rgba(194, 155, 70, 0.18);
 
-  .journal-editorial-grid {
-    display: grid;
-    grid-template-columns: 1.15fr 1fr;
-    gap: clamp(36px, 5vw, 76px);
-    align-items: center;
+  @include respond-to('md') {
+    padding: 110px 0 130px;
+  }
 
-    @include respond-to(laptop) {
-      grid-template-columns: 1fr;
-      gap: 48px;
+  .container-wide {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    @include respond-to('md') {
+      padding: 0 40px;
+    }
+
+    @include respond-to('lg') {
+      padding: 0 64px;
     }
   }
 
-  // Left Narrative
-  .journal-copy-col {
-    .journal-chapter-tag {
+  // 2-Column Balanced Grid (Quinces Style)
+  .story-split-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+
+    @include respond-to('md') {
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+    }
+
+    @include respond-to('lg') {
+      gap: 80px;
+    }
+  }
+
+  // Left Media Stage
+  .story-media-stage {
+    position: relative;
+
+    .story-image-wrap {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border-radius: 4px;
+      overflow: hidden;
+      background-color: #EFE8DE;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+
+      @include respond-to('md') {
+        aspect-ratio: 3 / 2;
+      }
+
+      .story-main-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 40%;
+        transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+
+        &:hover {
+          transform: scale(1.03);
+        }
+      }
+    }
+
+    .story-caption-pill {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      font-family: $font-body;
+      gap: 6px;
+      padding: 5px 12px;
+      background: rgba(250, 247, 242, 0.94);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(194, 155, 70, 0.3);
+      border-radius: 2px;
       font-size: 10.5px;
-      font-weight: $fw-semibold;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: $color-terracotta;
-      margin-bottom: 14px;
+      font-weight: $fw-medium;
+      letter-spacing: 0.12em;
+      color: #541421;
 
-      .tag-spark {
-        color: $color-gold;
+      .caption-spark {
+        color: #C29B46;
       }
     }
+  }
 
-    .journal-title {
+  // Right Editorial Copy (Quinces Style)
+  .story-editorial-copy {
+    max-width: 540px;
+
+    .story-eyebrow {
+      display: block;
+      font-size: 10.5px;
+      font-weight: $fw-bold;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #C06345;
+      margin-bottom: 12px;
+    }
+
+    .story-title {
       font-family: $font-heading;
-      font-size: clamp(2.4rem, 3.8vw, 3.6rem);
-      line-height: 1.12;
-      color: $color-primary;
-      margin: 0 0 16px;
+      font-size: clamp(34px, 4vw, 54px);
+      font-weight: 400;
+      line-height: 1.1;
+      color: #2D2621;
+      margin-bottom: 22px;
 
       em {
-        font-family: $font-heading;
         font-style: italic;
-        color: $color-terracotta;
+        color: #541421;
+        font-family: $font-heading;
       }
     }
 
-    .journal-lede {
+    .story-lead-p {
       font-family: $font-body;
-      font-size: 15.5px;
+      font-size: 15px;
+      font-weight: 300;
       line-height: 1.7;
-      color: $color-text-secondary;
-      margin-bottom: 30px;
+      color: #4A423B;
+      margin-bottom: 16px;
     }
 
-    .journal-craft-pillars {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
+    .story-secondary-p {
+      font-family: $font-body;
+      font-size: 13.5px;
+      font-weight: 300;
+      line-height: 1.65;
+      color: #6E6259;
+      margin-bottom: 32px;
+    }
+
+    // Hallmarks Metrics Row
+    .story-hallmarks-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding: 20px 0;
+      border-top: 1px solid rgba(194, 155, 70, 0.2);
+      border-bottom: 1px solid rgba(194, 155, 70, 0.2);
       margin-bottom: 32px;
 
-      .pillar-row {
+      .hallmark-cell {
         display: flex;
-        align-items: flex-start;
-        gap: 16px;
+        flex-direction: column;
 
-        .pillar-num {
+        .cell-num {
           font-family: $font-heading;
-          font-size: 18px;
-          font-weight: 600;
-          color: $color-gold-ink;
-          padding-top: 2px;
-          min-width: 24px;
+          font-size: 26px;
+          font-weight: 500;
+          color: #541421;
+          line-height: 1.1;
+          margin-bottom: 4px;
         }
 
-        .pillar-name {
-          font-family: $font-heading;
-          font-size: 17px;
-          font-weight: 600;
-          color: $color-primary;
-          display: block;
-          margin-bottom: 3px;
-        }
-
-        .pillar-desc {
+        .cell-label {
           font-family: $font-body;
-          font-size: 13.5px;
-          color: $color-text-secondary;
-          line-height: 1.5;
-          margin: 0;
+          font-size: 11px;
+          line-height: 1.35;
+          color: #7A6F66;
         }
       }
     }
 
-    .journal-explore-link {
+    .story-italic-link {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-family: $font-body;
-      font-size: 12px;
-      font-weight: $fw-semibold;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: $color-primary;
-      padding-bottom: 4px;
-      border-bottom: 1.5px solid $color-primary;
-      transition: all $transition-fast;
+      font-family: $font-heading;
+      font-size: 19px;
+      font-style: italic;
+      color: #541421;
+      text-decoration: underline;
+      text-underline-offset: 5px;
+      transition: all 0.2s ease;
+
+      .arrow-icon {
+        transition: transform 0.2s ease;
+      }
 
       &:hover {
-        color: $color-terracotta;
-        border-color: $color-terracotta;
-        gap: 12px;
-      }
-    }
-  }
+        color: #C06345;
 
-  // Right Visuals
-  .journal-visual-col {
-    .journal-photo-stage {
-      position: relative;
-      width: 100%;
-      height: clamp(440px, 50vw, 560px);
-
-      @include respond-to(laptop) {
-        max-width: 480px;
-        margin: 0 auto;
-      }
-
-      .photo-card {
-        border-radius: $radius-lg;
-        overflow: hidden;
-        border: 1px solid rgba(194, 155, 70, 0.25);
-        box-shadow: 0 16px 40px -8px rgba(43, 14, 22, 0.14);
-        background-color: #EFE8DE;
-
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: transform 0.5s ease;
-        }
-
-        &:hover img {
-          transform: scale(1.04);
-        }
-      }
-
-      .main-city-card {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 72%;
-        height: 78%;
-        z-index: 2;
-
-        .photo-play-toggle {
-          position: absolute;
-          bottom: 16px;
-          right: 16px;
-          width: 34px;
-          height: 34px;
-          border-radius: 50%;
-          background-color: rgba(28, 24, 21, 0.65);
-          backdrop-filter: blur(6px);
-          color: #FFFFFF;
-          border: 1px solid rgba(255, 255, 255, 0.25);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          transition: all $transition-fast;
-
-          &:hover {
-            background-color: $color-primary;
-            transform: scale(1.08);
-          }
-        }
-
-        .photo-bottom-caption {
-          position: absolute;
-          bottom: 16px;
-          left: 16px;
-          font-family: $font-body;
-          font-size: 11px;
-          color: #FFFFFF;
-          font-weight: $fw-medium;
-          background: rgba(28, 24, 21, 0.6);
-          backdrop-filter: blur(4px);
-          padding: 4px 10px;
-          border-radius: $radius-sm;
-        }
-      }
-
-      .offset-studio-card {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        width: 60%;
-        height: 62%;
-        z-index: 3;
-        border: 3px solid #FAF7F2;
-
-        .photo-studio-tag {
-          position: absolute;
-          bottom: 14px;
-          left: 14px;
-          font-family: $font-body;
-          font-size: 10.5px;
-          color: #FFFFFF;
-          font-weight: $fw-medium;
-          background: rgba(28, 24, 21, 0.65);
-          backdrop-filter: blur(4px);
-          padding: 4px 10px;
-          border-radius: $radius-sm;
+        .arrow-icon {
+          transform: translateX(4px);
         }
       }
     }

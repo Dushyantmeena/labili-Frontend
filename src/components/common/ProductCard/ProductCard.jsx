@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Heart, Eye, ShoppingBag, Star, Sparkles } from 'lucide-react';
+import { Heart, Eye, ShoppingBag } from 'lucide-react';
 import { useCart } from '../../../context/CartContext';
 import { useWishlist } from '../../../context/WishlistContext';
 import { useCurrency } from '../../../context/CurrencyContext';
@@ -10,7 +10,7 @@ const ProductCard = ({ product, onQuickView }) => {
   const { addToCart } = useCart();
   const { isInWishlist, toggleWishlist } = useWishlist();
   const { formatPrice } = useCurrency();
-  const [selectedSize, setSelectedSize] = useState(product.sizes?.[0] || 'Free Size');
+  const [selectedSize] = useState(product.sizes?.[0] || 'Free Size');
   const [isHovered, setIsHovered] = useState(false);
 
   const isSaved = isInWishlist(product.id);
@@ -35,13 +35,13 @@ const ProductCard = ({ product, onQuickView }) => {
 
   return (
     <article
-      className="labiii-product-card"
+      className="labiii-editorial-product-card"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Editorial Image Container (3:4 ratio) */}
+      {/* Editorial Image Container (3:4 ratio - Quinces Style) */}
       <div className="card-media-stage">
-        <Link to={`/products/${product.slug || product.id}`} className="card-link-wrapper">
+        <Link to={`/products/${product.slug || product.id}`} className="card-media-anchor">
           <img
             src={isHovered && product.secondaryImage ? product.secondaryImage : product.primaryImage}
             alt={product.name}
@@ -50,108 +50,68 @@ const ProductCard = ({ product, onQuickView }) => {
           />
         </Link>
 
-        {/* Refined Luxury Badges */}
-        <div className="card-badges-stack">
-          {product.badge && (
-            <span
-              className={`editorial-badge ${
-                product.badge.toLowerCase().includes('best')
-                  ? 'badge-bestseller'
-                  : 'badge-handcrafted'
-              }`}
-            >
-              {product.badge}
-            </span>
-          )}
-          {product.discount && (
-            <span className="editorial-badge badge-discount">{product.discount}</span>
-          )}
-        </div>
+        {/* Minimal Luxury Badge */}
+        {product.badge && (
+          <div className="card-badge-wrap">
+            <span className="minimal-badge">{product.badge}</span>
+          </div>
+        )}
 
-        {/* Floating Wishlist Button */}
+        {/* Floating Heart / Wishlist Button */}
         <button
-          className={`card-wishlist-btn ${isSaved ? 'is-active' : ''}`}
+          className={`card-wishlist-pill ${isSaved ? 'is-saved' : ''}`}
           onClick={handleWishlistToggle}
           aria-label={isSaved ? 'Remove from wishlist' : 'Save to wishlist'}
           title={isSaved ? 'Saved to wishlist' : 'Save to wishlist'}
           type="button"
         >
           <Heart
-            size={16}
+            size={15}
             fill={isSaved ? '#541421' : 'none'}
-            color={isSaved ? '#541421' : '#1C1815'}
-            strokeWidth={1.6}
+            color={isSaved ? '#541421' : '#2D2621'}
+            strokeWidth={1.5}
           />
         </button>
 
-        {/* Slide-Up Hover Quick Action Toolbar */}
-        <div className="card-quick-actions">
+        {/* Subtle Slide-Up Quick Actions (Hover Only) */}
+        <div className="card-hover-actions">
           <button
-            className="quick-view-action"
+            className="action-btn quick-view-btn"
             onClick={handleQuickViewClick}
             type="button"
+            title="Quick preview silhouette"
           >
-            <Eye size={14} />
+            <Eye size={13} />
             <span>Quick View</span>
           </button>
           <button
-            className="quick-add-action"
+            className="action-btn quick-bag-btn"
             onClick={handleAddDirect}
             type="button"
-            title="Add directly to bag"
+            title="Quick add to bag"
           >
-            <ShoppingBag size={14} />
-            <span>Add to Bag</span>
+            <ShoppingBag size={13} />
+            <span>Add</span>
           </button>
         </div>
       </div>
 
-      {/* Product Content Details */}
-      <div className="card-info-content">
-        <div className="card-category-row">
-          <span className="card-category-name">{product.categoryName || 'Jaipur Couture'}</span>
-          {/* Subtle star score */}
-          <div className="card-mini-rating">
-            <Star size={11} fill="#C29B46" color="#C29B46" />
-            <span className="rating-num">{product.rating || '4.9'}</span>
+      {/* Quinces-Style Editorial Info: Italic title on left, price on right */}
+      <div className="card-editorial-info">
+        <span className="card-category-meta">{product.category || 'Atelier Signature'}</span>
+        <div className="card-title-price-row">
+          <h3 className="card-product-title">
+            <Link to={`/products/${product.slug || product.id}`}>
+              {product.name}
+            </Link>
+          </h3>
+          <div className="card-price-block">
+            <span className="current-price">{formatPrice(product.price)}</span>
+            {product.originalPrice && product.originalPrice > product.price && (
+              <span className="original-price">{formatPrice(product.originalPrice)}</span>
+            )}
           </div>
         </div>
-
-        <h3 className="card-product-title">
-          <Link to={`/products/${product.slug || product.id}`} title={product.name}>
-            {product.name}
-          </Link>
-        </h3>
-
-        {/* Price Row */}
-        <div className="card-pricing-row">
-          <span className="current-price">{formatPrice(product.price)}</span>
-          {product.originalPrice && product.originalPrice > product.price && (
-            <span className="original-price">{formatPrice(product.originalPrice)}</span>
-          )}
-        </div>
-
-        {/* Minimal Size Selector Pills */}
-        {product.sizes && product.sizes.length > 0 && (
-          <div className="card-sizes-row" onClick={(e) => e.stopPropagation()}>
-            <span className="size-label-text">Sizes:</span>
-            <div className="size-pills-list">
-              {product.sizes.slice(0, 4).map((size) => (
-                <button
-                  key={size}
-                  className={`size-mini-pill ${selectedSize === size ? 'is-selected' : ''}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setSelectedSize(size);
-                  }}
-                  type="button"
-                >
-                  {size}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
     </article>
   );
