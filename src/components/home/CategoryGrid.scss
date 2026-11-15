@@ -1,225 +1,250 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
-.labiii-modern-categories-section {
-  padding: 80px 0 96px;
+.labiii-circular-categories-section {
+  padding: 44px 0 60px;
   background-color: #FAF8F5;
-  border-bottom: 1px solid rgba(194, 155, 70, 0.18);
+  border-bottom: 1px solid rgba(194, 155, 70, 0.16);
 
   @include respond-to('md') {
-    padding: 104px 0 120px;
+    padding: 68px 0 84px;
   }
 
-  .container-fluid-couture {
-    max-width: 1680px;
+  .circular-categories-container {
+    max-width: 1180px;
     margin: 0 auto;
     padding: 0 16px;
 
-    @include respond-to('md') {
+    @include respond-to('sm') {
+      padding: 0 24px;
+    }
+
+    @include respond-to('lg') {
       padding: 0 32px;
     }
-
-    @include respond-to('lg') {
-      padding: 0 48px;
-    }
   }
 
-  // Header
-  .modern-cat-header {
+  // Header matching ✨ Shop By Category ✨
+  .circular-cat-header {
     text-align: center;
     max-width: 680px;
-    margin: 0 auto 52px;
+    margin: 0 auto 32px;
 
     @include respond-to('md') {
-      margin-bottom: 64px;
+      margin-bottom: 44px;
     }
 
-    .header-eyebrow-pill {
+    .circular-cat-title {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      font-size: 10.5px;
-      font-weight: $fw-bold;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: #0F514E; // Peacock Teal
-      margin-bottom: 12px;
-
-      .eyebrow-sparkle {
-        color: #C29B46;
-      }
-    }
-
-    .header-title {
+      justify-content: center;
+      gap: 10px;
       font-family: $font-heading;
-      font-size: clamp(32px, 4vw, 50px);
-      font-weight: 400;
-      line-height: 1.1;
-      color: #191614;
-      margin-bottom: 14px;
+      font-size: clamp(1.65rem, 3.8vw, 2.6rem);
+      font-weight: 500;
+      line-height: 1.2;
+      color: #2E181D; // Deep wine-charcoal
+      margin: 0 0 10px;
+      letter-spacing: 0.02em;
 
-      em {
-        font-style: italic;
-        color: #C81E57; // Rani Pink
-        font-family: $font-heading;
+      .sparkle-accent {
+        font-size: clamp(1.1rem, 2.4vw, 1.6rem);
+        color: #C5A059; // Champagne Gold
+        display: inline-block;
+        animation: sparklePulse 3s ease-in-out infinite alternate;
+        user-select: none;
+
+        &:last-child {
+          animation-delay: 1.5s;
+        }
+      }
+
+      .title-text {
+        letter-spacing: 0.02em;
       }
     }
 
-    .header-sub {
+    .circular-cat-subtitle {
       font-family: $font-body;
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 300;
-      color: #6E6259;
-      line-height: 1.6;
+      color: #7A6960;
+      line-height: 1.55;
+      margin: 0 auto;
+      max-width: 540px;
+
+      @include respond-to('md') {
+        font-size: 14.5px;
+      }
     }
   }
 
-  // 4-Column Grid
-  .modern-cards-row {
+  // Circular Cards Grid
+  // Mobile: 2 Columns (Matching reference auranic.co screenshot)
+  // Desktop: 4 Columns (2 balanced rows of 4)
+  .circular-cards-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 14px;
+    max-width: 440px;
+    margin: 0 auto;
 
     @include respond-to('sm') {
-      grid-template-columns: repeat(2, 1fr);
+      max-width: 560px;
+      gap: 24px 18px;
+    }
+
+    @include respond-to('md') {
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 980px;
+      gap: 28px 22px;
     }
 
     @include respond-to('lg') {
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
-
-    @include respond-to('xl') {
-      gap: 32px;
+      max-width: 1140px;
+      gap: 34px 28px;
     }
   }
 
-  // Card
-  .category-couture-card {
-    position: relative;
+  .circular-card-item {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    .card-link-wrapper {
+    .circle-link {
       display: block;
+      width: 100%;
       text-decoration: none;
-      color: inherit;
+      outline: none;
 
-      &:hover {
-        .card-media-img {
-          transform: scale(1.05);
-        }
-
-        .card-headline {
-          color: #C81E57;
-        }
-
-        .card-action-trigger {
-          color: #0F514E;
-
-          .arrow-icon {
-            transform: translateX(4px);
-          }
-        }
+      &:focus-visible .circle-frame {
+        outline: 3px solid #C5A059;
+        outline-offset: 3px;
       }
     }
 
-    .card-photo-viewport {
+    // 1:1 Circular Media Frame with Terracotta Border Ring
+    .circle-frame {
       position: relative;
       width: 100%;
-      aspect-ratio: 3 / 4;
-      border-radius: 4px;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
       overflow: hidden;
-      background-color: #EFE8DE;
+      background-color: #EFE7DE;
+      // Terracotta / Copper Border Ring matching reference
+      border: 2px solid #C2593F;
+      box-shadow: 0 4px 14px rgba(60, 22, 28, 0.09);
+      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+                  box-shadow 0.4s ease,
+                  border-color 0.3s ease;
 
-      .card-media-img {
+      .circle-image {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: center 25%;
-        transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        object-position: top center;
+        border-radius: 50%;
+        display: block;
+        transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
       }
 
-      .card-photo-scrim {
+      // Dark Gradient Overlay for Crisp Text Contrast
+      .circle-scrim {
         position: absolute;
         inset: 0;
+        border-radius: 50%;
         background: linear-gradient(
           to top,
-          rgba(20, 16, 14, 0.4) 0%,
-          transparent 45%
+          rgba(18, 7, 9, 0.85) 0%,
+          rgba(28, 12, 16, 0.48) 32%,
+          rgba(0, 0, 0, 0.06) 54%,
+          transparent 70%
         );
+        pointer-events: none;
+        transition: opacity 0.3s ease;
       }
 
-      .card-index-tag {
+      // Category Label inside the bottom of the circle
+      .circle-label-box {
         position: absolute;
-        top: 14px;
-        left: 14px;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 4px 10px;
-        background: rgba(250, 248, 245, 0.94);
-        backdrop-filter: blur(8px);
-        border: 1px solid rgba(194, 155, 70, 0.3);
-        border-radius: 2px;
+        bottom: 10%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        padding: 0 10px;
+        pointer-events: none;
+        z-index: 2;
 
-        .index-num {
+        @include respond-to('sm') {
+          bottom: 11%;
+          padding: 0 14px;
+        }
+
+        .circle-label-text {
+          display: block;
           font-family: $font-heading;
-          font-size: 13px;
+          font-size: clamp(0.74rem, 2.4vw, 0.95rem);
           font-weight: 600;
-          color: #C81E57;
-        }
-
-        .index-eyebrow {
-          font-size: 9.5px;
-          font-weight: $fw-bold;
-          letter-spacing: 0.16em;
+          letter-spacing: 0.07em;
           text-transform: uppercase;
-          color: #191614;
+          color: #FFFFFF;
+          line-height: 1.22;
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.85),
+                       0 1px 2px rgba(0, 0, 0, 0.95);
+          transition: transform 0.3s ease, color 0.3s ease;
         }
       }
     }
 
-    .card-caption-container {
-      padding-top: 18px;
-      display: flex;
-      flex-direction: column;
+    // Hover & Active States
+    .circle-link:hover {
+      .circle-frame {
+        transform: translateY(-4px);
+        border-color: #4A0E17; // Deep Burgundy hover
+        box-shadow: 0 12px 28px rgba(74, 14, 23, 0.22);
 
-      .card-headline {
-        font-family: $font-heading;
-        font-size: 20px;
-        font-weight: 500;
-        font-style: italic;
-        line-height: 1.25;
-        color: #191614;
-        margin-bottom: 6px;
-        transition: color 0.2s ease;
-      }
+        .circle-image {
+          transform: scale(1.08);
+        }
 
-      .card-subheadline {
-        font-family: $font-body;
-        font-size: 12.5px;
-        font-weight: 300;
-        line-height: 1.5;
-        color: #6E6259;
-        margin-bottom: 12px;
-      }
+        .circle-scrim {
+          background: linear-gradient(
+            to top,
+            rgba(74, 14, 23, 0.92) 0%,
+            rgba(45, 10, 16, 0.55) 36%,
+            rgba(0, 0, 0, 0.08) 58%,
+            transparent 74%
+          );
+        }
 
-      .card-action-trigger {
-        display: inline-flex;
-        align-items: center;
-        gap: 5px;
-        font-size: 11.5px;
-        font-weight: $fw-semibold;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: #191614;
-        transition: color 0.2s ease;
-
-        .arrow-icon {
-          transition: transform 0.2s ease;
+        .circle-label-text {
+          color: #FFF6E8;
+          transform: translateY(-1px);
         }
       }
     }
+
+    .circle-link:active {
+      .circle-frame {
+        transform: translateY(0) scale(0.98);
+        transition-duration: 0.15s;
+      }
+    }
+  }
+}
+
+// Sparkle pulse animation
+@keyframes sparklePulse {
+  0% {
+    opacity: 0.8;
+    transform: scale(0.95) rotate(-3deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1) rotate(4deg);
+  }
+  100% {
+    opacity: 0.85;
+    transform: scale(1) rotate(0deg);
   }
 }

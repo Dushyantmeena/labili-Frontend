@@ -1,57 +1,56 @@
 import React, { useState, useEffect } from 'react';
-import { Sparkles, Truck, Tag, Gift, Copy, Check, ChevronLeft, ChevronRight } from 'lucide-react';
-import { getActivePromotions } from '../../../data/promotions';
+import { Sparkles, Truck, Tag, ShieldCheck, ChevronLeft, ChevronRight, Copy, Check } from 'lucide-react';
 import './AnnouncementBar.scss';
 
-const EVERGREEN_ANNOUNCEMENTS = [
+const ANNOUNCEMENT_ITEMS = [
   {
-    id: 'ann-roots',
-    icon: Sparkles,
-    badge: 'ATELIER',
-    text: 'Royal Roots. Modern Elegance — Jaipur Haute Couture & Heirloom Rajputi Craft',
+    id: 'ann-1',
+    badge: 'AUTUMN / FESTIVE 2026',
+    text: 'Where Royal Heritage Meets Modern Grace — The New Collection is Live',
+    linkText: 'Explore New In',
+    linkUrl: '/collections/festive-edit',
     code: null
   },
   {
-    id: 'ann-rental',
-    icon: Gift,
-    badge: 'BESPOKE',
-    text: 'Bespoke Sizing, Alteration Margins & Bridal Poshak Rentals Available on Request',
+    id: 'ann-2',
+    badge: 'COMPLIMENTARY SHIPPING',
+    text: 'White-Glove Express Courier Across India on Orders Above ₹4,999',
+    linkText: 'Shop All',
+    linkUrl: '/collections/all',
+    code: 'FREESHIP'
+  },
+  {
+    id: 'ann-3',
+    badge: 'BESPOKE TAILORING',
+    text: 'Every Ensemble Crafted with Pure Cotton Linings & 2" Alteration Margins',
+    linkText: 'Our Atelier',
+    linkUrl: '/about',
     code: null
+  },
+  {
+    id: 'ann-4',
+    badge: 'NEW PATRON PRIVILEGE',
+    text: 'Enjoy Flat 10% Off on Your Maiden Heirloom Commission',
+    linkText: 'Use Code',
+    linkUrl: '/collections/all',
+    code: 'ROYAL10'
   }
 ];
 
 const AnnouncementBar = () => {
-  const [messages, setMessages] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [copiedCode, setCopiedCode] = useState(null);
 
   useEffect(() => {
-    // Build announcements list from active marketing promotions + evergreen messages
-    const activePromos = getActivePromotions();
-    const promoMessages = activePromos.map((p) => ({
-      id: p.id,
-      icon: p.id.includes('first-order') ? Tag : p.id.includes('free-shipping') ? Truck : Gift,
-      badge: p.badge || 'OFFER',
-      text: `${p.title} · ${p.terms}`,
-      code: p.code || null
-    }));
-
-    const combined = [...promoMessages, ...EVERGREEN_ANNOUNCEMENTS];
-    setMessages(combined.length > 0 ? combined : EVERGREEN_ANNOUNCEMENTS);
-  }, []);
-
-  useEffect(() => {
-    if (messages.length <= 1 || isPaused) return;
-
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % messages.length);
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % ANNOUNCEMENT_ITEMS.length);
     }, 4500);
+    return () => clearInterval(interval);
+  }, [isPaused]);
 
-    return () => clearInterval(timer);
-  }, [messages.length, isPaused]);
-
-  const handleCopyCode = (code, e) => {
+  const handleCopy = (code, e) => {
     e.preventDefault();
     e.stopPropagation();
     if (!code) return;
@@ -62,30 +61,26 @@ const AnnouncementBar = () => {
 
   const handlePrev = (e) => {
     e.stopPropagation();
-    setCurrentIndex((prev) => (prev - 1 + messages.length) % messages.length);
+    setCurrentIndex((prev) => (prev - 1 + ANNOUNCEMENT_ITEMS.length) % ANNOUNCEMENT_ITEMS.length);
   };
 
   const handleNext = (e) => {
     e.stopPropagation();
-    setCurrentIndex((prev) => (prev + 1) % messages.length);
+    setCurrentIndex((prev) => (prev + 1) % ANNOUNCEMENT_ITEMS.length);
   };
 
-  if (!messages.length) return null;
-
-  const current = messages[currentIndex] || messages[0];
-  const IconComponent = current.icon || Sparkles;
+  const item = ANNOUNCEMENT_ITEMS[currentIndex];
 
   return (
     <aside
       className="labiii-announcement-bar"
-      aria-label="Promotional ticker"
+      aria-label="Promotions and Announcements"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <div className="labiii-announcement-inner">
-        {/* Previous Message Chevron */}
+      <div className="announcement-track-container">
         <button
-          className="ticker-nav-btn prev-ticker"
+          className="ticker-arrow-btn prev-btn"
           onClick={handlePrev}
           aria-label="Previous announcement"
           type="button"
@@ -93,41 +88,36 @@ const AnnouncementBar = () => {
           <ChevronLeft size={13} />
         </button>
 
-        {/* Dynamic Announcement Pill */}
-        <div className="announcement-pill" key={current.id || currentIndex}>
-          <div className="announcement-badge-wrap">
-            <IconComponent size={12} className="announcement-icon" />
-            {current.badge && <span className="announcement-badge">{current.badge}</span>}
+        <div className="announcement-content-slide" key={item.id}>
+          <div className="badge-tag">
+            <Sparkles size={11} className="badge-star" />
+            <span>{item.badge}</span>
           </div>
 
-          <span className="announcement-text">
-            {current.text}
+          <span className="announcement-message">
+            {item.text}
           </span>
 
-          {current.code && (
+          {item.code && (
             <button
-              className={`announcement-code-chip ${copiedCode === current.code ? 'is-copied' : ''}`}
-              onClick={(e) => handleCopyCode(current.code, e)}
-              title="Click to copy coupon code"
+              className={`promo-code-pill ${copiedCode === item.code ? 'is-copied' : ''}`}
+              onClick={(e) => handleCopy(item.code, e)}
               type="button"
-              aria-label={`Copy discount code ${current.code}`}
+              title="Click to copy coupon code"
             >
-              <span className="chip-prefix">CODE:</span>
-              <strong className="chip-code">{current.code}</strong>
-              {copiedCode === current.code ? (
-                <span className="chip-copied-tag">
-                  <Check size={11} /> COPIED
-                </span>
+              <span className="code-label">CODE:</span>
+              <strong className="code-value">{item.code}</strong>
+              {copiedCode === item.code ? (
+                <span className="copied-note"><Check size={11} /> COPIED</span>
               ) : (
-                <Copy size={11} className="chip-copy-icon" />
+                <Copy size={11} className="copy-icon" />
               )}
             </button>
           )}
         </div>
 
-        {/* Next Message Chevron */}
         <button
-          className="ticker-nav-btn next-ticker"
+          className="ticker-arrow-btn next-btn"
           onClick={handleNext}
           aria-label="Next announcement"
           type="button"

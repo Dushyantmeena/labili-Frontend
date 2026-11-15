@@ -54,9 +54,19 @@ const CollectionPage = ({ onQuickView }) => {
   const filteredProducts = useMemo(() => {
     let result = [...products];
 
-    // Category filter
+    // Category filter with alias mapping for suit categories
     if (currentCategorySlug !== 'all') {
-      result = result.filter((p) => p.category === currentCategorySlug);
+      const aliasMap = {
+        'farsi-salwar-suit': 'kurta-sets',
+        'farsi-salwar-suits': 'kurta-sets',
+        'pleated-suit-sets': 'kurta-sets',
+        'a-line-suit-sets': 'kurta-sets',
+        'straight-suit-sets': 'kurta-sets',
+        'anarkali-suit-sets': 'kurta-sets',
+        'sharara-suit-sets': 'gota-patti-lehenga',
+      };
+      const targetCat = aliasMap[currentCategorySlug] || currentCategorySlug;
+      result = result.filter((p) => p.category === targetCat || p.category === currentCategorySlug);
     }
 
     // Fabric filter

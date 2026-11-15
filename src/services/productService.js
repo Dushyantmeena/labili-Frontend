@@ -19,7 +19,17 @@ export const productService = {
     let list = [...PRODUCTS];
 
     if (params.category && params.category !== 'all') {
-      list = list.filter((p) => p.category === params.category);
+      const aliasMap = {
+        'farsi-salwar-suit': 'kurta-sets',
+        'farsi-salwar-suits': 'kurta-sets',
+        'pleated-suit-sets': 'kurta-sets',
+        'a-line-suit-sets': 'kurta-sets',
+        'straight-suit-sets': 'kurta-sets',
+        'anarkali-suit-sets': 'kurta-sets',
+        'sharara-suit-sets': 'gota-patti-lehenga',
+      };
+      const targetCat = aliasMap[params.category] || params.category;
+      list = list.filter((p) => p.category === targetCat || p.category === params.category);
     }
 
     if (params.search) {

@@ -1,100 +1,115 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles } from 'lucide-react';
 import './CategoryGrid.scss';
 
-const MODERN_CATEGORIES = [
+// Curated Ethnic Silhouette Categories matching the Auranic.co visual direction
+export const CIRCULAR_CATEGORIES = [
   {
-    id: 'bridal-poshaks',
-    number: '01',
-    eyebrow: 'ROYAL HEIRLOOM',
-    title: 'Festive Poshaks & Lehengas',
-    subtitle: 'Pure raw silk kalis, hand-beaten gold gota & celebratory odhnis',
-    image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1000&q=85',
-    link: '/collections/festive-edit',
-    ctaText: 'Explore Poshaks'
-  },
-  {
-    id: 'rajputi-aangi',
-    number: '02',
-    eyebrow: 'ARCHIVAL CRAFT',
-    title: 'Rajputi Aangi Blouses',
-    subtitle: 'Architectural sweetheart necklines & suraj-patti gold gota',
-    image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=85',
-    link: '/collections/aangi-blouses',
-    ctaText: 'Explore Aangis'
-  },
-  {
-    id: 'festive-kurta-sets',
-    number: '03',
-    eyebrow: 'CONTEMPORARY SILK',
-    title: 'Regal Kurta Sets & Anarkalis',
-    subtitle: 'Vibrant Rani Pink & Peacock Georgette with scalloped dupattas',
-    image: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=1000&q=85',
+    id: 'farsi-salwar-suit',
+    title: 'FARSI SALWAR SUIT',
+    subtitle: 'Graceful flared hem salwar suit sets in artisanal prints',
+    image: 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=700&q=85',
     link: '/collections/kurta-sets',
-    ctaText: 'Explore Kurta Sets'
+    tag: 'Farsi Salwar'
   },
   {
-    id: 'daily-jaipur-cotton',
-    number: '04',
-    eyebrow: 'DAILY LUXURY',
-    title: 'Handblock Jaipur Cottons',
-    subtitle: 'Breathable 60s cambric cotton stamped with natural vegetable dyes',
-    image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=1000&q=85',
-    link: '/collections/cotton-kurtis',
-    ctaText: 'Explore Daily Cottons'
+    id: 'pleated-suit-sets',
+    title: 'PLEATED SUIT SETS',
+    subtitle: 'Intricately pleated silhouettes in rich Jaipur hues',
+    image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=700&q=85',
+    link: '/collections/kurta-sets',
+    tag: 'Pleated Suit'
+  },
+  {
+    id: 'a-line-suit-sets',
+    title: 'A LINE SUIT SETS',
+    subtitle: 'Flattering contoured A-line cuts with intricate yoke embroidery',
+    image: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=700&q=85',
+    link: '/collections/kurta-sets',
+    tag: 'A-Line'
+  },
+  {
+    id: 'straight-suit-sets',
+    title: 'STRAIGHT SUIT SETS',
+    subtitle: 'Classic regal straight kurtis paired with tailored trousers',
+    image: 'https://images.unsplash.com/photo-1616763355603-9755a640a287?auto=format&fit=crop&w=700&q=85',
+    link: '/collections/kurta-sets',
+    tag: 'Straight Suit'
+  },
+  {
+    id: 'anarkali-suit-sets',
+    title: 'ANARKALI SUIT SETS',
+    subtitle: 'Dramatic 24-kali flared kalidar anarkalis in royal georgettes',
+    image: 'https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=700&q=85',
+    link: '/collections/kurta-sets',
+    tag: 'Anarkali'
+  },
+  {
+    id: 'sharara-suit-sets',
+    title: 'SHARARA & GHARARA',
+    subtitle: 'Flared celebratory bottoms with scalloped organza dupattas',
+    image: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=700&q=85',
+    link: '/collections/gota-patti-lehenga',
+    tag: 'Sharara'
+  },
+  {
+    id: 'rajputi-poshak',
+    title: 'RAJPUTI POSHAKS',
+    subtitle: 'Archival 4-piece royal poshak with authentic Gota Patti border',
+    image: 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=700&q=85',
+    link: '/collections/festive-edit',
+    tag: 'Poshak'
+  },
+  {
+    id: 'royal-aangi-blouses',
+    title: 'AANGI CHOLI SETS',
+    subtitle: 'Jaipur court sweetheart necklines & hand-stitched suraj-patti',
+    image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=700&q=85',
+    link: '/collections/aangi-blouses',
+    tag: 'Aangi'
   }
 ];
 
 const CategoryGrid = () => {
   return (
-    <section className="labiii-modern-categories-section" aria-label="Collections Lookbook">
-      <div className="container-fluid-couture">
-        {/* Section Header */}
-        <div className="modern-cat-header">
-          <div className="header-eyebrow-pill">
-            <Sparkles size={11} className="eyebrow-sparkle" />
-            <span>THE LABIII ARCHIVE</span>
-          </div>
-          <h2 className="header-title">
-            Signatures of the <em>Royal Wardrobe</em>
+    <section className="labiii-circular-categories-section" aria-label="Shop By Category">
+      <div className="container circular-categories-container">
+        {/* Section Header with Golden Sparkles matching Auranic reference */}
+        <div className="circular-cat-header">
+          <h2 className="circular-cat-title">
+            <span className="sparkle-accent" aria-hidden="true">✨</span>
+            <span className="title-text">Shop By Category</span>
+            <span className="sparkle-accent" aria-hidden="true">✨</span>
           </h2>
-          <p className="header-sub">
-            From regal bridal trousseau to breathable handblock cottons — each silhouette is cut honestly and tailored for life.
+          <p className="circular-cat-subtitle">
+            Explore authentic Rajasthani silhouettes, handcrafted gota embellishments &amp; breathable everyday suit sets
           </p>
         </div>
 
-        {/* 4-Column Modern Lookbook Grid */}
-        <div className="modern-cards-row">
-          {MODERN_CATEGORIES.map((item) => (
-            <article key={item.id} className="category-couture-card">
-              <Link to={item.link} className="card-link-wrapper" aria-label={item.title}>
-                {/* 3:4 High-Fashion Photo Stage */}
-                <div className="card-photo-viewport">
+        {/* Circular Categories Grid (2 Columns on Mobile, 4 Columns on Tablet & Desktop) */}
+        <div className="circular-cards-grid">
+          {CIRCULAR_CATEGORIES.map((item) => (
+            <article key={item.id} className="circular-card-item">
+              <Link
+                to={item.link}
+                className="circle-link"
+                aria-label={`Shop ${item.title}`}
+              >
+                {/* 1:1 Circular Media Frame with Terracotta Border Ring */}
+                <div className="circle-frame">
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="card-media-img"
+                    className="circle-image"
                     loading="lazy"
                   />
-                  <div className="card-photo-scrim" />
+                  {/* Subtle Dark Gradient Overlay for Crisp Text Readability */}
+                  <div className="circle-scrim" />
 
-                  {/* Top Category Index Tag */}
-                  <div className="card-index-tag">
-                    <span className="index-num">{item.number}</span>
-                    <span className="index-eyebrow">{item.eyebrow}</span>
+                  {/* Centered Uppercase Category Label inside Circle Bottom */}
+                  <div className="circle-label-box">
+                    <span className="circle-label-text">{item.title}</span>
                   </div>
-                </div>
-
-                {/* Bottom Modern Typography Information */}
-                <div className="card-caption-container">
-                  <h3 className="card-headline">{item.title}</h3>
-                  <p className="card-subheadline">{item.subtitle}</p>
-
-                  <span className="card-action-trigger">
-                    <span>{item.ctaText}</span>
-                    <ArrowRight size={13} className="arrow-icon" />
-                  </span>
                 </div>
               </Link>
             </article>
